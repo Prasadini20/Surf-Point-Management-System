@@ -59,54 +59,60 @@
             // lblCustomerID
             // 
             lblCustomerID.AutoSize = true;
+            lblCustomerID.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCustomerID.Location = new Point(110, 61);
             lblCustomerID.Name = "lblCustomerID";
-            lblCustomerID.Size = new Size(91, 20);
+            lblCustomerID.Size = new Size(97, 20);
             lblCustomerID.TabIndex = 0;
             lblCustomerID.Text = "Customer ID";
             // 
             // lblName
             // 
             lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.Location = new Point(110, 110);
             lblName.Name = "lblName";
-            lblName.Size = new Size(49, 20);
+            lblName.Size = new Size(51, 20);
             lblName.TabIndex = 1;
             lblName.Text = "Name";
             // 
             // lblPhone
             // 
             lblPhone.AutoSize = true;
+            lblPhone.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPhone.Location = new Point(110, 155);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(108, 20);
+            lblPhone.Size = new Size(115, 20);
             lblPhone.TabIndex = 2;
             lblPhone.Text = "Phone Number";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEmail.Location = new Point(110, 202);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(46, 20);
+            lblEmail.Size = new Size(47, 20);
             lblEmail.TabIndex = 3;
             lblEmail.Text = "Email";
             // 
             // lblCountry
             // 
             lblCountry.AutoSize = true;
+            lblCountry.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCountry.Location = new Point(110, 255);
             lblCountry.Name = "lblCountry";
-            lblCountry.Size = new Size(60, 20);
+            lblCountry.Size = new Size(66, 20);
             lblCountry.TabIndex = 4;
             lblCountry.Text = "Country";
             // 
             // lblSkill
             // 
             lblSkill.AutoSize = true;
+            lblSkill.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSkill.Location = new Point(110, 309);
             lblSkill.Name = "lblSkill";
-            lblSkill.Size = new Size(74, 20);
+            lblSkill.Size = new Size(77, 20);
             lblSkill.TabIndex = 5;
             lblSkill.Text = "Skill Level";
             // 
@@ -160,6 +166,7 @@
             btnSearch.TabIndex = 9;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnClear
             // 
@@ -172,6 +179,7 @@
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // dgvCustomer
             // 
