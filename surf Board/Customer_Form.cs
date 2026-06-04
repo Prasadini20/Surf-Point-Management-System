@@ -108,5 +108,42 @@ namespace surf_Board
                 MessageBox.Show("Please Select a Row");
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchID = txtCustomerID.Text;
+
+            foreach (DataGridViewRow row in dgvCustomer.Rows)
+            {
+                if (row.Cells[0].Value != null &&
+                    row.Cells[0].Value.ToString() == searchID)
+                {
+                    row.Selected = true;
+
+                    txtCustomerID.Text = row.Cells[0].Value.ToString();
+                    txtName.Text = row.Cells[1].Value.ToString();
+                    txtPhone.Text = row.Cells[2].Value.ToString();
+                    txtEmail.Text = row.Cells[3].Value.ToString();
+                    txtCountry.Text = row.Cells[4].Value.ToString();
+                    txtSkill.Text = row.Cells[5].Value.ToString();
+
+                    MessageBox.Show("Customer Found");
+                    return;
+                }
+            }
+
+            MessageBox.Show("Customer Not Found");
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCustomerID.Clear();
+            txtName.Clear();
+            txtPhone.Clear();
+            txtEmail.Clear();
+            txtCountry.Clear();
+            txtSkill.Clear();
+        }
     }
 }
