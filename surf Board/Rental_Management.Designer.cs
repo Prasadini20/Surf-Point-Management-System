@@ -80,7 +80,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Rental Information";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // txtHours
             // 
@@ -291,7 +290,6 @@
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
             groupBox4.Text = "Rental History";
-            groupBox4.Enter += groupBox4_Enter;
             // 
             // dgvRentalHistory
             // 
@@ -301,7 +299,6 @@
             dgvRentalHistory.RowHeadersWidth = 51;
             dgvRentalHistory.Size = new Size(1154, 274);
             dgvRentalHistory.TabIndex = 0;
-            dgvRentalHistory.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Rental_Management
             // 
