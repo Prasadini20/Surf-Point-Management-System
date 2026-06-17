@@ -7,6 +7,7 @@ namespace surf_Board
 {
     public partial class Booking_Form : Form
     {
+        // Connection string eka niyameta thiyenawa machan
         MySqlConnection conn = new MySqlConnection("server=localhost;database=SurfSchoolDB;uid=root;pwd=;");
 
         public Booking_Form()
@@ -14,15 +15,15 @@ namespace surf_Board
             InitializeComponent();
         }
 
-        // 1. ෆෝම් එක මුලින්ම ලෝඩ් වෙද්දී සිදුවන දේ
+        // 1. Form load weddi wada karana kotasa
         private void Booking_Form_Load(object sender, EventArgs e)
         {
-            LoadBookingData();   
-            LoadCustomerIDs();  
-            ClearFields();       
+            LoadBookingData();
+            LoadCustomerIDs();
+            ClearFields();
         }
 
-        
+        // Table ekata data load kirima
         private void LoadBookingData()
         {
             try
@@ -31,7 +32,7 @@ namespace surf_Board
                 MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                dgvBookings.DataSource = dt; 
+                dgvBookings.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -39,7 +40,7 @@ namespace surf_Board
             }
         }
 
-        
+        // Customer IDs combo box ekata database eken ganna krama
         private void LoadCustomerIDs()
         {
             try
@@ -60,12 +61,13 @@ namespace surf_Board
             }
         }
 
-    
+        // SAVE BUTTON (FIXED Validation and NumericUpDown type)
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmbCustomerID.SelectedIndex == -1 || cmbSurfboardType.SelectedIndex == -1 || string.IsNullOrEmpty(txtDuration.Text))
+            // NumericUpDown eka nisa string check karanne nathuwa numeric value eka check kala machan
+            if (cmbCustomerID.SelectedIndex == -1 || cmbSurfboardType.SelectedIndex == -1 || txtDuration.Value <= 0)
             {
-                MessageBox.Show("Please enter all details!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter all details correctly! Duration must be greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -77,7 +79,7 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@CustomerID", cmbCustomerID.Text);
                 cmd.Parameters.AddWithValue("@Type", cmbSurfboardType.Text);
                 cmd.Parameters.AddWithValue("@Date", dtpBookingDate.Value.Date);
-                cmd.Parameters.AddWithValue("@Duration", txtDuration.Value);
+                cmd.Parameters.AddWithValue("@Duration", txtDuration.Value); // NumericUpDown value
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -91,14 +93,13 @@ namespace surf_Board
             catch (Exception ex)
             {
                 MessageBox.Show("Error...! " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                conn.Close();
+                if (conn.State == ConnectionState.Open) conn.Close();
             }
         }
 
-        
+        // UPDATE BUTTON
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
             if (string.IsNullOrEmpty(txtBookingID.Text))
             {
                 MessageBox.Show("Please select the relevant booking from the grid to update!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -128,11 +129,11 @@ namespace surf_Board
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while updating... " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                conn.Close();
+                if (conn.State == ConnectionState.Open) conn.Close();
             }
         }
 
-        
+        // DELETE BUTTON
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBookingID.Text))
@@ -141,7 +142,6 @@ namespace surf_Board
                 return;
             }
 
-            
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this booking?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
@@ -164,41 +164,48 @@ namespace surf_Board
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred while deleting..." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    conn.Close();
+                    if (conn.State == ConnectionState.Open) conn.Close();
                 }
             }
         }
 
-      
+        // CLEAR BUTTON
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
-        
+        // GRID CELL CLICK (FIXED Null values & Date parsing safely)
         private void dgvBookings_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvBookings.Rows[e.RowIndex];
 
-                txtBookingID.Text = row.Cells["BookingID"].Value.ToString();
-                cmbCustomerID.Text = row.Cells["CustomerID"].Value.ToString();
-                cmbSurfboardType.Text = row.Cells["SurfboardType"].Value.ToString();
-                dtpBookingDate.Value = Convert.ToDateTime(row.Cells["BookingDate"].Value);
-                txtDuration.Value = Convert.ToInt32(row.Cells["Duration"].Value);
+                txtBookingID.Text = row.Cells["BookingID"].Value?.ToString() ?? "";
+                cmbCustomerID.Text = row.Cells["CustomerID"].Value?.ToString() ?? "";
+                cmbSurfboardType.Text = row.Cells["SurfboardType"].Value?.ToString() ?? "";
+
+                if (row.Cells["BookingDate"].Value != DBNull.Value && row.Cells["BookingDate"].Value != null)
+                {
+                    dtpBookingDate.Value = Convert.ToDateTime(row.Cells["BookingDate"].Value);
+                }
+
+                if (row.Cells["Duration"].Value != DBNull.Value && row.Cells["Duration"].Value != null)
+                {
+                    txtDuration.Value = Convert.ToInt32(row.Cells["Duration"].Value);
+                }
             }
         }
 
-        
+        // CLEAR FIELDS (NumericUpDown eka nisa .Value = 1 kala)
         private void ClearFields()
         {
             txtBookingID.Clear();
             cmbCustomerID.SelectedIndex = -1;
             cmbSurfboardType.SelectedIndex = -1;
             dtpBookingDate.Value = DateTime.Now;
-            txtDuration.Value = 1;
+            txtDuration.Value = 1; // Default duration 1 hour
         }
     }
 }
