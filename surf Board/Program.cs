@@ -15,10 +15,6 @@ namespace surf_Board
             Application.Run(new Rental_Management());
            
 
-
-           
-           
-
         }
     }
 }
