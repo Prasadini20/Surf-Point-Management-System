@@ -19,11 +19,11 @@ namespace surf_Board
 
         private void Rental_Management_Load(object sender, EventArgs e)
         {
-            cmbCustomer.Items.AddRange(new string[]
+            cmbCustomerID.Items.AddRange(new string[]
             {
-        "Emma Johnson",
-        "Liam Brown",
-        "Olivia Smith"
+         "C001",
+         "C002",
+         "C003"
             });
 
             cmbSurfBoard.Items.AddRange(new string[]
@@ -70,7 +70,7 @@ namespace surf_Board
         private void btnIssueBoard_Click(object sender, EventArgs e)
         {
             if (txtRentalID.Text == "" ||
-                cmbCustomer.Text == "" ||
+                cmbCustomerID.Text == "" ||
                 cmbSurfBoard.Text == "" ||
                 txtHours.Text == "" ||
                 txtTotalAmount.Text == "")
@@ -82,7 +82,7 @@ namespace surf_Board
             Rental rental = new Rental();
 
             rental.RentalID = txtRentalID.Text;
-            rental.Customer = cmbCustomer.Text;
+            rental.CustomerID = cmbCustomerID.Text;
             rental.Surfboard = cmbSurfBoard.Text;
             rental.IssueDate = dtpIssueDate.Value;
             rental.ReturnDate = dtpReturnDate.Value;
@@ -128,7 +128,7 @@ namespace surf_Board
                 DataGridViewRow row = dgvRentalHistory.Rows[e.RowIndex];
 
                 txtRentalID.Text = row.Cells[0].Value.ToString();
-                cmbCustomer.Text = row.Cells[1].Value.ToString();
+                cmbCustomerID.Text = row.Cells[1].Value.ToString();
                 cmbSurfBoard.Text = row.Cells[2].Value.ToString();
 
                 dtpIssueDate.Value = Convert.ToDateTime(row.Cells[3].Value);
@@ -153,7 +153,7 @@ namespace surf_Board
             txtPricePerHour.Clear();
             txtTotalAmount.Clear();
 
-            cmbCustomer.SelectedIndex = -1;
+            cmbCustomerID.SelectedIndex = -1;
             cmbSurfBoard.SelectedIndex = -1;
 
             dtpIssueDate.Value = DateTime.Now;

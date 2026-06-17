@@ -7,7 +7,7 @@ namespace surf_Board
     public class Rental
     {
         public string RentalID { get; set; }
-        public string Customer { get; set; }
+        public string CustomerID { get; set; }
         public string Surfboard { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ReturnDate { get; set; }

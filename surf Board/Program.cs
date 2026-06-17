@@ -12,8 +12,13 @@ namespace surf_Board
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new Booking_Form());
+            Application.Run(new Rental_Management());
            
+
+
+           
+           
+
         }
     }
 }
