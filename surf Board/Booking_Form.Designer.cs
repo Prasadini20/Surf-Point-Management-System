@@ -56,7 +56,6 @@
             bookingID.Size = new Size(134, 20);
             bookingID.TabIndex = 0;
             bookingID.Text = "Booking ID            :";
-           
             // 
             // lblCustomerID
             // 
@@ -131,21 +130,23 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.SteelBlue;
             btnSave.Location = new Point(44, 356);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 10;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
+            btnUpdate.BackColor = Color.SteelBlue;
             btnUpdate.Location = new Point(219, 356);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 11;
             btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
@@ -196,6 +197,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(925, 559);
             Controls.Add(cmbCustomerID);
             Controls.Add(label1);
