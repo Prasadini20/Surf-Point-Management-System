@@ -93,12 +93,13 @@
             // 
             // btnGenerateReport
             // 
+            btnGenerateReport.BackColor = Color.SteelBlue;
             btnGenerateReport.Location = new Point(144, 215);
             btnGenerateReport.Name = "btnGenerateReport";
             btnGenerateReport.Size = new Size(205, 29);
             btnGenerateReport.TabIndex = 6;
             btnGenerateReport.Text = "Generate Report";
-            btnGenerateReport.UseVisualStyleBackColor = true;
+            btnGenerateReport.UseVisualStyleBackColor = false;
             btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // dgvReports
@@ -118,6 +119,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(800, 450);
             Controls.Add(dgvReports);
             Controls.Add(btnGenerateReport);

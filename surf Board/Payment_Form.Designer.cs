@@ -114,21 +114,23 @@
             // 
             // btnPay
             // 
+            btnPay.BackColor = Color.SteelBlue;
             btnPay.Location = new Point(56, 322);
             btnPay.Name = "btnPay";
             btnPay.Size = new Size(94, 29);
             btnPay.TabIndex = 8;
             btnPay.Text = "Pay Now";
-            btnPay.UseVisualStyleBackColor = true;
+            btnPay.UseVisualStyleBackColor = false;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.SteelBlue;
             btnClear.Location = new Point(239, 322);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 9;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             // 
             // dgvPayments
             // 
@@ -142,10 +144,10 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.Location = new Point(188, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(359, 38);
+            lblTitle.Size = new Size(385, 41);
             lblTitle.TabIndex = 11;
             lblTitle.Text = "PAYMENT MANAGEMENT";
             // 
@@ -153,6 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(800, 524);
             Controls.Add(lblTitle);
             Controls.Add(dgvPayments);

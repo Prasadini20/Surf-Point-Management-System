@@ -150,21 +150,23 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.SteelBlue;
             btnDelete.Location = new Point(400, 356);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 12;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.SteelBlue;
             btnClear.Location = new Point(580, 356);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 13;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             // 
             // dgvBookings
             // 
