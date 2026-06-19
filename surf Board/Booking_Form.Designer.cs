@@ -171,7 +171,7 @@
             // dgvBookings
             // 
             dgvBookings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookings.Location = new Point(44, 421);
+            dgvBookings.Location = new Point(44, 391);
             dgvBookings.Name = "dgvBookings";
             dgvBookings.RowHeadersWidth = 51;
             dgvBookings.Size = new Size(740, 188);
@@ -200,7 +200,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(925, 559);
+            ClientSize = new Size(925, 609);
             Controls.Add(cmbCustomerID);
             Controls.Add(label1);
             Controls.Add(dgvBookings);
