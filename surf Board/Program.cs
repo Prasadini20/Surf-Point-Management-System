@@ -12,7 +12,7 @@ namespace surf_Board
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new Rental_Management());
+            Application.Run(new Report_Form());
            
 
         }

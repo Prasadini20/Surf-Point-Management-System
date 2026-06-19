@@ -56,7 +56,6 @@
             bookingID.Size = new Size(134, 20);
             bookingID.TabIndex = 0;
             bookingID.Text = "Booking ID            :";
-           
             // 
             // lblCustomerID
             // 
@@ -131,44 +130,48 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.SteelBlue;
             btnSave.Location = new Point(44, 356);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 10;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
+            btnUpdate.BackColor = Color.SteelBlue;
             btnUpdate.Location = new Point(219, 356);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 11;
             btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.SteelBlue;
             btnDelete.Location = new Point(400, 356);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 12;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.SteelBlue;
             btnClear.Location = new Point(580, 356);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 13;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             // 
             // dgvBookings
             // 
             dgvBookings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookings.Location = new Point(44, 421);
+            dgvBookings.Location = new Point(44, 391);
             dgvBookings.Name = "dgvBookings";
             dgvBookings.RowHeadersWidth = 51;
             dgvBookings.Size = new Size(740, 188);
@@ -196,7 +199,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(925, 559);
+            BackColor = Color.AliceBlue;
+            ClientSize = new Size(925, 609);
             Controls.Add(cmbCustomerID);
             Controls.Add(label1);
             Controls.Add(dgvBookings);
