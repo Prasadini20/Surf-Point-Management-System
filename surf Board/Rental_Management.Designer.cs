@@ -33,7 +33,7 @@
             dtpReturnDate = new DateTimePicker();
             dtpIssueDate = new DateTimePicker();
             cmbSurfBoard = new ComboBox();
-            cmbCustomer = new ComboBox();
+            cmbCustomerID = new ComboBox();
             txtRentalID = new TextBox();
             label7 = new Label();
             label6 = new Label();
@@ -66,7 +66,7 @@
             groupBox1.Controls.Add(dtpReturnDate);
             groupBox1.Controls.Add(dtpIssueDate);
             groupBox1.Controls.Add(cmbSurfBoard);
-            groupBox1.Controls.Add(cmbCustomer);
+            groupBox1.Controls.Add(cmbCustomerID);
             groupBox1.Controls.Add(txtRentalID);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
@@ -111,13 +111,13 @@
             cmbSurfBoard.TabIndex = 8;
             cmbSurfBoard.SelectedIndexChanged += cmbSurfBoard_SelectedIndexChanged;
             // 
-            // cmbCustomer
+            // cmbCustomerID
             // 
-            cmbCustomer.FormattingEnabled = true;
-            cmbCustomer.Location = new Point(123, 109);
-            cmbCustomer.Name = "cmbCustomer";
-            cmbCustomer.Size = new Size(203, 28);
-            cmbCustomer.TabIndex = 7;
+            cmbCustomerID.FormattingEnabled = true;
+            cmbCustomerID.Location = new Point(123, 109);
+            cmbCustomerID.Name = "cmbCustomerID";
+            cmbCustomerID.Size = new Size(203, 28);
+            cmbCustomerID.TabIndex = 7;
             // 
             // txtRentalID
             // 
@@ -167,9 +167,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(18, 110);
             label3.Name = "label3";
-            label3.Size = new Size(79, 20);
+            label3.Size = new Size(94, 20);
             label3.TabIndex = 1;
-            label3.Text = "Customer :";
+            label3.Text = "Customer ID:";
             // 
             // label2
             // 
@@ -230,7 +230,7 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ButtonHighlight;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(572, 39);
+            label1.Location = new Point(519, 40);
             label1.Name = "label1";
             label1.Size = new Size(421, 38);
             label1.TabIndex = 2;
@@ -336,7 +336,7 @@
         private DateTimePicker dtpReturnDate;
         private DateTimePicker dtpIssueDate;
         private ComboBox cmbSurfBoard;
-        private ComboBox cmbCustomer;
+        private ComboBox cmbCustomerID;
         private TextBox txtRentalID;
         private Label label7;
         private Label label6;
