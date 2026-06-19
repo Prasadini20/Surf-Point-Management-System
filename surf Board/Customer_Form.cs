@@ -13,6 +13,18 @@ namespace surf_Board
         public Customer_Form()
         {
             InitializeComponent();
+
+            try
+            {
+                var con = DBConnection.GetConnection();
+                con.Open();
+                MessageBox.Show("Database Connected Successfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection Failed: " + ex.Message);
+            }
         }
 
         private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
