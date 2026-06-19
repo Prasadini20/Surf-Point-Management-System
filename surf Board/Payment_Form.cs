@@ -7,7 +7,7 @@ namespace surf_Board
 {
     public partial class Payment_Form : Form
     {
-        // Connection string for XAMPP MySQL database
+        
         private string connectionString = "server=localhost;database=SurfSchoolDB;uid=root;pwd=;";
 
         public Payment_Form()
@@ -17,16 +17,12 @@ namespace surf_Board
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-            // Database-dependent methods are commented out for testing the UI structure.
-            // Uncomment these lines once the database and tables are created.
-
-            // LoadBookingIDs();
-            // LoadPaymentData();
+           
 
             ClearFields();
         }
 
-        // 1. Method to load Booking IDs into the ComboBox
+        
         private void LoadBookingIDs()
         {
             try
@@ -50,7 +46,7 @@ namespace surf_Board
             }
         }
 
-        // 2. Method to load all payment records into the DataGridView
+        
         private void LoadPaymentData()
         {
             try
@@ -70,10 +66,10 @@ namespace surf_Board
             }
         }
 
-        // 3. Click event for the Pay (Save) button
+        
         private void btnPay_Click(object sender, EventArgs e)
         {
-            // Validation: Check if any fields are empty
+            
             if (cmbBookingID.SelectedIndex == -1 || string.IsNullOrEmpty(txtAmount.Text) || cmbMethod.SelectedIndex == -1)
             {
                 MessageBox.Show("Please fill in all the required fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -98,7 +94,7 @@ namespace surf_Board
                     }
                 }
 
-                // Refresh the grid and clear input fields
+                
                 LoadPaymentData();
                 ClearFields();
             }
@@ -108,13 +104,13 @@ namespace surf_Board
             }
         }
 
-        // 4. Click event for the Clear button
+        
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
-        // 5. Helper method to reset all fields to default state
+        
         private void ClearFields()
         {
             cmbBookingID.SelectedIndex = -1;
