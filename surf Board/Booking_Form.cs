@@ -7,7 +7,7 @@ namespace surf_Board
 {
     public partial class Booking_Form : Form
     {
-       
+        // Connection string eka niyameta thiyenawa machan
         MySqlConnection conn = new MySqlConnection("server=localhost;database=SurfSchoolDB;uid=root;pwd=;");
 
         public Booking_Form()
@@ -15,7 +15,7 @@ namespace surf_Board
             InitializeComponent();
         }
 
-        
+        // 1. Form load weddi wada karana kotasa
         private void Booking_Form_Load(object sender, EventArgs e)
         {
             LoadBookingData();
@@ -23,7 +23,7 @@ namespace surf_Board
             ClearFields();
         }
 
-        
+        // Table ekata data load kirima
         private void LoadBookingData()
         {
             try
@@ -40,7 +40,7 @@ namespace surf_Board
             }
         }
 
-        
+        // Customer IDs combo box ekata database eken ganna krama
         private void LoadCustomerIDs()
         {
             try
@@ -61,9 +61,10 @@ namespace surf_Board
             }
         }
 
+        // SAVE BUTTON (FIXED Validation and NumericUpDown type)
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            // NumericUpDown eka nisa string check karanne nathuwa numeric value eka check kala machan
             if (cmbCustomerID.SelectedIndex == -1 || cmbSurfboardType.SelectedIndex == -1 || txtDuration.Value <= 0)
             {
                 MessageBox.Show("Please enter all details correctly! Duration must be greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -78,7 +79,7 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@CustomerID", cmbCustomerID.Text);
                 cmd.Parameters.AddWithValue("@Type", cmbSurfboardType.Text);
                 cmd.Parameters.AddWithValue("@Date", dtpBookingDate.Value.Date);
-                cmd.Parameters.AddWithValue("@Duration", txtDuration.Value); 
+                cmd.Parameters.AddWithValue("@Duration", txtDuration.Value); // NumericUpDown value
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -96,7 +97,7 @@ namespace surf_Board
             }
         }
 
-        
+        // UPDATE BUTTON
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBookingID.Text))
@@ -132,7 +133,7 @@ namespace surf_Board
             }
         }
 
-        
+        // DELETE BUTTON
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBookingID.Text))
@@ -168,13 +169,13 @@ namespace surf_Board
             }
         }
 
-        
+        // CLEAR BUTTON
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
-        
+        // GRID CELL CLICK (FIXED Null values & Date parsing safely)
         private void dgvBookings_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -197,14 +198,14 @@ namespace surf_Board
             }
         }
 
-        
+        // CLEAR FIELDS (NumericUpDown eka nisa .Value = 1 kala)
         private void ClearFields()
         {
             txtBookingID.Clear();
             cmbCustomerID.SelectedIndex = -1;
             cmbSurfboardType.SelectedIndex = -1;
             dtpBookingDate.Value = DateTime.Now;
-            txtDuration.Value = 1; 
+            txtDuration.Value = 1; // Default duration 1 hour
         }
     }
 }
