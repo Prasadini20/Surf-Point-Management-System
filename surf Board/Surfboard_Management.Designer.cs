@@ -33,12 +33,10 @@
             cmbCondition = new ComboBox();
             cmbBoardType = new ComboBox();
             txtPrice = new TextBox();
-            txtBoardSize = new TextBox();
             textBoardID = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             btnAddNew = new Button();
@@ -60,12 +58,10 @@
             groupBox1.Controls.Add(cmbCondition);
             groupBox1.Controls.Add(cmbBoardType);
             groupBox1.Controls.Add(txtPrice);
-            groupBox1.Controls.Add(txtBoardSize);
             groupBox1.Controls.Add(textBoardID);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(26, 75);
@@ -106,13 +102,6 @@
             txtPrice.Size = new Size(151, 27);
             txtPrice.TabIndex = 10;
             // 
-            // txtBoardSize
-            // 
-            txtBoardSize.Location = new Point(169, 202);
-            txtBoardSize.Name = "txtBoardSize";
-            txtBoardSize.Size = new Size(125, 27);
-            txtBoardSize.TabIndex = 9;
-            // 
             // textBoardID
             // 
             textBoardID.Location = new Point(169, 51);
@@ -146,15 +135,6 @@
             label4.Size = new Size(81, 20);
             label4.TabIndex = 3;
             label4.Text = "Condition :";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(19, 202);
-            label3.Name = "label3";
-            label3.Size = new Size(87, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Board Size :";
             // 
             // label2
             // 
@@ -290,12 +270,10 @@
         private ComboBox cmbCondition;
         private ComboBox cmbBoardType;
         private TextBox txtPrice;
-        private TextBox txtBoardSize;
         private TextBox textBoardID;
         private Label label6;
         private Label label5;
         private Label label4;
-        private Label label3;
         private Label label2;
         private Label label1;
         private Button btnAddNew;
