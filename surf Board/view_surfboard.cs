@@ -14,5 +14,14 @@ namespace surf_Board
         {
             InitializeComponent();
         }
+
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+        }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
