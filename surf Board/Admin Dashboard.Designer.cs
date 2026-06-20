@@ -183,7 +183,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Surfing_Management_System.Properties.Resources.Custimages;
+            this.pictureBox1.Image = global::surf_Board.Properties.Resources.Custimages;
             this.pictureBox1.Location = new System.Drawing.Point(102, 36);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 71);
@@ -213,7 +213,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Surfing_Management_System.Properties.Resources.Notice;
+            this.pictureBox4.Image = global::surf_Board.Properties.Resources.Notice;
             this.pictureBox4.Location = new System.Drawing.Point(106, 27);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(114, 71);
@@ -243,7 +243,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Surfing_Management_System.Properties.Resources.surf;
+            this.pictureBox3.Image = global::surf_Board.Properties.Resources.surf;
             this.pictureBox3.Location = new System.Drawing.Point(105, 27);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(114, 71);
@@ -273,7 +273,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Surfing_Management_System.Properties.Resources.instr;
+            this.pictureBox2.Image = global::surf_Board.Properties.Resources.instr;
             this.pictureBox2.Location = new System.Drawing.Point(106, 36);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(114, 71);

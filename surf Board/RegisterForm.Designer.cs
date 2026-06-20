@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Surfing_Management_System.Properties.Resources._64db8df80ac058d0ee6ff119a0965e8f;
+            this.BackgroundImage = global::surf_Board.Properties.Resources._64db8df80ac058d0ee6ff119a0965e8f;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1018, 642);
             this.Controls.Add(this.label2);
