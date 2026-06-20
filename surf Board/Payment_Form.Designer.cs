@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            cmbBookingID = new ComboBox();
             txtAmount = new TextBox();
             label2 = new Label();
             label3 = new Label();
@@ -40,6 +39,7 @@
             btnClear = new Button();
             dgvPayments = new DataGridView();
             lblTitle = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPayments).BeginInit();
             SuspendLayout();
             // 
@@ -51,14 +51,6 @@
             label1.Size = new Size(114, 20);
             label1.TabIndex = 0;
             label1.Text = "Booking ID       :";
-            // 
-            // cmbBookingID
-            // 
-            cmbBookingID.FormattingEnabled = true;
-            cmbBookingID.Location = new Point(229, 79);
-            cmbBookingID.Name = "cmbBookingID";
-            cmbBookingID.Size = new Size(151, 28);
-            cmbBookingID.TabIndex = 1;
             // 
             // txtAmount
             // 
@@ -151,12 +143,23 @@
             lblTitle.TabIndex = 11;
             lblTitle.Text = "PAYMENT MANAGEMENT";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(232, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 12;
+            label5.Text = "label5";
+            label5.Click += label5_Click;
+            // 
             // Payment_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(800, 524);
+            Controls.Add(label5);
             Controls.Add(lblTitle);
             Controls.Add(dgvPayments);
             Controls.Add(btnClear);
@@ -167,7 +170,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtAmount);
-            Controls.Add(cmbBookingID);
             Controls.Add(label1);
             Name = "Payment_Form";
             Text = "Payment_Form";
@@ -180,7 +182,6 @@
         #endregion
 
         private Label label1;
-        private ComboBox cmbBookingID;
         private TextBox txtAmount;
         private Label label2;
         private Label label3;
@@ -191,5 +192,6 @@
         private Button btnClear;
         private DataGridView dgvPayments;
         private Label lblTitle;
+        private Label label5;
     }
 }
