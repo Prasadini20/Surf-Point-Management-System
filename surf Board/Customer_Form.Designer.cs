@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblCustomerID = new Label();
             lblName = new Label();
             lblPhone = new Label();
@@ -52,15 +53,19 @@
             txtEmail = new TextBox();
             txtCountry = new TextBox();
             txtCustomerID = new TextBox();
-            txtSkill = new TextBox();
+            cmbSkill = new ComboBox();
+            menuStrip1 = new MenuStrip();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lblCustomerID
             // 
             lblCustomerID.AutoSize = true;
+            lblCustomerID.BackColor = Color.Transparent;
             lblCustomerID.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCustomerID.Location = new Point(110, 61);
+            lblCustomerID.Location = new Point(53, 94);
             lblCustomerID.Name = "lblCustomerID";
             lblCustomerID.Size = new Size(97, 20);
             lblCustomerID.TabIndex = 0;
@@ -69,8 +74,9 @@
             // lblName
             // 
             lblName.AutoSize = true;
+            lblName.BackColor = Color.Transparent;
             lblName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.Location = new Point(110, 110);
+            lblName.Location = new Point(53, 177);
             lblName.Name = "lblName";
             lblName.Size = new Size(51, 20);
             lblName.TabIndex = 1;
@@ -79,8 +85,9 @@
             // lblPhone
             // 
             lblPhone.AutoSize = true;
+            lblPhone.BackColor = Color.Transparent;
             lblPhone.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPhone.Location = new Point(110, 155);
+            lblPhone.Location = new Point(53, 247);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(115, 20);
             lblPhone.TabIndex = 2;
@@ -89,8 +96,9 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+            lblEmail.BackColor = Color.Transparent;
             lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmail.Location = new Point(110, 202);
+            lblEmail.Location = new Point(578, 80);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(47, 20);
             lblEmail.TabIndex = 3;
@@ -99,8 +107,9 @@
             // lblCountry
             // 
             lblCountry.AutoSize = true;
+            lblCountry.BackColor = Color.Transparent;
             lblCountry.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCountry.Location = new Point(110, 255);
+            lblCountry.Location = new Point(578, 152);
             lblCountry.Name = "lblCountry";
             lblCountry.Size = new Size(66, 20);
             lblCountry.TabIndex = 4;
@@ -109,8 +118,9 @@
             // lblSkill
             // 
             lblSkill.AutoSize = true;
+            lblSkill.BackColor = Color.Transparent;
             lblSkill.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSkill.Location = new Point(110, 309);
+            lblSkill.Location = new Point(578, 247);
             lblSkill.Name = "lblSkill";
             lblSkill.Size = new Size(77, 20);
             lblSkill.TabIndex = 5;
@@ -121,7 +131,7 @@
             btnAdd.BackColor = Color.SteelBlue;
             btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(38, 413);
+            btnAdd.Location = new Point(90, 413);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 6;
@@ -134,7 +144,7 @@
             btnUpdate.BackColor = Color.SteelBlue;
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(197, 413);
+            btnUpdate.Location = new Point(266, 413);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 7;
@@ -147,7 +157,7 @@
             btnDelete.BackColor = Color.SteelBlue;
             btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(354, 413);
+            btnDelete.Location = new Point(438, 413);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 8;
@@ -160,7 +170,7 @@
             btnSearch.BackColor = Color.SteelBlue;
             btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(517, 413);
+            btnSearch.Location = new Point(608, 413);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 9;
@@ -173,7 +183,7 @@
             btnClear.BackColor = Color.SteelBlue;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(681, 413);
+            btnClear.Location = new Point(790, 413);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 10;
@@ -183,9 +193,19 @@
             // 
             // dgvCustomer
             // 
+            dgvCustomer.BackgroundColor = Color.White;
+            dgvCustomer.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCustomer.Columns.AddRange(new DataGridViewColumn[] { colCustomerID, colName, colPhone, colEmail, colCountry, colSkill });
-            dgvCustomer.Location = new Point(38, 467);
+            dgvCustomer.Location = new Point(83, 467);
             dgvCustomer.Name = "dgvCustomer";
             dgvCustomer.RowHeadersWidth = 51;
             dgvCustomer.Size = new Size(801, 274);
@@ -194,6 +214,7 @@
             // 
             // colCustomerID
             // 
+            colCustomerID.DataPropertyName = "CustomerID";
             colCustomerID.HeaderText = "Customer ID";
             colCustomerID.MinimumWidth = 6;
             colCustomerID.Name = "colCustomerID";
@@ -201,6 +222,7 @@
             // 
             // colName
             // 
+            colName.DataPropertyName = "Name";
             colName.HeaderText = "Name";
             colName.MinimumWidth = 6;
             colName.Name = "colName";
@@ -208,6 +230,7 @@
             // 
             // colPhone
             // 
+            colPhone.DataPropertyName = "PhoneNumber";
             colPhone.HeaderText = "Phone Number";
             colPhone.MinimumWidth = 6;
             colPhone.Name = "colPhone";
@@ -215,6 +238,7 @@
             // 
             // colEmail
             // 
+            colEmail.DataPropertyName = "Email";
             colEmail.HeaderText = "Email";
             colEmail.MinimumWidth = 6;
             colEmail.Name = "colEmail";
@@ -222,6 +246,7 @@
             // 
             // colCountry
             // 
+            colCountry.DataPropertyName = "Country";
             colCountry.HeaderText = "Country";
             colCountry.MinimumWidth = 6;
             colCountry.Name = "colCountry";
@@ -229,6 +254,7 @@
             // 
             // colSkill
             // 
+            colSkill.DataPropertyName = "SkillLevel";
             colSkill.HeaderText = "Skill Level";
             colSkill.MinimumWidth = 6;
             colSkill.Name = "colSkill";
@@ -237,8 +263,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(232, -2);
+            label1.Location = new Point(276, 9);
             label1.Name = "label1";
             label1.Size = new Size(379, 31);
             label1.TabIndex = 12;
@@ -246,45 +273,67 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(266, 103);
+            txtName.Location = new Point(219, 170);
             txtName.Name = "txtName";
             txtName.Size = new Size(266, 27);
             txtName.TabIndex = 13;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(266, 152);
+            txtPhone.Location = new Point(219, 247);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(266, 27);
             txtPhone.TabIndex = 14;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(266, 202);
+            txtEmail.Location = new Point(687, 80);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(266, 27);
             txtEmail.TabIndex = 15;
             // 
             // txtCountry
             // 
-            txtCountry.Location = new Point(266, 255);
+            txtCountry.Location = new Point(687, 149);
             txtCountry.Name = "txtCountry";
             txtCountry.Size = new Size(266, 27);
             txtCountry.TabIndex = 16;
             // 
             // txtCustomerID
             // 
-            txtCustomerID.Location = new Point(266, 61);
+            txtCustomerID.Location = new Point(219, 91);
             txtCustomerID.Name = "txtCustomerID";
             txtCustomerID.Size = new Size(266, 27);
             txtCustomerID.TabIndex = 18;
             // 
-            // txtSkill
+            // cmbSkill
             // 
-            txtSkill.Location = new Point(266, 302);
-            txtSkill.Name = "txtSkill";
-            txtSkill.Size = new Size(266, 27);
-            txtSkill.TabIndex = 19;
+            cmbSkill.FormattingEnabled = true;
+            cmbSkill.Items.AddRange(new object[] { "Beginner", "Intermediate", "Advanced", "Professional" });
+            cmbSkill.Location = new Point(687, 239);
+            cmbSkill.Name = "cmbSkill";
+            cmbSkill.Size = new Size(266, 28);
+            cmbSkill.TabIndex = 19;
+            cmbSkill.SelectedIndexChanged += cmbSkill_SelectedIndexChanged;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(982, 28);
+            menuStrip1.TabIndex = 20;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.BackColor = Color.Transparent;
+            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            exitToolStripMenuItem.ForeColor = Color.Black;
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(49, 24);
+            exitToolStripMenuItem.Text = "Exit";
             // 
             // Customer_Form
             // 
@@ -292,7 +341,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(982, 753);
-            Controls.Add(txtSkill);
+            Controls.Add(cmbSkill);
             Controls.Add(txtCustomerID);
             Controls.Add(txtCountry);
             Controls.Add(txtEmail);
@@ -311,10 +360,15 @@
             Controls.Add(lblPhone);
             Controls.Add(lblName);
             Controls.Add(lblCustomerID);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Customer_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer Management";
+            Paint += Customer_Form_Paint;
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,12 +393,14 @@
         private TextBox txtEmail;
         private TextBox txtCountry;
         private TextBox txtCustomerID;
-        private TextBox txtSkill;
+        private ComboBox cmbSkill;
         private DataGridViewTextBoxColumn colCustomerID;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colPhone;
         private DataGridViewTextBoxColumn colEmail;
         private DataGridViewTextBoxColumn colCountry;
         private DataGridViewTextBoxColumn colSkill;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
