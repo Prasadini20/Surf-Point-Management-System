@@ -1,10 +1,12 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace surf_Board
 {
@@ -13,11 +15,42 @@ namespace surf_Board
         public InstructorForm()
         {
             InitializeComponent();
+
+            // Matches the menu strip background to the exact top color of your gradient
+            menuStrip1.BackColor = Color.FromArgb(43, 181, 212);
+
+            // ================== PASTE IT RIGHT HERE ==================
+            dgvInstructor.EnableHeadersVisualStyles = false;
+            dgvInstructor.BackgroundColor = Color.White; // Keeps the bottom area clean and white
+
+            // Rich dark blue/teal for high contrast and readability
+            dgvInstructor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 75, 115);
+            dgvInstructor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // Crisp white text
+            dgvInstructor.ColumnHeadersDefaultCellStyle.Font = new Font(dgvInstructor.Font, FontStyle.Bold);
+            // =========================================================
+
+            LoadInstructors();
+
+            cmbStatus.Items.Clear();
+
+            cmbStatus.Items.Add("Available");
+            cmbStatus.Items.Add("Busy");
+            cmbStatus.Items.Add("On Leave");
+
         }
 
         private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvInstructor.Rows[e.RowIndex];
 
+                txtInstructorID.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                txtContact.Text = row.Cells[2].Value.ToString();
+                txtExperience.Text = row.Cells[3].Value.ToString();
+                cmbStatus.Text = row.Cells[4].Value.ToString();
+            }
         }
 
         private void txtInstructorName_TextChanged(object sender, EventArgs e)
@@ -27,108 +60,244 @@ namespace surf_Board
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtInstructorID.Text == "" ||
-               txtInstructorName.Text == "" ||
-               txtContact.Text == "" ||
-               txtExperience.Text == "" ||
-               txtStatus.Text == "")
+            if (txtName.Text == "" ||
+                txtContact.Text == "" ||
+                txtExperience.Text == "" ||
+                cmbStatus.Text == "")
             {
                 MessageBox.Show("Please Fill All Fields");
+                return;
             }
-            else
+
+            string phoneInput = txtContact.Text.Trim();
+            long output;
+            if (phoneInput.Length != 10 || !long.TryParse(phoneInput, out output))
             {
-                dgvInstructor.Rows.Add(
-                    txtInstructorID.Text,
-                    txtInstructorName.Text,
-                    txtContact.Text,
-                    txtExperience.Text,
-                    txtStatus.Text
-                );
+                MessageBox.Show("Please enter a valid 10-digit phone number.", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query =
+                "INSERT INTO instructors(InstructorName,ContactNumber,ExperienceYears,AvailabilityStatus) VALUES(@Name,@Contact,@Experience,@Status)";
+
+                MySqlCommand cmd =
+                new MySqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
+                cmd.Parameters.AddWithValue("@Experience", txtExperience.Text);
+                cmd.Parameters.AddWithValue("@Status", cmbStatus.Text);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
 
                 MessageBox.Show("Instructor Added Successfully");
 
-                txtInstructorID.Clear();
-                txtInstructorName.Clear();
-                txtContact.Clear();
-                txtExperience.Clear();
-                txtStatus.Clear();
+                LoadInstructors();
+
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            if (dgvInstructor.SelectedRows.Count > 0)
+            if (txtInstructorID.Text == "")
             {
-                DataGridViewRow row = dgvInstructor.SelectedRows[0];
-
-                row.Cells[0].Value = txtInstructorID.Text;
-                row.Cells[1].Value = txtInstructorName.Text;
-                row.Cells[2].Value = txtContact.Text;
-                row.Cells[3].Value = txtExperience.Text;
-                row.Cells[4].Value = txtStatus.Text;
-
-                MessageBox.Show("Instructor Updated Successfully");
+                MessageBox.Show("Select Instructor");
+                return;
             }
-            else
+
+            try
             {
-                MessageBox.Show("Please Select a Row");
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query =
+                "UPDATE instructors SET InstructorName=@Name,ContactNumber=@Contact,ExperienceYears=@Experience,AvailabilityStatus=@Status WHERE InstructorID=@ID";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@ID", txtInstructorID.Text);
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
+                cmd.Parameters.AddWithValue("@Experience", txtExperience.Text);
+                cmd.Parameters.AddWithValue("@Status", cmbStatus.Text);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+                MessageBox.Show("Instructor Updated");
+
+                LoadInstructors();
+
+                ClearFields();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvInstructor.SelectedRows.Count > 0)
+            if (txtInstructorID.Text == "")
             {
-                dgvInstructor.Rows.RemoveAt(
-                    dgvInstructor.SelectedRows[0].Index
-                );
-
-                MessageBox.Show("Instructor Deleted Successfully");
+                MessageBox.Show("Select Instructor");
+                return;
             }
-            else
+
+            try
             {
-                MessageBox.Show("Please Select a Row");
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query = "DELETE FROM instructors WHERE InstructorID=@ID";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@ID", txtInstructorID.Text);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+                MessageBox.Show("Instructor Deleted");
+
+                LoadInstructors();
+
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchID = txtInstructorID.Text;
-
-            foreach (DataGridViewRow row in dgvInstructor.Rows)
+            if (txtInstructorID.Text == "")
             {
-                if (row.Cells[0].Value != null &&
-                    row.Cells[0].Value.ToString() == searchID)
-                {
-                    row.Selected = true;
-
-                    txtInstructorID.Text = row.Cells[0].Value.ToString();
-                    txtInstructorName.Text = row.Cells[1].Value.ToString();
-                    txtContact.Text = row.Cells[2].Value.ToString();
-                    txtExperience.Text = row.Cells[3].Value.ToString();
-                    txtStatus.Text = row.Cells[4].Value.ToString();
-
-                    MessageBox.Show("Instructor Found");
-                    return;
-                }
+                MessageBox.Show("Enter Instructor ID");
+                return;
             }
 
-            MessageBox.Show("Instructor Not Found");
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query = "SELECT * FROM instructors WHERE InstructorID=@ID";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@ID", txtInstructorID.Text);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtName.Text = dr["InstructorName"].ToString();
+                    txtContact.Text = dr["ContactNumber"].ToString();
+                    txtExperience.Text = dr["ExperienceYears"].ToString();
+                    cmbStatus.Text = dr["AvailabilityStatus"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Instructor Not Found");
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtInstructorID.Clear();
-            txtInstructorName.Clear();
+            txtName.Clear();
             txtContact.Clear();
             txtExperience.Clear();
-            txtStatus.Clear();
+            cmbStatus.SelectedIndex = -1;
         }
 
         private void InstructorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClearFields()
+        {
+            txtInstructorID.Clear();
+            txtName.Clear();
+            txtContact.Clear();
+            txtExperience.Clear();
+            cmbStatus.SelectedIndex = -1;
+        }
+
+        private void LoadInstructors()
+        {
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query = "SELECT * FROM instructors";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, con);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                dgvInstructor.DataSource = dt;
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void txtExperience_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InstructorForm_Paint(object sender, PaintEventArgs e)
+        {
+            
+         using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+         this.ClientRectangle,
+         Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
+         Color.White,                  // Fades into clean white at the bottom
+         90F))                          // 90 degrees handles top-to-bottom fading
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        
         }
     }
 
