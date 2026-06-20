@@ -1,3 +1,5 @@
+using Surfing_Management_System;
+
 namespace surf_Board
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace surf_Board
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new InstructorForm());
+            Application.Run(new RegisterForm());
            
 
         }
