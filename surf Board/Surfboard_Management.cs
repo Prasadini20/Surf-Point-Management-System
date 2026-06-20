@@ -27,6 +27,8 @@ namespace surf_Board
             cmbBoardType.Items.Add("Longboard");
             cmbBoardType.Items.Add("Fish");
             cmbBoardType.Items.Add("Funboard");
+            cmbBoardType.Items.Add("Hybrid");
+            cmbBoardType.Items.Add("Soft Top");
             cmbBoardType.SelectedIndex = 0;
 
             cmbCondition.Items.Add("New");
@@ -65,7 +67,7 @@ namespace surf_Board
             {
                 BoardID = textBoardID.Text,
                 BoardType = cmbBoardType.Text,
-                Size = txtBoardSize.Text,
+               
                 Condition = cmbCondition.Text,
                 Price = Convert.ToDecimal(txtPrice.Text),
                 Status = cmbStatus.Text
@@ -87,7 +89,6 @@ namespace surf_Board
 
                 surfboards[index].BoardID = textBoardID.Text;
                 surfboards[index].BoardType = cmbBoardType.Text;
-                surfboards[index].Size = txtBoardSize.Text;
                 surfboards[index].Condition = cmbCondition.Text;
                 surfboards[index].Price = Convert.ToDecimal(txtPrice.Text);
                 surfboards[index].Status = cmbStatus.Text;
@@ -121,7 +122,7 @@ namespace surf_Board
         private void ClearFields()
         {
             textBoardID.Clear();
-            txtBoardSize.Clear();
+           
             txtPrice.Clear();
 
             cmbBoardType.SelectedIndex = 0;
@@ -139,7 +140,6 @@ namespace surf_Board
 
                 textBoardID.Text = row.Cells["BoardID"].Value.ToString();
                 cmbBoardType.Text = row.Cells["BoardType"].Value.ToString();
-                txtBoardSize.Text = row.Cells["Size"].Value.ToString();
                 cmbCondition.Text = row.Cells["Condition"].Value.ToString();
                 txtPrice.Text = row.Cells["Price"].Value.ToString();
                 cmbStatus.Text = row.Cells["Status"].Value.ToString();
