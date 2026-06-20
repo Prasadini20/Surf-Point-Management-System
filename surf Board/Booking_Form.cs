@@ -68,12 +68,25 @@ namespace surf_Board
                 return;
             }
 
-            // Database එකට සම්බන්ධ නොවී Test කිරීමට දාන කෑල්ල
-            string testBookingID = "999"; // මෙතනට ඔයා කැමති ID එකක් දෙන්න
-            string testAmount = txtTotalAmount.Text;
+            string query = "INSERT INTO Bookings (CustomerID, ServiceName, SurfboardType, BookingDate, TotalAmount) VALUES (@CID, @Service, @Type, @Date, @Total);";
+            long bookingID = 0;
 
-            // මෙතැනදී කෙලින්ම Payment Form එක පෙන්වනවා
-            Payment_Form pForm = new Payment_Form(testBookingID, testAmount);
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CID", lblCustomerID.Text);
+                    cmd.Parameters.AddWithValue("@Service", cmbService.Text);
+                    cmd.Parameters.AddWithValue("@Type", cmbSurfboardType.Text);
+                    cmd.Parameters.AddWithValue("@Date", dtpBookingDate.Value.Date);
+                    cmd.Parameters.AddWithValue("@Total", txtTotalAmount.Text);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    bookingID = cmd.LastInsertedId;
+                }
+            }
+
+            Payment_Form pForm = new Payment_Form(bookingID.ToString(), txtTotalAmount.Text);
             pForm.Show();
             this.Hide();
         }
