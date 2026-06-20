@@ -28,140 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            bookingID = new Label();
-            lblCustomerID = new Label();
-            lblSurfboardType = new Label();
+            lblCustomerIDLabel = new Label();
+            lblSurfboard = new Label();
             lblBookingDate = new Label();
-            lblDuration = new Label();
-            txtBookingID = new TextBox();
             cmbSurfboardType = new ComboBox();
             dtpBookingDate = new DateTimePicker();
-            txtDuration = new NumericUpDown();
-            btnSave = new Button();
-            btnUpdate = new Button();
-            btnDelete = new Button();
+            btnSubmit = new Button();
             btnClear = new Button();
             dgvBookings = new DataGridView();
             label1 = new Label();
-            cmbCustomerID = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)txtDuration).BeginInit();
+            lblBookingID = new Label();
+            txtBookingID = new TextBox();
+            lblCustomerID = new Label();
+            lblTotal = new Label();
+            txtTotalAmount = new TextBox();
+            label2 = new Label();
+            cmbService = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
             SuspendLayout();
             // 
-            // bookingID
+            // lblCustomerIDLabel
             // 
-            bookingID.AutoSize = true;
-            bookingID.Location = new Point(44, 60);
-            bookingID.Name = "bookingID";
-            bookingID.Size = new Size(134, 20);
-            bookingID.TabIndex = 0;
-            bookingID.Text = "Booking ID            :";
+            lblCustomerIDLabel.AutoSize = true;
+            lblCustomerIDLabel.Location = new Point(690, 160);
+            lblCustomerIDLabel.Name = "lblCustomerIDLabel";
+            lblCustomerIDLabel.Size = new Size(134, 20);
+            lblCustomerIDLabel.TabIndex = 1;
+            lblCustomerIDLabel.Text = "Customer ID          :";
             // 
-            // lblCustomerID
+            // lblSurfboard
             // 
-            lblCustomerID.AutoSize = true;
-            lblCustomerID.Location = new Point(44, 109);
-            lblCustomerID.Name = "lblCustomerID";
-            lblCustomerID.Size = new Size(134, 20);
-            lblCustomerID.TabIndex = 1;
-            lblCustomerID.Text = "Customer ID          :";
-            // 
-            // lblSurfboardType
-            // 
-            lblSurfboardType.AutoSize = true;
-            lblSurfboardType.Location = new Point(44, 163);
-            lblSurfboardType.Name = "lblSurfboardType";
-            lblSurfboardType.Size = new Size(133, 20);
-            lblSurfboardType.TabIndex = 2;
-            lblSurfboardType.Text = "Surfboard Type     :";
+            lblSurfboard.AutoSize = true;
+            lblSurfboard.Location = new Point(43, 141);
+            lblSurfboard.Name = "lblSurfboard";
+            lblSurfboard.Size = new Size(133, 20);
+            lblSurfboard.TabIndex = 2;
+            lblSurfboard.Text = "Surfboard Type     :";
             // 
             // lblBookingDate
             // 
             lblBookingDate.AutoSize = true;
-            lblBookingDate.Location = new Point(44, 216);
+            lblBookingDate.Location = new Point(43, 199);
             lblBookingDate.Name = "lblBookingDate";
             lblBookingDate.Size = new Size(132, 20);
             lblBookingDate.TabIndex = 3;
             lblBookingDate.Text = "Date                      :";
-            // 
-            // lblDuration
-            // 
-            lblDuration.AutoSize = true;
-            lblDuration.Location = new Point(44, 268);
-            lblDuration.Name = "lblDuration";
-            lblDuration.Size = new Size(133, 20);
-            lblDuration.TabIndex = 4;
-            lblDuration.Text = "Duration in Hours :";
-            // 
-            // txtBookingID
-            // 
-            txtBookingID.Location = new Point(259, 57);
-            txtBookingID.Name = "txtBookingID";
-            txtBookingID.Size = new Size(125, 27);
-            txtBookingID.TabIndex = 5;
             // 
             // cmbSurfboardType
             // 
             cmbSurfboardType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSurfboardType.FormattingEnabled = true;
             cmbSurfboardType.Items.AddRange(new object[] { "Standard Board", "Premium Board", "Beginner Foamie", "Performance Shortboard" });
-            cmbSurfboardType.Location = new Point(259, 160);
+            cmbSurfboardType.Location = new Point(217, 141);
             cmbSurfboardType.Name = "cmbSurfboardType";
-            cmbSurfboardType.Size = new Size(151, 28);
+            cmbSurfboardType.Size = new Size(250, 28);
             cmbSurfboardType.TabIndex = 7;
+            cmbSurfboardType.SelectedIndexChanged += CalculateTotal;
             // 
             // dtpBookingDate
             // 
             dtpBookingDate.Format = DateTimePickerFormat.Short;
-            dtpBookingDate.Location = new Point(259, 209);
+            dtpBookingDate.Location = new Point(217, 199);
             dtpBookingDate.Name = "dtpBookingDate";
             dtpBookingDate.Size = new Size(250, 27);
             dtpBookingDate.TabIndex = 8;
             // 
-            // txtDuration
+            // btnSubmit
             // 
-            txtDuration.Location = new Point(259, 266);
-            txtDuration.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            txtDuration.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            txtDuration.Name = "txtDuration";
-            txtDuration.Size = new Size(150, 27);
-            txtDuration.TabIndex = 9;
-            txtDuration.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // btnSave
-            // 
-            btnSave.BackColor = Color.SteelBlue;
-            btnSave.Location = new Point(44, 356);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(94, 29);
-            btnSave.TabIndex = 10;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.SteelBlue;
-            btnUpdate.Location = new Point(219, 356);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(94, 29);
-            btnUpdate.TabIndex = 11;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.SteelBlue;
-            btnDelete.Location = new Point(400, 356);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
-            btnDelete.TabIndex = 12;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
+            btnSubmit.BackColor = Color.SteelBlue;
+            btnSubmit.Location = new Point(181, 356);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(94, 29);
+            btnSubmit.TabIndex = 10;
+            btnSubmit.Text = "Submit";
+            btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // btnClear
             // 
             btnClear.BackColor = Color.SteelBlue;
-            btnClear.Location = new Point(580, 356);
+            btnClear.Location = new Point(442, 356);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 13;
@@ -187,62 +133,113 @@
             label1.TabIndex = 15;
             label1.Text = "SURFBOARD BOOKING MANAGEMENT";
             // 
-            // cmbCustomerID
+            // lblBookingID
             // 
-            cmbCustomerID.FormattingEnabled = true;
-            cmbCustomerID.Location = new Point(259, 106);
-            cmbCustomerID.Name = "cmbCustomerID";
-            cmbCustomerID.Size = new Size(151, 28);
-            cmbCustomerID.TabIndex = 16;
+            lblBookingID.AutoSize = true;
+            lblBookingID.Location = new Point(690, 111);
+            lblBookingID.Name = "lblBookingID";
+            lblBookingID.Size = new Size(94, 20);
+            lblBookingID.TabIndex = 17;
+            lblBookingID.Text = "Booking ID  :";
+            // 
+            // txtBookingID
+            // 
+            txtBookingID.Location = new Point(913, 108);
+            txtBookingID.Name = "txtBookingID";
+            txtBookingID.ReadOnly = true;
+            txtBookingID.Size = new Size(125, 27);
+            txtBookingID.TabIndex = 18;
+            // 
+            // lblCustomerID
+            // 
+            lblCustomerID.AutoSize = true;
+            lblCustomerID.Location = new Point(913, 160);
+            lblCustomerID.Name = "lblCustomerID";
+            lblCustomerID.Size = new Size(0, 20);
+            lblCustomerID.TabIndex = 19;
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(690, 216);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(110, 20);
+            lblTotal.TabIndex = 20;
+            lblTotal.Text = "Total Amount  :";
+            // 
+            // txtTotalAmount
+            // 
+            txtTotalAmount.Location = new Point(913, 213);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.ReadOnly = true;
+            txtTotalAmount.Size = new Size(125, 27);
+            txtTotalAmount.TabIndex = 21;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(44, 85);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 20);
+            label2.TabIndex = 22;
+            label2.Text = "Service";
+            // 
+            // cmbService
+            // 
+            cmbService.FormattingEnabled = true;
+            cmbService.Items.AddRange(new object[] { "Private surf lesson beginners (1 person) - 6,000 LKR  (75 min)", "Private surf lesson for couple beginners (2 persons) - 9,000 LKR  (75 min)", "Private surf lesson intermediate (1 person) - 7,500 LKR  (90 min)", "SURF GUIDE (any spot down south) - 9,000 LKR  (90 min)" });
+            cmbService.Location = new Point(106, 85);
+            cmbService.Name = "cmbService";
+            cmbService.Size = new Size(151, 28);
+            cmbService.TabIndex = 23;
+            cmbService.SelectedIndexChanged += CalculateTotal;
             // 
             // Booking_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(925, 609);
-            Controls.Add(cmbCustomerID);
+            ClientSize = new Size(1118, 609);
+            Controls.Add(cmbService);
+            Controls.Add(label2);
+            Controls.Add(txtTotalAmount);
+            Controls.Add(lblTotal);
+            Controls.Add(lblCustomerID);
+            Controls.Add(txtBookingID);
+            Controls.Add(lblBookingID);
             Controls.Add(label1);
             Controls.Add(dgvBookings);
             Controls.Add(btnClear);
-            Controls.Add(btnDelete);
-            Controls.Add(btnUpdate);
-            Controls.Add(btnSave);
-            Controls.Add(txtDuration);
+            Controls.Add(btnSubmit);
             Controls.Add(dtpBookingDate);
             Controls.Add(cmbSurfboardType);
-            Controls.Add(txtBookingID);
-            Controls.Add(lblDuration);
             Controls.Add(lblBookingDate);
-            Controls.Add(lblSurfboardType);
-            Controls.Add(lblCustomerID);
-            Controls.Add(bookingID);
+            Controls.Add(lblSurfboard);
+            Controls.Add(lblCustomerIDLabel);
             Name = "Booking_Form";
             Text = "Booking_Form";
             Load += Booking_Form_Load;
-            ((System.ComponentModel.ISupportInitialize)txtDuration).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvBookings).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label bookingID;
-        private Label lblCustomerID;
-        private Label lblSurfboardType;
+        private Label lblCustomerIDLabel;
+        private Label lblSurfboard;
         private Label lblBookingDate;
-        private Label lblDuration;
-        private TextBox txtBookingID;
         private ComboBox cmbSurfboardType;
         private DateTimePicker dtpBookingDate;
-        private NumericUpDown txtDuration;
-        private Button btnSave;
-        private Button btnUpdate;
-        private Button btnDelete;
+        private Button btnSubmit;
         private Button btnClear;
         private DataGridView dgvBookings;
         private Label label1;
-        private ComboBox cmbCustomerID;
+        private Label lblBookingID;
+        private TextBox txtBookingID;
+        private Label lblCustomerID;
+        private Label lblTotal;
+        private TextBox txtTotalAmount;
+        private Label label2;
+        private ComboBox cmbService;
     }
 }

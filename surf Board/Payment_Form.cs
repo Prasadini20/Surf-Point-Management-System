@@ -7,116 +7,57 @@ namespace surf_Board
 {
     public partial class Payment_Form : Form
     {
-        
-        private string connectionString = "server=localhost;database=SurfSchoolDB;uid=root;pwd=;";
+        string connString = "server=localhost;database=surf_point_db;uid=root;pwd=sql1234@;";
 
-        public Payment_Form()
+        // දැන් මෙතනට එන්නේ Label එකට දාන්න ඕන අගයන් දෙක
+        public Payment_Form(string bookingID, string amount)
         {
             InitializeComponent();
+
+            // ComboBox එකක් නෙවෙයි දැන් තියෙන්නේ, ඒ නිසා කෙලින්ම Label එකට දාන්න
+            label5.Text = bookingID;
+            txtAmount.Text = amount;
+
+            txtAmount.ReadOnly = true; // මිල වෙනස් කරන්න බැහැ
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            // 1. validation එක හරිද බලමු
+            if (cmbMethod.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select method!");
+                return;
+            }
+
+            // 2. Database එකට යවන්නේ නැතුව test කිරීම
+            // මෙතනදී label5 එකේ තියෙන්නේ Booking_Form එකෙන් එවපු "999" අගයයි
+            string displayMessage = "Payment successful for Booking ID: " + label5.Text +
+                                    "\nAmount: " + txtAmount.Text +
+                                    "\nMethod: " + cmbMethod.SelectedItem.ToString();
+
+            MessageBox.Show(displayMessage);
+
+            // 3. වැඩේ හරි නම් ෆෝම් එක වහන්න
+            this.Close();
         }
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-           
-
-            ClearFields();
+            // මේක මෙතන තියෙන්න ඕනේ Designer එක හරි යන්න
         }
 
-        
-        private void LoadBookingIDs()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    string query = "SELECT BookingID FROM Bookings";
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    cmbBookingID.DataSource = dt;
-                    cmbBookingID.DisplayMember = "BookingID";
-                    cmbBookingID.ValueMember = "BookingID";
-                    cmbBookingID.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading Booking IDs: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
-        private void LoadPaymentData()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    string query = "SELECT * FROM Payments";
-                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dgvPayments.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading payment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
-        private void btnPay_Click(object sender, EventArgs e)
-        {
-            
-            if (cmbBookingID.SelectedIndex == -1 || string.IsNullOrEmpty(txtAmount.Text) || cmbMethod.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please fill in all the required fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, PaymentDate) VALUES (@BookingID, @Amount, @Method, @Date)";
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@BookingID", cmbBookingID.SelectedValue);
-                        cmd.Parameters.AddWithValue("@Amount", decimal.Parse(txtAmount.Text));
-                        cmd.Parameters.AddWithValue("@Method", cmbMethod.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@Date", dtpDate.Value.ToString("yyyy-MM-dd"));
-
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Payment saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-
-                
-                LoadPaymentData();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving payment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
+        // Clear button එකේදී Booking ID label එක clear කරන්න එපා
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearFields();
-        }
-
-        
-        private void ClearFields()
-        {
-            cmbBookingID.SelectedIndex = -1;
-            txtAmount.Clear();
             cmbMethod.SelectedIndex = -1;
             dtpDate.Value = DateTime.Now;
+        }
+
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            // මේක මෙතන තියෙන්න ඕනේ Designer එක හරි යන්න
         }
     }
 }
