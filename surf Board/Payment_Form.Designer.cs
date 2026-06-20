@@ -129,6 +129,7 @@
             dgvPayments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPayments.Location = new Point(39, 390);
             dgvPayments.Name = "dgvPayments";
+            dgvPayments.ReadOnly = true;
             dgvPayments.RowHeadersWidth = 51;
             dgvPayments.Size = new Size(644, 188);
             dgvPayments.TabIndex = 10;

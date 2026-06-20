@@ -9,45 +9,57 @@ namespace surf_Board
     {
         string connString = "server=localhost;database=surf_point_db;uid=root;pwd=sql1234@;";
 
-        // දැන් මෙතනට එන්නේ Label එකට දාන්න ඕන අගයන් දෙක
+        
         public Payment_Form(string bookingID, string amount)
         {
             InitializeComponent();
 
-            // ComboBox එකක් නෙවෙයි දැන් තියෙන්නේ, ඒ නිසා කෙලින්ම Label එකට දාන්න
+            
             label5.Text = bookingID;
             txtAmount.Text = amount;
 
-            txtAmount.ReadOnly = true; // මිල වෙනස් කරන්න බැහැ
+            txtAmount.ReadOnly = true; 
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            // 1. validation එක හරිද බලමු
             if (cmbMethod.SelectedIndex == -1)
             {
-                MessageBox.Show("Select method!");
+                MessageBox.Show("Select a payment method!");
                 return;
             }
 
-            // 2. Database එකට යවන්නේ නැතුව test කිරීම
-            // මෙතනදී label5 එකේ තියෙන්නේ Booking_Form එකෙන් එවපු "999" අගයයි
-            string displayMessage = "Payment successful for Booking ID: " + label5.Text +
-                                    "\nAmount: " + txtAmount.Text +
-                                    "\nMethod: " + cmbMethod.SelectedItem.ToString();
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, PaymentDate) VALUES (@BID, @Amount, @Method, @Date)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@BID", label5.Text);
+                        cmd.Parameters.AddWithValue("@Amount", txtAmount.Text);
+                        cmd.Parameters.AddWithValue("@Method", cmbMethod.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@Date", dtpDate.Value.Date);
 
-            MessageBox.Show(displayMessage);
-
-            // 3. වැඩේ හරි නම් ෆෝම් එක වහන්න
-            this.Close();
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Payment Successful!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-            // මේක මෙතන තියෙන්න ඕනේ Designer එක හරි යන්න
+            
         }
 
-        // Clear button එකේදී Booking ID label එක clear කරන්න එපා
         private void btnClear_Click(object sender, EventArgs e)
         {
             cmbMethod.SelectedIndex = -1;
@@ -57,7 +69,7 @@ namespace surf_Board
 
         private void label5_Click(object sender, EventArgs e)
         {
-            // මේක මෙතන තියෙන්න ඕනේ Designer එක හරි යන්න
+            
         }
     }
 }

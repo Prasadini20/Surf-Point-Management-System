@@ -188,9 +188,9 @@
             // 
             cmbService.FormattingEnabled = true;
             cmbService.Items.AddRange(new object[] { "Private surf lesson beginners (1 person) - 6,000 LKR  (75 min)", "Private surf lesson for couple beginners (2 persons) - 9,000 LKR  (75 min)", "Private surf lesson intermediate (1 person) - 7,500 LKR  (90 min)", "SURF GUIDE (any spot down south) - 9,000 LKR  (90 min)" });
-            cmbService.Location = new Point(106, 85);
+            cmbService.Location = new Point(106, 82);
             cmbService.Name = "cmbService";
-            cmbService.Size = new Size(151, 28);
+            cmbService.Size = new Size(203, 28);
             cmbService.TabIndex = 23;
             cmbService.SelectedIndexChanged += CalculateTotal;
             // 
@@ -199,7 +199,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1118, 609);
+            ClientSize = new Size(1091, 609);
             Controls.Add(cmbService);
             Controls.Add(label2);
             Controls.Add(txtTotalAmount);
