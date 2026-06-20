@@ -28,7 +28,7 @@ CREATE TABLE `admins` (
   `Username` varchar(50) DEFAULT NULL,
   `Password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`AdminID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'Prasadini Imansika','Prasadini','Prasadini20'),(2,'Jayanai Randima','Jayani','Jayani17'),(3,'Kaveena Chamarindi','Kaveena','Kaveena15'),(4,'Niroshan Chandrasekaran','Niroshan','Niroshan01');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,6 +178,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` VALUES ('PRIVATE surf lesson beginners (1 person)',6000.00),('PRIVATE surf lesson for couple beginners (2 persons)',9000.00),('PRIVATE surf lesson intermediate (1 person)',7500.00),('SURF GUIDE (any spot down south)',9000.00);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-20 23:14:17
+-- Dump completed on 2026-06-21  0:06:59
