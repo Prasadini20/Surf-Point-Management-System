@@ -95,5 +95,7 @@ namespace surf_Board
         {
             txtRegFullName.TextAlign = HorizontalAlignment.Left;
         }
+
+
     }
 }
