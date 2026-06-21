@@ -430,6 +430,7 @@
             Name = "Customer_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer Management";
+            Load += Customer_Form_Load;
             Paint += Customer_Form_Paint;
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
             menuStrip1.ResumeLayout(false);

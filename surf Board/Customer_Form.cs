@@ -267,11 +267,5 @@ namespace surf_Board
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Admin_Dashboard dash = new Admin_Dashboard();
-            dash.Show();
-            this.Close();
-        }
     }
 }
