@@ -75,7 +75,25 @@ namespace surf_Board
 
         private void lnkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            // 🚪 1. Background එකේ දැනටමත් හැංගිලා තියෙන Form1 එක සොයාගන්නවා
+            Form loginForm = Application.OpenForms["Form1"];
+
+            if (loginForm != null)
+            {
+                // 🔓 2. ඒ පරණ Form1 එක නැවත පෙන්වනවා
+                loginForm.Show();
+
+                // ❌ 3. වැදගත්ම දේ: මේ Register Form එක Close කරන්නේ නැතුව, මේක විතරක් Hide කරනවා!
+                // (Close කළොත් මුළු ඇප් එකම crash වෙලා වැහෙන එක මේකෙන් නවතිනවා)
+                this.Hide();
+            }
+            else
+            {
+                // 🆕 මොකක් හරි හේතුවකින් Form1 එක නැත්තම් විතරක් අලුත් එකක් හදලා පෙන්වනවා
+                Form1 newLoginForm = new Form1();
+                newLoginForm.Show();
+                this.Hide();
+            }
         }
     }
 }
