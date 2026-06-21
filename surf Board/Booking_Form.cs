@@ -7,8 +7,6 @@ namespace surf_Board
 {
     public partial class Booking_Form : Form
     {
-        
-
         public Booking_Form()
         {
             InitializeComponent();
@@ -17,13 +15,10 @@ namespace surf_Board
         private MySqlConnection GetLocalSafeConnection()
         {
             MySqlConnection conn = DBConnection.GetConnection();
-
-            
             if (Environment.MachineName == "LAPTOP-S723VTT7")
             {
                 conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
             }
-
             return conn;
         }
 
@@ -36,9 +31,8 @@ namespace surf_Board
 
         private void LoadServices()
         {
-            string query = "SELECT ServiceName, Price FROM Services;";
+            string query = "SELECT ServiceName, ServicePrice FROM Services;";
 
-            
             using (MySqlConnection conn = GetLocalSafeConnection())
             {
                 MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
@@ -46,14 +40,15 @@ namespace surf_Board
                 da.Fill(dt);
                 cmbService.DataSource = dt;
                 cmbService.DisplayMember = "ServiceName";
-                cmbService.ValueMember = "Price";
+                cmbService.ValueMember = "ServicePrice";
                 cmbService.SelectedIndex = -1;
             }
         }
 
         private void LoadSurfboards()
         {
-            string query = "SELECT Type, Price FROM Surfboards;";
+
+            string query = "SELECT BoardID, BoardType, Price FROM Surfboards;";
 
             using (MySqlConnection conn = GetLocalSafeConnection())
             {
@@ -61,8 +56,8 @@ namespace surf_Board
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 cmbSurfboardType.DataSource = dt;
-                cmbSurfboardType.DisplayMember = "Type";
-                cmbSurfboardType.ValueMember = "Price";
+                cmbSurfboardType.DisplayMember = "BoardType";
+                cmbSurfboardType.ValueMember = "BoardID";
                 cmbSurfboardType.SelectedIndex = -1;
             }
         }
@@ -72,16 +67,9 @@ namespace surf_Board
             decimal servicePrice = 0;
             decimal boardPrice = 0;
 
-           
             if (cmbService.SelectedValue != null && decimal.TryParse(cmbService.SelectedValue.ToString(), out decimal sPrice))
-            {
                 servicePrice = sPrice;
-            }
 
-            if (cmbSurfboardType.SelectedValue != null && decimal.TryParse(cmbSurfboardType.SelectedValue.ToString(), out decimal bPrice))
-            {
-                boardPrice = bPrice;
-            }
 
             txtTotalAmount.Text = (servicePrice + boardPrice).ToString("F2");
         }
@@ -94,8 +82,7 @@ namespace surf_Board
                 return;
             }
 
-            string query = "INSERT INTO Bookings (CustomerID, ServiceName, SurfboardType, BookingDate, TotalAmount) VALUES (@CID, @Service, @Type, @Date, @Total);";
-            long bookingID = 0;
+            string query = "INSERT INTO Bookings (CustomerID, ServiceName, BoardID, BookingDate, TotalAmount) VALUES (@CID, @Service, @BID, @Date, @Total);";
 
             using (MySqlConnection conn = GetLocalSafeConnection())
             {
@@ -103,21 +90,64 @@ namespace surf_Board
                 {
                     cmd.Parameters.AddWithValue("@CID", lblCustomerID.Text);
                     cmd.Parameters.AddWithValue("@Service", cmbService.Text);
-                    cmd.Parameters.AddWithValue("@Type", cmbSurfboardType.Text);
+                    cmd.Parameters.AddWithValue("@BID", cmbSurfboardType.SelectedValue); // BoardID යවනු ලැබේ
                     cmd.Parameters.AddWithValue("@Date", dtpBookingDate.Value.Date);
                     cmd.Parameters.AddWithValue("@Total", txtTotalAmount.Text);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    bookingID = cmd.LastInsertedId;
+
+                    long bookingID = cmd.LastInsertedId;
+                    MessageBox.Show("Booking Successful! Your Booking ID: " + bookingID);
+
+                    Payment_Form pForm = new Payment_Form(bookingID.ToString(), txtTotalAmount.Text);
+                    pForm.Show();
+                    this.Close();
                 }
             }
+        }
 
-            Payment_Form pForm = new Payment_Form(bookingID.ToString(), txtTotalAmount.Text);
-            pForm.Show();
-
-           
+        private void newBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Booking_Form newBooking = new Booking_Form();
+            newBooking.Show();
             this.Close();
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer_Form custForm = new Customer_Form();
+            custForm.Show();
+        }
+
+        private void surfboardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            view_surfboard boardForm = new view_surfboard();
+            boardForm.Show();
+        }
+
+        private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            string query = "SELECT BookingID, ServiceName, BoardID, BookingDate, TotalAmount FROM Bookings;";
+
+            using (MySqlConnection conn = GetLocalSafeConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgvBookings.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message);
+                }
+            }
         }
     }
 }
+  
