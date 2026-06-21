@@ -53,6 +53,8 @@
             cmbStatus = new ComboBox();
             menuStrip1 = new MenuStrip();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            label7 = new Label();
+            txtSearchID = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvInstructor).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -62,7 +64,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(95, 116);
+            label1.Location = new Point(81, 117);
             label1.Name = "label1";
             label1.Size = new Size(99, 20);
             label1.TabIndex = 0;
@@ -73,7 +75,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(95, 178);
+            label2.Location = new Point(82, 194);
             label2.Name = "label2";
             label2.Size = new Size(51, 20);
             label2.TabIndex = 1;
@@ -84,7 +86,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(97, 251);
+            label3.Location = new Point(81, 270);
             label3.Name = "label3";
             label3.Size = new Size(125, 20);
             label3.TabIndex = 2;
@@ -95,7 +97,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(496, 123);
+            label4.Location = new Point(491, 117);
             label4.Name = "label4";
             label4.Size = new Size(125, 20);
             label4.TabIndex = 3;
@@ -106,7 +108,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(496, 196);
+            label5.Location = new Point(491, 186);
             label5.Name = "label5";
             label5.Size = new Size(135, 20);
             label5.TabIndex = 4;
@@ -114,14 +116,16 @@
             // 
             // txtInstructorID
             // 
-            txtInstructorID.Location = new Point(253, 116);
+            txtInstructorID.BackColor = Color.White;
+            txtInstructorID.Location = new Point(241, 117);
             txtInstructorID.Name = "txtInstructorID";
+            txtInstructorID.ReadOnly = true;
             txtInstructorID.Size = new Size(171, 27);
             txtInstructorID.TabIndex = 5;
             // 
             // txtName
             // 
-            txtName.Location = new Point(253, 178);
+            txtName.Location = new Point(241, 187);
             txtName.Name = "txtName";
             txtName.Size = new Size(171, 27);
             txtName.TabIndex = 6;
@@ -129,14 +133,14 @@
             // 
             // txtContact
             // 
-            txtContact.Location = new Point(253, 251);
+            txtContact.Location = new Point(241, 263);
             txtContact.Name = "txtContact";
             txtContact.Size = new Size(171, 27);
             txtContact.TabIndex = 7;
             // 
             // txtExperience
             // 
-            txtExperience.Location = new Point(698, 123);
+            txtExperience.Location = new Point(684, 110);
             txtExperience.Name = "txtExperience";
             txtExperience.Size = new Size(173, 27);
             txtExperience.TabIndex = 8;
@@ -221,12 +225,12 @@
             dgvInstructor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvInstructor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInstructor.Columns.AddRange(new DataGridViewColumn[] { colInstructoeID, colName, colContact, colExperience, colStatus });
-            dgvInstructor.Location = new Point(155, 457);
+            dgvInstructor.Location = new Point(111, 456);
             dgvInstructor.Name = "dgvInstructor";
             dgvInstructor.RowHeadersWidth = 51;
-            dgvInstructor.Size = new Size(674, 188);
+            dgvInstructor.Size = new Size(684, 188);
             dgvInstructor.TabIndex = 15;
-            dgvInstructor.CellClick += dgvInstructor_CellContentClick;
+            dgvInstructor.CellClick += dgvInstructor_CellClick;
             // 
             // colInstructoeID
             // 
@@ -284,7 +288,7 @@
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Available", "Busy", "On Leave" });
-            cmbStatus.Location = new Point(698, 193);
+            cmbStatus.Location = new Point(684, 186);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(173, 28);
             cmbStatus.TabIndex = 17;
@@ -306,6 +310,25 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(49, 24);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(290, 63);
+            label7.Name = "label7";
+            label7.Size = new Size(157, 20);
+            label7.TabIndex = 19;
+            label7.Text = "Search Instructor ID :";
+            // 
+            // txtSearchID
+            // 
+            txtSearchID.Location = new Point(458, 60);
+            txtSearchID.Name = "txtSearchID";
+            txtSearchID.Size = new Size(173, 27);
+            txtSearchID.TabIndex = 20;
             // 
             // InstructorForm
             // 
@@ -313,6 +336,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(982, 753);
+            Controls.Add(txtSearchID);
+            Controls.Add(label7);
             Controls.Add(cmbStatus);
             Controls.Add(label6);
             Controls.Add(dgvInstructor);
@@ -362,14 +387,16 @@
         private Button btnSearch;
         private Button btnClear;
         private DataGridView dgvInstructor;
+        private Label label6;
+        private ComboBox cmbStatus;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private Label label7;
+        private TextBox txtSearchID;
         private DataGridViewTextBoxColumn colInstructoeID;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colContact;
         private DataGridViewTextBoxColumn colExperience;
         private DataGridViewTextBoxColumn colStatus;
-        private Label label6;
-        private ComboBox cmbStatus;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
