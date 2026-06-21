@@ -7,7 +7,7 @@ namespace surf_Board
 {
     public partial class Booking_Form : Form
     {
-        .
+        
 
         public Booking_Form()
         {
