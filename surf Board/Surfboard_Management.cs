@@ -13,6 +13,15 @@ namespace surf_Board
         public Surfboard_Management()
         {
             InitializeComponent();
+
+            menuStrip1.BackColor = Color.FromArgb(43, 181, 212);
+
+            dgvSurfboards.EnableHeadersVisualStyles = false;
+            dgvSurfboards.BackgroundColor = Color.White;
+
+            dgvSurfboards.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 75, 115);
+            dgvSurfboards.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvSurfboards.ColumnHeadersDefaultCellStyle.Font = new Font(dgvSurfboards.Font, FontStyle.Bold);
         }
 
         private void Surfboard_Management_Load(object sender, EventArgs e)
@@ -187,6 +196,17 @@ namespace surf_Board
                 cmbCondition.Text = row.Cells["ConditionType"].Value.ToString();
                 txtPrice.Text = row.Cells["Price"].Value.ToString();
                 cmbStatus.Text = row.Cells["Status"].Value.ToString();
+            }
+        }
+        private void Surfboard_Management_Paint(object sender, PaintEventArgs e)
+        {
+            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+         this.ClientRectangle,
+         Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
+         Color.White,                  // Fades into clean white at the bottom
+         90F))                          // 90 degrees handles top-to-bottom fading
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
 

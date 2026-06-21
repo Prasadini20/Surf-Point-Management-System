@@ -53,39 +53,38 @@
             // txtRegFullName
             // 
             txtRegFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegFullName.Location = new Point(220, 104);
+            txtRegFullName.Location = new Point(220, 110);
             txtRegFullName.Margin = new Padding(3, 4, 3, 4);
             txtRegFullName.Multiline = true;
             txtRegFullName.Name = "txtRegFullName";
-            txtRegFullName.Size = new Size(282, 35);
+            txtRegFullName.Size = new Size(282, 28);
             txtRegFullName.TabIndex = 0;
-            txtRegFullName.TextAlign = HorizontalAlignment.Center;
             // 
             // txtRegUsername
             // 
-            txtRegUsername.Location = new Point(219, 426);
+            txtRegUsername.Location = new Point(219, 429);
             txtRegUsername.Margin = new Padding(3, 4, 3, 4);
             txtRegUsername.Multiline = true;
             txtRegUsername.Name = "txtRegUsername";
-            txtRegUsername.Size = new Size(260, 39);
+            txtRegUsername.Size = new Size(283, 34);
             txtRegUsername.TabIndex = 1;
             // 
             // txtRegContact
             // 
-            txtRegContact.Location = new Point(220, 169);
+            txtRegContact.Location = new Point(220, 173);
             txtRegContact.Margin = new Padding(3, 4, 3, 4);
             txtRegContact.Multiline = true;
             txtRegContact.Name = "txtRegContact";
-            txtRegContact.Size = new Size(282, 32);
+            txtRegContact.Size = new Size(282, 28);
             txtRegContact.TabIndex = 2;
             // 
             // txtRegPassword
             // 
-            txtRegPassword.Location = new Point(219, 497);
+            txtRegPassword.Location = new Point(219, 501);
             txtRegPassword.Margin = new Padding(3, 4, 3, 4);
             txtRegPassword.Multiline = true;
             txtRegPassword.Name = "txtRegPassword";
-            txtRegPassword.Size = new Size(260, 39);
+            txtRegPassword.Size = new Size(283, 29);
             txtRegPassword.TabIndex = 3;
             // 
             // btnRegisterSubmit
@@ -147,30 +146,30 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(220, 366);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(282, 28);
             comboBox1.TabIndex = 16;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(46, 370);
             label9.Name = "label9";
-            label9.Size = new Size(96, 18);
+            label9.Size = new Size(95, 20);
             label9.TabIndex = 15;
-            label9.Text = "SKILL LEVEL";
+            label9.Text = "Skill Level :";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(46, 305);
             label8.Name = "label8";
-            label8.Size = new Size(51, 18);
+            label8.Size = new Size(61, 20);
             label8.TabIndex = 14;
-            label8.Text = "EMAIL";
+            label8.Text = "Email :";
             // 
             // txtRegEmail
             // 
@@ -183,63 +182,63 @@
             // 
             txtRegCountry.Location = new Point(220, 237);
             txtRegCountry.Name = "txtRegCountry";
-            txtRegCountry.Size = new Size(219, 27);
+            txtRegCountry.Size = new Size(282, 27);
             txtRegCountry.TabIndex = 12;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.Location = new Point(46, 241);
             label7.Name = "label7";
-            label7.Size = new Size(82, 18);
+            label7.Size = new Size(77, 20);
             label7.TabIndex = 11;
-            label7.Text = "COUNTRY";
+            label7.Text = "Country :";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(46, 501);
             label6.Name = "label6";
-            label6.Size = new Size(96, 18);
+            label6.Size = new Size(83, 20);
             label6.TabIndex = 10;
-            label6.Text = "PASSWORD";
+            label6.Text = "Password";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft PhagsPa", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(46, 429);
             label5.Name = "label5";
-            label5.Size = new Size(86, 20);
+            label5.Size = new Size(96, 22);
             label5.TabIndex = 9;
-            label5.Text = "USERNAME";
+            label5.Text = "Username :";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(46, 173);
             label4.Name = "label4";
-            label4.Size = new Size(150, 18);
+            label4.Size = new Size(141, 20);
             label4.TabIndex = 8;
-            label4.Text = "CONTACT NUMBER";
+            label4.Text = "Contact Number :";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(46, 110);
             label3.Name = "label3";
-            label3.Size = new Size(91, 18);
+            label3.Size = new Size(95, 20);
             label3.TabIndex = 7;
-            label3.Text = "FULL NAME";
+            label3.Text = "Full Name :";
             // 
             // label1
             // 

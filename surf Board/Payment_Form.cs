@@ -7,31 +7,13 @@ namespace surf_Board
 {
     public partial class Payment_Form : Form
     {
-        
-
         public Payment_Form(string bookingID, string amount)
         {
             InitializeComponent();
 
             label5.Text = bookingID;
             txtAmount.Text = amount;
-
             txtAmount.ReadOnly = true;
-        }
-
-        
-        private MySqlConnection GetLocalSafeConnection()
-        {
-            
-            MySqlConnection conn = DBConnection.GetConnection();
-
-            
-            if (Environment.MachineName == "LAPTOP-S723VTT7")
-            {
-                conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
-            }
-
-            return conn;
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -44,10 +26,10 @@ namespace surf_Board
 
             try
             {
-               
-                using (MySqlConnection conn = GetLocalSafeConnection())
+                using (MySqlConnection conn = DBConnection.GetConnection())
                 {
-                    string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, PaymentDate) VALUES (@BID, @Amount, @Method, @Date)";
+                    string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, Date) VALUES (@BID, @Amount, @Method, @Date)";
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@BID", label5.Text);
@@ -59,18 +41,18 @@ namespace surf_Board
                         cmd.ExecuteNonQuery();
                     }
                 }
-                MessageBox.Show("Payment Successful!");
+
+                MessageBox.Show("Payment Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Customer_Dashboard cusDash = new Customer_Dashboard();
+                cusDash.Show();
+
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error processing payment: " + ex.Message);
             }
-        }
-
-        private void Payment_Form_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -79,9 +61,32 @@ namespace surf_Board
             dtpDate.Value = DateTime.Now;
         }
 
+        private void Payment_Form_Load(object sender, EventArgs e)
+        {
+            if (cmbMethod.Items.Count == 0)
+            {
+                cmbMethod.Items.Add("Cash");
+                cmbMethod.Items.Add("Card");
+                cmbMethod.Items.Add("Online Transfer");
+            }
+        }
+
         private void label5_Click(object sender, EventArgs e)
         {
+        }
 
+        private void Payment_Form_Paint(object sender, PaintEventArgs e)
+        {
+
+            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+         this.ClientRectangle,
+         Color.FromArgb(43, 181, 212),  
+         Color.White,                  
+         90F))                         
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
     }
 }
+
