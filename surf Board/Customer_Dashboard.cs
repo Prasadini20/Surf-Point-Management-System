@@ -1,5 +1,4 @@
-﻿ // MySQL client එක අමතක කරන්න එපා
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Surfing_Management_System;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,6 @@ namespace surf_Board
 {
     public partial class Customer_Dashboard : Form
     {
-        // දැනට ලොග් වී සිටින Customer ගේ ID එක (උදාහරණයක් ලෙස 1 දමා ඇත)
         private int currentCustomerID = 1;
 
         public Customer_Dashboard()
@@ -24,12 +22,10 @@ namespace surf_Board
 
         private void Customer_Dashboard_Load(object sender, EventArgs e)
         {
-            // Logo එක රවුම් කිරීමට
             GraphicsPath gp = new GraphicsPath();
             gp.AddEllipse(0, 0, pbHeaderLogo.Width, pbHeaderLogo.Height);
             pbHeaderLogo.Region = new Region(gp);
 
-            // Dashboard එක load වෙද්දීම දත්ත ගණනය කර පෙන්වීම
             LoadDashboardOverview();
         }
 
@@ -41,7 +37,6 @@ namespace surf_Board
                 {
                     conn.Open();
 
-                    // 1. Total Bookings ගණන සෙවීම (COUNT)
                     string queryTotalBookings = "SELECT COUNT(*) FROM bookings WHERE CustomerID = @customerID";
                     using (MySqlCommand cmd = new MySqlCommand(queryTotalBookings, conn))
                     {
@@ -49,16 +44,8 @@ namespace surf_Board
                         label7.Text = cmd.ExecuteScalar().ToString();
                     }
 
-                    // 2. Surfboard Viewed ගණන සෙවීම
-                    string queryViews = "SELECT ViewCount FROM customer_activity WHERE CustomerID = @customerID";
-                    using (MySqlCommand cmd = new MySqlCommand(queryViews, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@customerID", currentCustomerID);
-                        object result = cmd.ExecuteScalar();
-                        label8.Text = result != null ? result.ToString() : "0";
-                    }
+                    
 
-                    // 3. Last Booking එකේ සිට ගතවූ දින ගණන සෙවීම (DATEDIFF සහ BookingDate)
                     string queryLastBooking = "SELECT DATEDIFF(NOW(), MAX(BookingDate)) FROM bookings WHERE CustomerID = @customerID";
                     using (MySqlCommand cmd = new MySqlCommand(queryLastBooking, conn))
                     {
@@ -71,7 +58,7 @@ namespace surf_Board
                         }
                         else
                         {
-                           label9.Text = "No Bookings"; // කිසිම booking එකක් නැත්නම්
+                           label9.Text = "No Bookings"; 
                         }
                     }
                 }
@@ -82,7 +69,7 @@ namespace surf_Board
             }
         }
 
-        // --- View Count එක එකක් වැඩි කරන (Increment) Function එක ---
+        
         private void UpdateViewCount()
         {
             try
@@ -102,9 +89,9 @@ namespace surf_Board
             catch { /* Errors ආවොත් ignore කරන්න */ }
         }
 
-        // --- BUTTON CLICKS (NAVIGATION) ---
+        
 
-        // Make Bookings Button
+       
         private void btnMakeBookings_Click(object sender, EventArgs e)
         {
             Booking_Form bookingForm = new Booking_Form();
@@ -112,17 +99,17 @@ namespace surf_Board
             this.Hide();
         }
 
-        // View Surfboards Button
+        
         private void btnViewSurfboards_Click(object sender, EventArgs e)
         {
-            UpdateViewCount(); // ක්ලික් කරන වාරයක් පාසා count එක වැඩි කරයි
+            UpdateViewCount(); 
 
             view_surfboard viewSurfboard = new view_surfboard();
             viewSurfboard.Show();
             this.Hide();
         }
 
-        // View Services Button
+        
         private void btnViewServices_Click(object sender, EventArgs e)
         {
             Service servicesForm = new Service();
@@ -130,7 +117,7 @@ namespace surf_Board
             this.Hide();
         }
 
-        // Logout Button
+       
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -140,6 +127,11 @@ namespace surf_Board
                 loginForm.Show();
                 this.Hide();
             }
+        }
+
+        private void Customer_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
