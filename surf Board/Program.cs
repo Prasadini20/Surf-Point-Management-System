@@ -14,7 +14,7 @@ namespace surf_Board
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new Customer_Dashboard());
+            Application.Run(new Booking_Form());
            
 
         }

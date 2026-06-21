@@ -75,7 +75,7 @@ namespace surf_Board
         {
             try
             {
-                // අපේ GetLocalSafeConnection() එකෙන් කනෙක්ෂන් එක ගන්නවා
+               
                 using (MySqlConnection conn = GetLocalSafeConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sqlQuery, conn))
