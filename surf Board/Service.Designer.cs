@@ -50,9 +50,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Arial", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Navy;
-            label1.Location = new Point(244, 28);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(243, 28);
             label1.Name = "label1";
             label1.Size = new Size(233, 33);
             label1.TabIndex = 1;
@@ -196,6 +197,7 @@
             // 
             // menuStrip2
             // 
+            menuStrip2.BackColor = Color.Transparent;
             menuStrip2.ImageScalingSize = new Size(20, 20);
             menuStrip2.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             menuStrip2.Location = new Point(0, 0);
@@ -206,8 +208,9 @@
             // 
             // exitToolStripMenuItem
             // 
+            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(47, 24);
+            exitToolStripMenuItem.Size = new Size(49, 24);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -223,6 +226,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Service";
             Text = "SurfLessonsForm";
+            Paint += Service_Paint;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             menuStrip2.ResumeLayout(false);

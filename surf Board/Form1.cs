@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; 
+using MySql.Data.MySqlClient;
 
 namespace surf_Board
 {
@@ -23,7 +23,7 @@ namespace surf_Board
 
         private void InitializePasswordTimer()
         {
-            passwordTimer.Interval = 2000; 
+            passwordTimer.Interval = 2000;
             passwordTimer.Tick += PasswordTimer_Tick;
         }
 
@@ -41,21 +41,21 @@ namespace surf_Board
         {
             if (chkShowPassword.Checked)
             {
-                txtPassword.PasswordChar = '\0'; 
+                txtPassword.PasswordChar = '\0';
 
                 passwordTimer.Stop();
-                passwordTimer.Start(); 
+                passwordTimer.Start();
             }
             else
             {
-                txtPassword.PasswordChar = '●'; 
+                txtPassword.PasswordChar = '●';
             }
         }
 
         private void PasswordTimer_Tick(object sender, EventArgs e)
         {
             passwordTimer.Stop();
-            txtPassword.PasswordChar = '●'; 
+            txtPassword.PasswordChar = '●';
 
             chkShowPassword.CheckedChanged -= chkShowPassword_CheckedChanged;
             chkShowPassword.Checked = false;
@@ -127,7 +127,6 @@ namespace surf_Board
             }
         }
 
-        // 📝 Register Here ලින්ක් එක ක්ලික් කළ විට
         private void lblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegisterForm register = new RegisterForm();

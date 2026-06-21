@@ -23,6 +23,16 @@ namespace surf_Board
             this.Close();
         }
 
-
+        private void Service_Paint(object sender, PaintEventArgs e)
+        {
+            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+         this.ClientRectangle,
+         Color.FromArgb(43, 181, 212),
+         Color.White,
+         90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
     }
 }

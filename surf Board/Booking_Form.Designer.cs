@@ -47,11 +47,7 @@
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newBookingToolStripMenuItem = new ToolStripMenuItem();
-            dashboardToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            managementToolStripMenuItem = new ToolStripMenuItem();
-            customersToolStripMenuItem = new ToolStripMenuItem();
-            surfboardsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -59,15 +55,17 @@
             // lblCustomerIDLabel
             // 
             lblCustomerIDLabel.AutoSize = true;
+            lblCustomerIDLabel.BackColor = Color.Transparent;
             lblCustomerIDLabel.Location = new Point(690, 160);
             lblCustomerIDLabel.Name = "lblCustomerIDLabel";
-            lblCustomerIDLabel.Size = new Size(134, 20);
+            lblCustomerIDLabel.Size = new Size(110, 20);
             lblCustomerIDLabel.TabIndex = 1;
-            lblCustomerIDLabel.Text = "Customer ID          :";
+            lblCustomerIDLabel.Text = "Customer ID    :";
             // 
             // lblSurfboard
             // 
             lblSurfboard.AutoSize = true;
+            lblSurfboard.BackColor = Color.Transparent;
             lblSurfboard.Location = new Point(43, 141);
             lblSurfboard.Name = "lblSurfboard";
             lblSurfboard.Size = new Size(133, 20);
@@ -77,6 +75,7 @@
             // lblBookingDate
             // 
             lblBookingDate.AutoSize = true;
+            lblBookingDate.BackColor = Color.Transparent;
             lblBookingDate.Location = new Point(43, 199);
             lblBookingDate.Name = "lblBookingDate";
             lblBookingDate.Size = new Size(132, 20);
@@ -87,7 +86,7 @@
             // 
             cmbSurfboardType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSurfboardType.FormattingEnabled = true;
-            cmbSurfboardType.Items.AddRange(new object[] { "Shortboard", "Longboard", "Fish", "Funboard", "HybridSoft Top" });
+            cmbSurfboardType.Items.AddRange(new object[] { "Shortboard", "Longboard", "Fish", "Funboard", "Hybrid", "Soft Top" });
             cmbSurfboardType.Location = new Point(217, 141);
             cmbSurfboardType.Name = "cmbSurfboardType";
             cmbSurfboardType.Size = new Size(250, 28);
@@ -105,7 +104,7 @@
             // btnSubmit
             // 
             btnSubmit.BackColor = Color.SteelBlue;
-            btnSubmit.Location = new Point(181, 356);
+            btnSubmit.Location = new Point(393, 356);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(94, 29);
             btnSubmit.TabIndex = 10;
@@ -116,29 +115,29 @@
             // btnClear
             // 
             btnClear.BackColor = Color.SteelBlue;
-            btnClear.Location = new Point(442, 356);
+            btnClear.Location = new Point(669, 356);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 13;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
-            
             // 
             // dgvBookings
             // 
             dgvBookings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookings.Location = new Point(44, 391);
+            dgvBookings.Location = new Point(207, 409);
             dgvBookings.Name = "dgvBookings";
             dgvBookings.RowHeadersWidth = 51;
-            dgvBookings.Size = new Size(740, 188);
+            dgvBookings.Size = new Size(675, 188);
             dgvBookings.TabIndex = 14;
             dgvBookings.CellContentClick += dgvBookings_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(252, 9);
+            label1.Location = new Point(268, 0);
             label1.Name = "label1";
             label1.Size = new Size(572, 41);
             label1.TabIndex = 15;
@@ -147,6 +146,7 @@
             // lblBookingID
             // 
             lblBookingID.AutoSize = true;
+            lblBookingID.BackColor = Color.Transparent;
             lblBookingID.Location = new Point(690, 111);
             lblBookingID.Name = "lblBookingID";
             lblBookingID.Size = new Size(94, 20);
@@ -172,6 +172,7 @@
             // lblTotal
             // 
             lblTotal.AutoSize = true;
+            lblTotal.BackColor = Color.Transparent;
             lblTotal.Location = new Point(690, 216);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(110, 20);
@@ -189,26 +190,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(44, 85);
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(43, 85);
             label2.Name = "label2";
-            label2.Size = new Size(56, 20);
+            label2.Size = new Size(63, 20);
             label2.TabIndex = 22;
-            label2.Text = "Service";
+            label2.Text = "Service :";
+            label2.Click += label2_Click;
             // 
             // cmbService
             // 
             cmbService.FormattingEnabled = true;
             cmbService.Items.AddRange(new object[] { "Private surf lesson beginners (1 person) - 6,000 LKR  (75 min)", "Private surf lesson for couple beginners (2 persons) - 9,000 LKR  (75 min)", "Private surf lesson intermediate (1 person) - 7,500 LKR  (90 min)", "SURF GUIDE (any spot down south) - 9,000 LKR  (90 min)" });
-            cmbService.Location = new Point(106, 82);
+            cmbService.Location = new Point(217, 77);
             cmbService.Name = "cmbService";
-            cmbService.Size = new Size(203, 28);
+            cmbService.Size = new Size(250, 28);
             cmbService.TabIndex = 23;
             cmbService.SelectedIndexChanged += CalculateTotal;
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, managementToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1150, 28);
@@ -217,50 +220,25 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newBookingToolStripMenuItem, dashboardToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newBookingToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Size = new Size(47, 24);
             fileToolStripMenuItem.Text = "File";
             // 
             // newBookingToolStripMenuItem
             // 
             newBookingToolStripMenuItem.Name = "newBookingToolStripMenuItem";
-            newBookingToolStripMenuItem.Size = new Size(181, 26);
+            newBookingToolStripMenuItem.Size = new Size(224, 26);
             newBookingToolStripMenuItem.Text = "New Booking";
             newBookingToolStripMenuItem.Click += newBookingToolStripMenuItem_Click;
-            // 
-            // dashboardToolStripMenuItem
-            // 
-            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new Size(181, 26);
-            dashboardToolStripMenuItem.Text = "Dashboard";
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(181, 26);
+            exitToolStripMenuItem.Size = new Size(224, 26);
             exitToolStripMenuItem.Text = "Exit";
-            // 
-            // managementToolStripMenuItem
-            // 
-            managementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customersToolStripMenuItem, surfboardsToolStripMenuItem });
-            managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            managementToolStripMenuItem.Size = new Size(77, 24);
-            managementToolStripMenuItem.Text = "Manage";
-            // 
-            // customersToolStripMenuItem
-            // 
-            customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            customersToolStripMenuItem.Size = new Size(164, 26);
-            customersToolStripMenuItem.Text = "Customers";
-            customersToolStripMenuItem.Click += customersToolStripMenuItem_Click;
-            // 
-            // surfboardsToolStripMenuItem
-            // 
-            surfboardsToolStripMenuItem.Name = "surfboardsToolStripMenuItem";
-            surfboardsToolStripMenuItem.Size = new Size(164, 26);
-            surfboardsToolStripMenuItem.Text = "Surfboards";
-            surfboardsToolStripMenuItem.Click += surfboardsToolStripMenuItem_Click;
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // Booking_Form
             // 
@@ -289,6 +267,7 @@
             Name = "Booking_Form";
             Text = "Booking_Form";
             Load += Booking_Form_Load;
+            Paint += Booking_Form_Paint;
             ((System.ComponentModel.ISupportInitialize)dgvBookings).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -316,10 +295,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newBookingToolStripMenuItem;
-        private ToolStripMenuItem dashboardToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem managementToolStripMenuItem;
-        private ToolStripMenuItem customersToolStripMenuItem;
-        private ToolStripMenuItem surfboardsToolStripMenuItem;
     }
 }

@@ -161,6 +161,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(303, -2);
             label7.Name = "label7";
@@ -190,8 +191,9 @@
             // 
             // exitToolStripMenuItem
             // 
+            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(47, 24);
+            exitToolStripMenuItem.Size = new Size(49, 24);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -218,6 +220,7 @@
             MainMenuStrip = menuStrip1;
             Name = "view_surfboard";
             Text = "view_surfboard";
+            Paint += view_surfboard_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

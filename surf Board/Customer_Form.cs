@@ -34,7 +34,6 @@ namespace surf_Board
         {
         }
 
-        // 1. FIXED INSERT QUERY (Matches database columns)
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" ||
@@ -55,7 +54,6 @@ namespace surf_Board
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Changed 'Name' to 'FullName', 'PhoneNumber' to 'ContactNumber'
                 string query = "INSERT INTO customers(FullName, ContactNumber, Email, Country, SkillLevel,Username,Password) VALUES(@Name, @Phone, @Email, @Country, @Skill,@Username,@Password)";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -114,7 +112,6 @@ namespace surf_Board
             }
         }
 
-        // 2. FIXED CELL CLICK MAPPINGS (Matches SELECT * order of columns in DB)
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -156,7 +153,6 @@ namespace surf_Board
             }
         }
 
-        // 3. FIXED UPDATE QUERY (Matches database columns)
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -164,7 +160,6 @@ namespace surf_Board
                 MySqlConnection con = DBConnection.GetConnection();
                 con.Open();
 
-                // Changed 'Name' to 'FullName', 'PhoneNumber' to 'ContactNumber'
                 string query = "UPDATE customers SET FullName=@Name, ContactNumber=@Phone, Email=@Email, Country=@Country, SkillLevel=@Skill WHERE CustomerID=@ID";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -191,7 +186,6 @@ namespace surf_Board
             }
         }
 
-        // 4. FIXED SEARCH DATA READER MAPPING
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -207,7 +201,6 @@ namespace surf_Board
 
                 if (dr.Read())
                 {
-                    // Changed column targets here to match SQL keys
                     txtName.Text = dr["FullName"].ToString();
                     txtPhone.Text = dr["ContactNumber"].ToString();
                     txtEmail.Text = dr["Email"].ToString();

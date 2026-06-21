@@ -64,7 +64,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(26, 75);
+            groupBox1.Location = new Point(93, 80);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(798, 269);
             groupBox1.TabIndex = 0;
@@ -158,7 +158,7 @@
             // btnAddNew
             // 
             btnAddNew.BackColor = Color.SteelBlue;
-            btnAddNew.Location = new Point(38, 405);
+            btnAddNew.Location = new Point(125, 405);
             btnAddNew.Name = "btnAddNew";
             btnAddNew.Size = new Size(94, 29);
             btnAddNew.TabIndex = 2;
@@ -169,7 +169,7 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.SteelBlue;
-            btnUpdate.Location = new Point(208, 405);
+            btnUpdate.Location = new Point(337, 405);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 3;
@@ -180,7 +180,7 @@
             // btnDelete
             // 
             btnDelete.BackColor = Color.SteelBlue;
-            btnDelete.Location = new Point(387, 405);
+            btnDelete.Location = new Point(550, 405);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 4;
@@ -191,7 +191,7 @@
             // btnClear
             // 
             btnClear.BackColor = Color.SteelBlue;
-            btnClear.Location = new Point(579, 405);
+            btnClear.Location = new Point(746, 405);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 5;
@@ -202,18 +202,18 @@
             // dgvSurfboards
             // 
             dgvSurfboards.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSurfboards.Location = new Point(26, 468);
+            dgvSurfboards.Location = new Point(142, 472);
             dgvSurfboards.Name = "dgvSurfboards";
             dgvSurfboards.RowHeadersWidth = 51;
-            dgvSurfboards.Size = new Size(787, 259);
+            dgvSurfboards.Size = new Size(674, 259);
             dgvSurfboards.TabIndex = 6;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.BackColor = Color.SteelBlue;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(372, 0);
+            label7.Location = new Point(320, 0);
             label7.Name = "label7";
             label7.Size = new Size(357, 41);
             label7.TabIndex = 7;
@@ -221,6 +221,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.Transparent;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
@@ -231,8 +232,9 @@
             // 
             // exitToolStripMenuItem
             // 
+            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(47, 24);
+            exitToolStripMenuItem.Size = new Size(49, 24);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -255,6 +257,7 @@
             Text = "Surfboard_Management";
             FormClosing += Surfboard_Management_FormClosing;
             Load += Surfboard_Management_Load;
+            Paint += Surfboard_Management_Paint;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSurfboards).EndInit();

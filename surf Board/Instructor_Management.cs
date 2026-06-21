@@ -22,18 +22,14 @@ namespace surf_Board
 
             LoadNextInstructorID();
 
-            // Matches the menu strip background to the exact top color of your gradient
             menuStrip1.BackColor = Color.FromArgb(43, 181, 212);
 
-            // ================== PASTE IT RIGHT HERE ==================
             dgvInstructor.EnableHeadersVisualStyles = false;
-            dgvInstructor.BackgroundColor = Color.White; // Keeps the bottom area clean and white
+            dgvInstructor.BackgroundColor = Color.White; 
 
-            // Rich dark blue/teal for high contrast and readability
             dgvInstructor.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 75, 115);
-            dgvInstructor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // Crisp white text
+            dgvInstructor.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; 
             dgvInstructor.ColumnHeadersDefaultCellStyle.Font = new Font(dgvInstructor.Font, FontStyle.Bold);
-            // =========================================================
 
             LoadInstructors();
 
@@ -324,9 +320,9 @@ namespace surf_Board
 
             using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
             this.ClientRectangle,
-            Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
-            Color.White,                  // Fades into clean white at the bottom
-            90F))                          // 90 degrees handles top-to-bottom fading
+            Color.FromArgb(43, 181, 212),  
+            Color.White,                  
+            90F))                          
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
