@@ -1,6 +1,6 @@
 ﻿
 using MySql.Data.MySqlClient;
-using Surfing_Management_System;
+using surf_Board;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -347,10 +347,35 @@ namespace surf_Board
                 
             }
         }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to go back to Admin Dashboard?",
+                "Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
-       
+            if (result == DialogResult.Yes)
+            {
 
-       
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+                this.Hide();
+            }
+        }
+
+
+        private void Customer_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
+        }
+
+
+
+
     }
 
 
