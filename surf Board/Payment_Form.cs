@@ -7,8 +7,7 @@ namespace surf_Board
 {
     public partial class Payment_Form : Form
     {
-        // පොදු DBConnection එක වෙනස් නොකර, මේ Form එක ඇතුළේ විතරක් පාවිච්චි කරන්න 
-        // string connString එක අයින් කරලා පහත ක්‍රමය (Method) භාවිතා කරනවා.
+        
 
         public Payment_Form(string bookingID, string amount)
         {
@@ -20,13 +19,13 @@ namespace surf_Board
             txtAmount.ReadOnly = true;
         }
 
-        // 🔐 ඔයාගේ මැෂින් එකේදී විතරක් කනෙක්ෂන් එක මාරු කරන රහස් මෙතඩ් එක
+        
         private MySqlConnection GetLocalSafeConnection()
         {
-            // මුලින්ම ඔයාලගේ පොදු DBConnection එකෙන් සාමාන්‍ය කනෙක්ෂන් එක ගන්නවා (password නැති එක)
+            
             MySqlConnection conn = DBConnection.GetConnection();
 
-            // ඔයාගේ Laptop එකේදී විතරක් password එක ඇතුළත් කරලා connection string එක ඔයාගේ එකට මාරු කරනවා
+            
             if (Environment.MachineName == "LAPTOP-S723VTT7")
             {
                 conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
@@ -45,7 +44,7 @@ namespace surf_Board
 
             try
             {
-                // අපි හදපු GetLocalSafeConnection() එකෙන් කනෙක්ෂන් එක ගන්නවා
+               
                 using (MySqlConnection conn = GetLocalSafeConnection())
                 {
                     string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, PaymentDate) VALUES (@BID, @Amount, @Method, @Date)";
