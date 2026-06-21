@@ -34,7 +34,6 @@
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             btnLogin = new Button();
-            chkShowPassword = new CheckBox();
             panel1 = new Panel();
             lblRegister = new LinkLabel();
             cmbUserType = new ComboBox();
@@ -95,20 +94,6 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // chkShowPassword
-            // 
-            chkShowPassword.AutoSize = true;
-            chkShowPassword.BackColor = Color.Transparent;
-            chkShowPassword.Location = new Point(59, 276);
-            chkShowPassword.Margin = new Padding(3, 4, 3, 4);
-            chkShowPassword.Name = "chkShowPassword";
-            chkShowPassword.Size = new Size(132, 24);
-            chkShowPassword.TabIndex = 5;
-            chkShowPassword.Text = "Show Password";
-            chkShowPassword.UseVisualStyleBackColor = false;
-            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
-            chkShowPassword.Click += PasswordTimer_Tick;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(150, 255, 255, 255);
@@ -120,7 +105,6 @@
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(btnLogin);
-            panel1.Controls.Add(chkShowPassword);
             panel1.Location = new Point(107, 124);
             panel1.Name = "panel1";
             panel1.Size = new Size(540, 415);
@@ -195,7 +179,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.LinkLabel lnkForgotPassword;
         private Panel panel1;
         private Label label3;

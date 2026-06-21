@@ -13,53 +13,21 @@ namespace surf_Board
 {
     public partial class Form1 : Form
     {
-        private System.Windows.Forms.Timer passwordTimer = new System.Windows.Forms.Timer();
-
         public Form1()
         {
             InitializeComponent();
-            InitializePasswordTimer();
-        }
-
-        private void InitializePasswordTimer()
-        {
-            passwordTimer.Interval = 2000;
-            passwordTimer.Tick += PasswordTimer_Tick;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Dropdown එකට සාමාන්‍ය පරිදි දත්ත ඇතුළත් කිරීම
             cmbUserType.Items.Clear();
             cmbUserType.Items.Add("Admin");
             cmbUserType.Items.Add("Customer");
             cmbUserType.SelectedIndex = 0;
 
+            // Password එක හැමතිස්සෙම Dot (●) විදිහට විතරක් පෙන්වීමට සැකසීම
             txtPassword.PasswordChar = '●';
-        }
-
-        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.PasswordChar = '\0';
-
-                passwordTimer.Stop();
-                passwordTimer.Start();
-            }
-            else
-            {
-                txtPassword.PasswordChar = '●';
-            }
-        }
-
-        private void PasswordTimer_Tick(object sender, EventArgs e)
-        {
-            passwordTimer.Stop();
-            txtPassword.PasswordChar = '●';
-
-            chkShowPassword.CheckedChanged -= chkShowPassword_CheckedChanged;
-            chkShowPassword.Checked = false;
-            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
