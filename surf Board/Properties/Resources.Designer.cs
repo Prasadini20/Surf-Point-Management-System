@@ -63,9 +63,59 @@ namespace surf_Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3c6be6a53242951364146c1345f30c5c {
+            get {
+                object obj = ResourceManager.GetObject("3c6be6a53242951364146c1345f30c5c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _64db8df80ac058d0ee6ff119a0965e8f {
             get {
-                object obj = ResourceManager.GetObject("_64db8df80ac058d0ee6ff119a0965e8f", resourceCulture);
+                object obj = ResourceManager.GetObject("64db8df80ac058d0ee6ff119a0965e8f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _72aab28e717ac69800cb316fa329a85a {
+            get {
+                object obj = ResourceManager.GetObject("72aab28e717ac69800cb316fa329a85a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a1567ca30cd28204262d8f72526fe66d {
+            get {
+                object obj = ResourceManager.GetObject("a1567ca30cd28204262d8f72526fe66d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a1567ca30cd28204262d8f72526fe66d1 {
+            get {
+                object obj = ResourceManager.GetObject("a1567ca30cd28204262d8f72526fe66d1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap c0cfd94ad9887cfa3dd1cddd40d32f9e {
+            get {
+                object obj = ResourceManager.GetObject("c0cfd94ad9887cfa3dd1cddd40d32f9e", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
