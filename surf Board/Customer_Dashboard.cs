@@ -25,51 +25,8 @@ namespace surf_Board
             GraphicsPath gp = new GraphicsPath();
             gp.AddEllipse(0, 0, pbHeaderLogo.Width, pbHeaderLogo.Height);
             pbHeaderLogo.Region = new Region(gp);
-
-            LoadDashboardOverview();
         }
 
-        private void LoadDashboardOverview()
-        {
-            try
-            {
-                using (MySqlConnection conn = DBConnection.GetConnection())
-                {
-                    conn.Open();
-
-                    string queryTotalBookings = "SELECT COUNT(*) FROM bookings WHERE CustomerID = @customerID";
-                    using (MySqlCommand cmd = new MySqlCommand(queryTotalBookings, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@customerID", currentCustomerID);
-                        label7.Text = cmd.ExecuteScalar().ToString();
-                    }
-
-                    
-
-                    string queryLastBooking = "SELECT DATEDIFF(NOW(), MAX(BookingDate)) FROM bookings WHERE CustomerID = @customerID";
-                    using (MySqlCommand cmd = new MySqlCommand(queryLastBooking, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@customerID", currentCustomerID);
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != DBNull.Value && result != null)
-                        {
-                            label9.Text = result.ToString() + " Days Ago";
-                        }
-                        else
-                        {
-                           label9.Text = "No Bookings"; 
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading dashboard data: " + ex.Message);
-            }
-        }
-
-        
         private void UpdateViewCount()
         {
             try
@@ -89,9 +46,6 @@ namespace surf_Board
             catch { /* Ignore Errors */ }
         }
 
-        
-
-       
         private void btnMakeBookings_Click(object sender, EventArgs e)
         {
             Booking_Form bookingForm = new Booking_Form();
@@ -99,17 +53,15 @@ namespace surf_Board
             this.Hide();
         }
 
-        
         private void btnViewSurfboards_Click(object sender, EventArgs e)
         {
-            UpdateViewCount(); 
+            UpdateViewCount();
 
             view_surfboard viewSurfboard = new view_surfboard();
             viewSurfboard.Show();
             this.Hide();
         }
 
-        
         private void btnViewServices_Click(object sender, EventArgs e)
         {
             Service servicesForm = new Service();
@@ -117,7 +69,6 @@ namespace surf_Board
             this.Hide();
         }
 
-       
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
