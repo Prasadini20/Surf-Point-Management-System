@@ -207,17 +207,17 @@ namespace surf_Board
 
         private void Booking_Form_Load(object sender, EventArgs e)
         {
-           
+         
             lblCustomerIDLabel.Text = UserSession.LoggedCustomerID;
 
             
             lblCustomerID.Text = UserSession.LoggedCustomerID;
 
             
-
             LoadServices();
             LoadSurfboards();
 
+            
             GetNextBookingID();
         }
     }
