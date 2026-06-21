@@ -115,7 +115,9 @@ namespace surf_Board
 
             Payment_Form pForm = new Payment_Form(bookingID.ToString(), txtTotalAmount.Text);
             pForm.Show();
-            this.Hide();
+
+           
+            this.Close();
         }
     }
 }
