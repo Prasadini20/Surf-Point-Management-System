@@ -14,20 +14,15 @@ namespace surf_Board
         {
             InitializeComponent();
         }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Customer_Dashboard dashboard = new Customer_Dashboard();
 
+            dashboard.Show();
+
+            this.Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
