@@ -11,7 +11,7 @@ namespace Surfing_Management_System
         {
             InitializeComponent();
 
-            // Skill Level ComboBox එක සැකසීම
+           
             comboBox1.Items.Clear();
             comboBox1.Items.Add("Beginner");
             comboBox1.Items.Add("Intermediate");
@@ -22,7 +22,7 @@ namespace Surfing_Management_System
 
         private void btnRegisterSubmit_Click(object sender, EventArgs e)
         {
-            // සියලුම ක්ෂේත්‍ර පුරවා ඇත්දැයි පරීක්ෂා කිරීම (Validation)
+            
             if (string.IsNullOrWhiteSpace(txtRegFullName.Text) ||
                 string.IsNullOrWhiteSpace(txtRegUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtRegPassword.Text))
@@ -31,7 +31,7 @@ namespace Surfing_Management_System
                 return;
             }
 
-            // ලියාපදිංචිය තහවුරු කිරීම (Confirmation)
+            
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to register with this password?",
                                                        "Confirm Registration",
                                                        MessageBoxButtons.OKCancel,
@@ -59,7 +59,7 @@ namespace Surfing_Management_System
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Successfully registered!");
 
-                            // ලියාපදිංචිය සාර්ථක නම් Login පිටුවට (Form1) මාරු වීම
+                            
                             Form1 login = new Form1();
                             login.Show();
                             this.Hide();
