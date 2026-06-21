@@ -53,11 +53,11 @@
             // txtRegFullName
             // 
             txtRegFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegFullName.Location = new Point(220, 110);
+            txtRegFullName.Location = new Point(220, 105);
             txtRegFullName.Margin = new Padding(3, 4, 3, 4);
             txtRegFullName.Multiline = true;
             txtRegFullName.Name = "txtRegFullName";
-            txtRegFullName.Size = new Size(282, 26);
+            txtRegFullName.Size = new Size(282, 31);
             txtRegFullName.TabIndex = 0;
             // 
             // txtRegUsername
