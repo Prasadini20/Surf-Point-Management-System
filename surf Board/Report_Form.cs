@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace surf_Board
 {
@@ -13,18 +13,18 @@ namespace surf_Board
         }
 
         
-        private MySqlConnection GetLocalConnection()
+        private MySqlConnection GetLocalSafeConnection()
         {
+            
             MySqlConnection conn = DBConnection.GetConnection();
 
             
             if (Environment.MachineName == "LAPTOP-S723VTT7")
             {
-                string updatedConnectionString = "server=localhost;database=surf_point_db;uid=root;pwd=sql1234@;";
-                return new MySqlConnection(updatedConnectionString);
+                conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
             }
 
-            return conn; // Auto works for your friends with default XAMPP configuration
+            return conn;
         }
 
         private void Report_Form_Load(object sender, EventArgs e)
@@ -75,7 +75,8 @@ namespace surf_Board
         {
             try
             {
-                using (MySqlConnection conn = GetLocalConnection()) // 🛠️ Updated to GetLocalConnection
+               
+                using (MySqlConnection conn = GetLocalSafeConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sqlQuery, conn))
                     {

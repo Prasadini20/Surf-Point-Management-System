@@ -253,6 +253,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Surfboard_Management";
             Text = "Surfboard_Management";
+            FormClosing += Surfboard_Management_FormClosing;
             Load += Surfboard_Management_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

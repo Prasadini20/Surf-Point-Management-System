@@ -21,6 +21,10 @@ namespace surf_Board
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Customer_Dashboard dashboard = new Customer_Dashboard();
+
+            dashboard.Show();
+
             this.Close();
         }
     }

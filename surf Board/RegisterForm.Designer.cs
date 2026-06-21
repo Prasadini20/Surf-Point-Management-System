@@ -1,4 +1,4 @@
-﻿namespace Surfing_Management_System
+﻿namespace surf_Board
 {
     partial class RegisterForm
     {
@@ -28,176 +28,244 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtRegFullName = new System.Windows.Forms.TextBox();
-            this.txtRegUsername = new System.Windows.Forms.TextBox();
-            this.txtRegContact = new System.Windows.Forms.TextBox();
-            this.txtRegPassword = new System.Windows.Forms.TextBox();
-            this.btnRegisterSubmit = new System.Windows.Forms.Button();
-            this.lnkBackToLogin = new System.Windows.Forms.LinkLabel();
-            this.registrationPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.registrationPanel.SuspendLayout();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
+            txtRegFullName = new TextBox();
+            txtRegUsername = new TextBox();
+            txtRegContact = new TextBox();
+            txtRegPassword = new TextBox();
+            btnRegisterSubmit = new Button();
+            lnkBackToLogin = new LinkLabel();
+            registrationPanel = new Panel();
+            comboBox1 = new ComboBox();
+            label9 = new Label();
+            label8 = new Label();
+            txtRegEmail = new TextBox();
+            txtRegCountry = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label1 = new Label();
+            registrationPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // txtRegFullName
             // 
-            this.txtRegFullName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegFullName.Location = new System.Drawing.Point(79, 170);
-            this.txtRegFullName.Multiline = true;
-            this.txtRegFullName.Name = "txtRegFullName";
-            this.txtRegFullName.Size = new System.Drawing.Size(282, 37);
-            this.txtRegFullName.TabIndex = 0;
-            this.txtRegFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRegFullName.TextChanged += new System.EventHandler(this.txtRegFullName_TextChanged);
+            txtRegFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRegFullName.Location = new Point(220, 104);
+            txtRegFullName.Margin = new Padding(3, 4, 3, 4);
+            txtRegFullName.Multiline = true;
+            txtRegFullName.Name = "txtRegFullName";
+            txtRegFullName.Size = new Size(282, 35);
+            txtRegFullName.TabIndex = 0;
+            txtRegFullName.TextAlign = HorizontalAlignment.Center;
             // 
             // txtRegUsername
             // 
-            this.txtRegUsername.Location = new System.Drawing.Point(423, 170);
-            this.txtRegUsername.Multiline = true;
-            this.txtRegUsername.Name = "txtRegUsername";
-            this.txtRegUsername.Size = new System.Drawing.Size(260, 37);
-            this.txtRegUsername.TabIndex = 1;
+            txtRegUsername.Location = new Point(219, 426);
+            txtRegUsername.Margin = new Padding(3, 4, 3, 4);
+            txtRegUsername.Multiline = true;
+            txtRegUsername.Name = "txtRegUsername";
+            txtRegUsername.Size = new Size(260, 39);
+            txtRegUsername.TabIndex = 1;
             // 
             // txtRegContact
             // 
-            this.txtRegContact.Location = new System.Drawing.Point(79, 294);
-            this.txtRegContact.Multiline = true;
-            this.txtRegContact.Name = "txtRegContact";
-            this.txtRegContact.Size = new System.Drawing.Size(282, 32);
-            this.txtRegContact.TabIndex = 2;
+            txtRegContact.Location = new Point(220, 169);
+            txtRegContact.Margin = new Padding(3, 4, 3, 4);
+            txtRegContact.Multiline = true;
+            txtRegContact.Name = "txtRegContact";
+            txtRegContact.Size = new Size(282, 32);
+            txtRegContact.TabIndex = 2;
             // 
             // txtRegPassword
             // 
-            this.txtRegPassword.Location = new System.Drawing.Point(423, 294);
-            this.txtRegPassword.Multiline = true;
-            this.txtRegPassword.Name = "txtRegPassword";
-            this.txtRegPassword.Size = new System.Drawing.Size(260, 32);
-            this.txtRegPassword.TabIndex = 3;
-            this.txtRegPassword.TextChanged += new System.EventHandler(this.txtRegPassword_TextChanged);
+            txtRegPassword.Location = new Point(219, 497);
+            txtRegPassword.Margin = new Padding(3, 4, 3, 4);
+            txtRegPassword.Multiline = true;
+            txtRegPassword.Name = "txtRegPassword";
+            txtRegPassword.Size = new Size(260, 39);
+            txtRegPassword.TabIndex = 3;
             // 
             // btnRegisterSubmit
             // 
-            this.btnRegisterSubmit.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnRegisterSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterSubmit.Location = new System.Drawing.Point(233, 392);
-            this.btnRegisterSubmit.Name = "btnRegisterSubmit";
-            this.btnRegisterSubmit.Size = new System.Drawing.Size(332, 37);
-            this.btnRegisterSubmit.TabIndex = 5;
-            this.btnRegisterSubmit.Text = "REGISTER";
-            this.btnRegisterSubmit.UseVisualStyleBackColor = false;
-            this.btnRegisterSubmit.Click += new System.EventHandler(this.btnRegisterSubmit_Click);
+            btnRegisterSubmit.BackColor = Color.FromArgb(0, 119, 182);
+            btnRegisterSubmit.FlatStyle = FlatStyle.Flat;
+            btnRegisterSubmit.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegisterSubmit.ForeColor = Color.White;
+            btnRegisterSubmit.Location = new Point(220, 557);
+            btnRegisterSubmit.Margin = new Padding(3, 4, 3, 4);
+            btnRegisterSubmit.Name = "btnRegisterSubmit";
+            btnRegisterSubmit.Size = new Size(332, 46);
+            btnRegisterSubmit.TabIndex = 5;
+            btnRegisterSubmit.Text = "REGISTER";
+            btnRegisterSubmit.UseVisualStyleBackColor = false;
+            btnRegisterSubmit.Click += btnRegisterSubmit_Click;
             // 
             // lnkBackToLogin
             // 
-            this.lnkBackToLogin.AutoSize = true;
-            this.lnkBackToLogin.Location = new System.Drawing.Point(300, 461);
-            this.lnkBackToLogin.Name = "lnkBackToLogin";
-            this.lnkBackToLogin.Size = new System.Drawing.Size(198, 16);
-            this.lnkBackToLogin.TabIndex = 6;
-            this.lnkBackToLogin.TabStop = true;
-            this.lnkBackToLogin.Text = "Already have an account? Login";
-            this.lnkBackToLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkBackToLogin_LinkClicked);
+            lnkBackToLogin.AutoSize = true;
+            lnkBackToLogin.BackColor = Color.Transparent;
+            lnkBackToLogin.Location = new Point(294, 616);
+            lnkBackToLogin.Name = "lnkBackToLogin";
+            lnkBackToLogin.Size = new Size(219, 20);
+            lnkBackToLogin.TabIndex = 6;
+            lnkBackToLogin.TabStop = true;
+            lnkBackToLogin.Text = "Already have an account? Login";
+            lnkBackToLogin.LinkClicked += lnkBackToLogin_LinkClicked;
             // 
             // registrationPanel
             // 
-            this.registrationPanel.Controls.Add(this.label6);
-            this.registrationPanel.Controls.Add(this.label5);
-            this.registrationPanel.Controls.Add(this.label4);
-            this.registrationPanel.Controls.Add(this.label3);
-            this.registrationPanel.Controls.Add(this.label1);
-            this.registrationPanel.Controls.Add(this.txtRegUsername);
-            this.registrationPanel.Controls.Add(this.txtRegFullName);
-            this.registrationPanel.Controls.Add(this.lnkBackToLogin);
-            this.registrationPanel.Controls.Add(this.txtRegContact);
-            this.registrationPanel.Controls.Add(this.btnRegisterSubmit);
-            this.registrationPanel.Controls.Add(this.txtRegPassword);
-            this.registrationPanel.Location = new System.Drawing.Point(138, 51);
-            this.registrationPanel.Name = "registrationPanel";
-            this.registrationPanel.Size = new System.Drawing.Size(752, 521);
-            this.registrationPanel.TabIndex = 7;
-            this.registrationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.registrationPanel_Paint);
+            registrationPanel.BackColor = Color.FromArgb(150, 255, 255, 255);
+            registrationPanel.Controls.Add(comboBox1);
+            registrationPanel.Controls.Add(label9);
+            registrationPanel.Controls.Add(label8);
+            registrationPanel.Controls.Add(txtRegEmail);
+            registrationPanel.Controls.Add(txtRegCountry);
+            registrationPanel.Controls.Add(label7);
+            registrationPanel.Controls.Add(label6);
+            registrationPanel.Controls.Add(label5);
+            registrationPanel.Controls.Add(label4);
+            registrationPanel.Controls.Add(label3);
+            registrationPanel.Controls.Add(label1);
+            registrationPanel.Controls.Add(txtRegUsername);
+            registrationPanel.Controls.Add(txtRegFullName);
+            registrationPanel.Controls.Add(lnkBackToLogin);
+            registrationPanel.Controls.Add(txtRegContact);
+            registrationPanel.Controls.Add(btnRegisterSubmit);
+            registrationPanel.Controls.Add(txtRegPassword);
+            registrationPanel.Location = new Point(138, 64);
+            registrationPanel.Margin = new Padding(3, 4, 3, 4);
+            registrationPanel.Name = "registrationPanel";
+            registrationPanel.Size = new Size(752, 651);
+            registrationPanel.TabIndex = 7;
             // 
-            // label1
+            // comboBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(270, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Registration";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(220, 366);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 16;
             // 
-            // label2
+            // label9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(46, 370);
+            label9.Name = "label9";
+            label9.Size = new Size(96, 18);
+            label9.TabIndex = 15;
+            label9.Text = "SKILL LEVEL";
             // 
-            // label3
+            // label8
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(79, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "FULL NAME";
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(46, 305);
+            label8.Name = "label8";
+            label8.Size = new Size(51, 18);
+            label8.TabIndex = 14;
+            label8.Text = "EMAIL";
             // 
-            // label4
+            // txtRegEmail
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(79, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "CONTACT NUMBER";
+            txtRegEmail.Location = new Point(219, 301);
+            txtRegEmail.Name = "txtRegEmail";
+            txtRegEmail.Size = new Size(374, 27);
+            txtRegEmail.TabIndex = 13;
             // 
-            // label5
+            // txtRegCountry
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(423, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "USERNAME";
+            txtRegCountry.Location = new Point(220, 237);
+            txtRegCountry.Name = "txtRegCountry";
+            txtRegCountry.Size = new Size(219, 27);
+            txtRegCountry.TabIndex = 12;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(46, 241);
+            label7.Name = "label7";
+            label7.Size = new Size(82, 18);
+            label7.TabIndex = 11;
+            label7.Text = "COUNTRY";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(427, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "PASSWORD";
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(46, 501);
+            label6.Name = "label6";
+            label6.Size = new Size(96, 18);
+            label6.TabIndex = 10;
+            label6.Text = "PASSWORD";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Microsoft PhagsPa", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(46, 429);
+            label5.Name = "label5";
+            label5.Size = new Size(86, 20);
+            label5.TabIndex = 9;
+            label5.Text = "USERNAME";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(46, 173);
+            label4.Name = "label4";
+            label4.Size = new Size(150, 18);
+            label4.TabIndex = 8;
+            label4.Text = "CONTACT NUMBER";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(46, 110);
+            label3.Name = "label3";
+            label3.Size = new Size(91, 18);
+            label3.TabIndex = 7;
+            label3.Text = "FULL NAME";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(127, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(487, 45);
+            label1.TabIndex = 0;
+            label1.Text = "Create Your Aquaride Account";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::surf_Board.Properties.Resources._64db8df80ac058d0ee6ff119a0965e8f;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1018, 642);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.registrationPanel);
-            this.Name = "RegisterForm";
-            this.Text = "RegisterForm";
-            this.registrationPanel.ResumeLayout(false);
-            this.registrationPanel.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1061, 802);
+            Controls.Add(registrationPanel);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "RegisterForm";
+            Text = "RegisterForm";
+            registrationPanel.ResumeLayout(false);
+            registrationPanel.PerformLayout();
+            ResumeLayout(false);
 
         }
 
@@ -213,8 +281,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private Label label8;
+        private TextBox txtRegEmail;
+        private TextBox txtRegCountry;
+        private Label label7;
+        private ComboBox comboBox1;
+        private Label label9;
     }
 }
