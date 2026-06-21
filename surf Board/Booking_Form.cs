@@ -7,11 +7,27 @@ namespace surf_Board
 {
     public partial class Booking_Form : Form
     {
-        string connString = "server=localhost;database=surf_point_db;uid=root;pwd=sql1234@;";
+        // පොදු DBConnection එක වෙනස් නොකර, මේ Form එක ඇතුළේ විතරක් පාවිච්චි කරන්න 
+        // string connString එක අයින් කරලා පහත ක්‍රමය (Method) භාවිතා කරනවා.
 
         public Booking_Form()
         {
             InitializeComponent();
+        }
+
+        // 🔐 ඔයාගේ මැෂින් එකේදී විතරක් කනෙක්ෂන් එක මාරු කරන රහස් මෙතඩ් එක
+        private MySqlConnection GetLocalSafeConnection()
+        {
+            // මුලින්ම ඔයාලගේ පොදු DBConnection එකෙන් සාමාන්‍ය කනෙක්ෂන් එක ගන්නවා (password නැති එක)
+            MySqlConnection conn = DBConnection.GetConnection();
+
+            // ඔයාගේ Laptop එකේදී විතරක් password එක ඇතුළත් කරලා connection string එක ඔයාගේ එකට මාරු කරනවා
+            if (Environment.MachineName == "LAPTOP-S723VTT7")
+            {
+                conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
+            }
+
+            return conn;
         }
 
         private void Booking_Form_Load(object sender, EventArgs e)
@@ -24,7 +40,9 @@ namespace surf_Board
         private void LoadServices()
         {
             string query = "SELECT ServiceName, Price FROM Services;";
-            using (MySqlConnection conn = new MySqlConnection(connString))
+
+            // අපි හදපු GetLocalSafeConnection() එකෙන් කනෙක්ෂන් එක ගන්නවා
+            using (MySqlConnection conn = GetLocalSafeConnection())
             {
                 MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -39,7 +57,8 @@ namespace surf_Board
         private void LoadSurfboards()
         {
             string query = "SELECT Type, Price FROM Surfboards;";
-            using (MySqlConnection conn = new MySqlConnection(connString))
+
+            using (MySqlConnection conn = GetLocalSafeConnection())
             {
                 MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -55,8 +74,18 @@ namespace surf_Board
         {
             decimal servicePrice = 0;
             decimal boardPrice = 0;
-            if (cmbService.SelectedValue != null && decimal.TryParse(cmbService.SelectedValue.ToString(), out servicePrice)) { }
-            if (cmbSurfboardType.SelectedValue != null && decimal.TryParse(cmbSurfboardType.SelectedValue.ToString(), out boardPrice)) { }
+
+            // TryParse එකෙන් එන අගයන් නිවැරදිව Variable එකට Assign වන ලෙස හැදුවා
+            if (cmbService.SelectedValue != null && decimal.TryParse(cmbService.SelectedValue.ToString(), out decimal sPrice))
+            {
+                servicePrice = sPrice;
+            }
+
+            if (cmbSurfboardType.SelectedValue != null && decimal.TryParse(cmbSurfboardType.SelectedValue.ToString(), out decimal bPrice))
+            {
+                boardPrice = bPrice;
+            }
+
             txtTotalAmount.Text = (servicePrice + boardPrice).ToString("F2");
         }
 
@@ -71,7 +100,7 @@ namespace surf_Board
             string query = "INSERT INTO Bookings (CustomerID, ServiceName, SurfboardType, BookingDate, TotalAmount) VALUES (@CID, @Service, @Type, @Date, @Total);";
             long bookingID = 0;
 
-            using (MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = GetLocalSafeConnection())
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -80,6 +109,7 @@ namespace surf_Board
                     cmd.Parameters.AddWithValue("@Type", cmbSurfboardType.Text);
                     cmd.Parameters.AddWithValue("@Date", dtpBookingDate.Value.Date);
                     cmd.Parameters.AddWithValue("@Total", txtTotalAmount.Text);
+
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     bookingID = cmd.LastInsertedId;
