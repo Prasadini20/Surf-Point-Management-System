@@ -1,4 +1,4 @@
-﻿namespace Surfing_Management_System
+﻿namespace surf_Board
 {
     partial class Form1
     {
@@ -28,94 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            label1 = new Label();
+            label2 = new Label();
+            txtUsername = new TextBox();
+            txtPassword = new TextBox();
+            btnLogin = new Button();
+            chkShowPassword = new CheckBox();
+            panel1 = new Panel();
+            lblRegister = new LinkLabel();
+            cmbUserType = new ComboBox();
+            label3 = new Label();
+            label4 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(388, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Location = new Point(47, 136);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Username :";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(388, 136);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Location = new System.Drawing.Point(408, 86);
-            this.lblUsername.Multiline = true;
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(216, 29);
-            this.lblUsername.TabIndex = 2;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(50, 231);
+            label2.Name = "label2";
+            label2.Size = new Size(77, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Password :";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(408, 167);
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(216, 27);
-            this.txtUsername.TabIndex = 3;
+            txtUsername.Location = new Point(207, 133);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Multiline = true;
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(216, 35);
+            txtUsername.TabIndex = 2;
+            txtUsername.UseSystemPasswordChar = true;
+            txtUsername.TextChanged += txtUsername_TextChanged;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(207, 228);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Multiline = true;
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(216, 33);
+            txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(391, 301);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.BackColor = Color.RoyalBlue;
+            btnLogin.Location = new Point(336, 318);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(161, 29);
+            btnLogin.TabIndex = 4;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // chkShowPassword
             // 
-            this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(391, 220);
-            this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
-            this.chkShowPassword.TabIndex = 5;
-            this.chkShowPassword.Text = "Show Password";
-            this.chkShowPassword.UseVisualStyleBackColor = true;
+            chkShowPassword.AutoSize = true;
+            chkShowPassword.BackColor = Color.Transparent;
+            chkShowPassword.Location = new Point(59, 276);
+            chkShowPassword.Margin = new Padding(3, 4, 3, 4);
+            chkShowPassword.Name = "chkShowPassword";
+            chkShowPassword.Size = new Size(132, 24);
+            chkShowPassword.TabIndex = 5;
+            chkShowPassword.Text = "Show Password";
+            chkShowPassword.UseVisualStyleBackColor = false;
+            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
+            chkShowPassword.Click += PasswordTimer_Tick;
             // 
-            // lnkForgotPassword
+            // panel1
             // 
-            this.lnkForgotPassword.AutoSize = true;
-            this.lnkForgotPassword.Location = new System.Drawing.Point(508, 243);
-            this.lnkForgotPassword.Name = "lnkForgotPassword";
-            this.lnkForgotPassword.Size = new System.Drawing.Size(116, 16);
-            this.lnkForgotPassword.TabIndex = 6;
-            this.lnkForgotPassword.TabStop = true;
-            this.lnkForgotPassword.Text = "Forgot Password?";
+            panel1.BackColor = Color.FromArgb(150, 255, 255, 255);
+            panel1.Controls.Add(lblRegister);
+            panel1.Controls.Add(cmbUserType);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtUsername);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(chkShowPassword);
+            panel1.Location = new Point(107, 124);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(540, 415);
+            panel1.TabIndex = 7;
+            // 
+            // lblRegister
+            // 
+            lblRegister.AutoSize = true;
+            lblRegister.BackColor = Color.Transparent;
+            lblRegister.Location = new Point(136, 378);
+            lblRegister.Name = "lblRegister";
+            lblRegister.Size = new Size(254, 20);
+            lblRegister.TabIndex = 11;
+            lblRegister.TabStop = true;
+            lblRegister.Text = "Don't have an account? Register here";
+            lblRegister.LinkClicked += lblRegister_LinkClicked;
+            // 
+            // cmbUserType
+            // 
+            cmbUserType.FormattingEnabled = true;
+            cmbUserType.Items.AddRange(new object[] { "Admin", "Customer" });
+            cmbUserType.Location = new Point(207, 35);
+            cmbUserType.Name = "cmbUserType";
+            cmbUserType.Size = new Size(216, 28);
+            cmbUserType.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(47, 38);
+            label3.Name = "label3";
+            label3.Size = new Size(80, 20);
+            label3.TabIndex = 8;
+            label3.Text = "User Type :";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label4.Location = new Point(279, 37);
+            label4.Name = "label4";
+            label4.Size = new Size(218, 54);
+            label4.TabIndex = 9;
+            label4.Text = "Aqua Ride";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lnkForgotPassword);
-            this.Controls.Add(this.chkShowPassword);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 562);
+            Controls.Add(label4);
+            Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -123,11 +192,16 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox lblUsername;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.LinkLabel lnkForgotPassword;
+        private Panel panel1;
+        private Label label3;
+        private Label label4;
+        private ComboBox cmbUserType;
+        private LinkLabel lblRegister;
     }
 }
 

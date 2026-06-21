@@ -1,4 +1,4 @@
-using Surfing_Management_System;
+using surf_Board;
 
 namespace surf_Board
 {

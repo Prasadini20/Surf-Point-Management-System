@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Surfing_Management_System
+namespace surf_Board
 {
     public partial class Admin_Dashboard : Form
     {
@@ -18,90 +17,55 @@ namespace Surfing_Management_System
             InitializeComponent();
         }
 
-        private void ShortcutCard_Paint(object sender, PaintEventArgs e)
+        // 👥 1. CUSTOMER MANAGEMENT බටන් එක ක්ලික් කළ විට
+        private void btnCustomerManagement_Click(object sender, EventArgs e)
         {
-
-            Panel card = sender as Panel;
-            if (card == null) return;
-
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            // Create a soft rounded boundary path
-            int radius = 15;
-            GraphicsPath path = new GraphicsPath();
-
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(card.Width - radius - 1, 0, radius, radius, 270, 90);
-            path.AddArc(card.Width - radius - 1, card.Height - radius - 1, radius, radius, 0, 90);
-            path.AddArc(0, card.Height - radius - 1, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            card.Region = new Region(path);
-
-            // Determine custom pastel background color metrics based on selected panel component name
-            Color bgTint = Color.White;
-            Color borderLineColor = Color.LightGray;
-
-            if (card.Name == "pnlCardCust")
-            {
-                bgTint = Color.FromArgb(242, 247, 255);
-                borderLineColor = Color.FromArgb(180, 210, 255);
-            }
-            else if (card.Name == "pnlCardInst")
-            {
-                bgTint = Color.FromArgb(242, 253, 242);
-                borderLineColor = Color.FromArgb(180, 240, 180);
-            }
-            else if (card.Name == "pnlCardSurf")
-            {
-                bgTint = Color.FromArgb(255, 251, 242);
-                borderLineColor = Color.FromArgb(255, 220, 180);
-            }
-            else if (card.Name == "pnlCardRepo")
-            {
-                bgTint = Color.FromArgb(253, 242, 255);
-                borderLineColor = Color.FromArgb(240, 180, 255);
-            }
-
-            // Draw the background fill
-            using (SolidBrush brush = new SolidBrush(bgTint))
-            {
-                e.Graphics.FillPath(brush, path);
-            }
-
-            // Draw the fine border stroke
-            using (Pen borderPen = new Pen(borderLineColor, 1.5f))
-            {
-                e.Graphics.DrawPath(borderPen, path);
-            }
+            // Customer Management Form එක ඕපන් කිරීම (ඔයා හදපු ෆෝම් එකේ නම වෙනස් නම් ඒ නම මෙතනට දෙන්න)
+            Customer_Form customerForm = new Customer_Form();
+            customerForm.Show();
+            this.Hide(); // Dashboard එක තාවකාලිකව සඟවයි
         }
 
-        // Task 6.2: Universal View-Switcher System
-        private void LoadSubForm(Form subForm)
+        // 🏄‍♂️ 2. INSTRUCTOR MANAGEMENT බටන් එක ක්ලික් කළ විට
+        private void btnInstructorManagement_Click(object sender, EventArgs e)
         {
-            if (panelMainContent.Controls.Count > 0)
-            {
-                panelMainContent.Controls[0].Dispose();
-            }
-
-            subForm.TopLevel = false;
-            subForm.FormBorderStyle = FormBorderStyle.None;
-            subForm.Dock = DockStyle.Fill;
-
-            panelMainContent.Controls.Add(subForm);
-            panelMainContent.Tag = subForm;
-            subForm.Show();
+            // Instructor Management Form එක ඕපන් කිරීම
+            InstructorForm instructorForm = new InstructorForm();
+            instructorForm.Show();
+            this.Hide();
         }
 
-        // Task 6.3: Logout Dialog Link
+        // 🛹 3. SURFBOARD MANAGEMENT බටන් එක ක්ලික් කළ විට
+        private void btnSurfboardManagement_Click(object sender, EventArgs e)
+        {
+            // Surfboard Management Form එක ඕපන් කිරීම
+            Surfboard_Management surfboardForm = new Surfboard_Management();
+            surfboardForm.Show();
+            this.Hide();
+        }
+
+        // 📜 4. VIEW NOTICES බටන් එක ක්ලික් කළ විට
+
+
+        // 🔴 5. LOGOUT බටන් එක ක්ලික් කළ විට
+        // 🔴 5. LOGOUT බටන් එක ක්ලික් කළ විට
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out of the Admin panel?", "System Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            // 🚪 පරණ Form1 එක තවමත් background එකේ open වෙලා තියෙනවාදැයි බලනවා
+            if (Application.OpenForms["Form1"] != null)
             {
-                this.Close();
+                // තියෙනවා නම් ඒක පෙන්වනවා
+                Application.OpenForms["Form1"].Show();
             }
-        }
+            else
+            {
+                // 🆕 මොකක් හරි හේතුවකින් ඒක වැහිලා නම්, අලුතින්ම Form1 එකක් හදලා පෙන්වනවා
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+            }
 
+            // ❌ ප්‍රධානම දේ: මේ Dashboard එක Hide කරන්නේ නැතුව Hide වෙනුවට සම්පූර්ණයෙන්ම Close කරලා මතකය නිදහස් කරනවා
+            this.Hide();
+        }
     }
 }

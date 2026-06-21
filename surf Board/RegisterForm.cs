@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Surfing_Management_System
+namespace surf_Board
 {
     public partial class RegisterForm : Form
     {
