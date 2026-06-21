@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Surfing_Management_System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -8,8 +10,6 @@ namespace surf_Board
 {
     public partial class Surfboard_Management : Form
     {
-        List<Surfboard> surfboards = new List<Surfboard>();
-
         public Surfboard_Management()
         {
             InitializeComponent();
@@ -18,99 +18,147 @@ namespace surf_Board
         private void Surfboard_Management_Load(object sender, EventArgs e)
         {
             LoadComboBoxData();
-            SetupGrid();
+            DisplayData();
+            textBoardID.ReadOnly = true; 
         }
 
         private void LoadComboBoxData()
         {
-            cmbBoardType.Items.Add("Shortboard");
-            cmbBoardType.Items.Add("Longboard");
-            cmbBoardType.Items.Add("Fish");
-            cmbBoardType.Items.Add("Funboard");
-            cmbBoardType.Items.Add("Hybrid");
-            cmbBoardType.Items.Add("Soft Top");
+            cmbBoardType.Items.Clear();
+            cmbBoardType.Items.AddRange(new object[] { "Shortboard", "Longboard", "Fish", "Funboard", "Hybrid", "Soft Top" });
             cmbBoardType.SelectedIndex = 0;
 
-            cmbCondition.Items.Add("New");
-            cmbCondition.Items.Add("Good");
-            cmbCondition.Items.Add("Fair");
-            cmbCondition.Items.Add("Damaged");
+            cmbCondition.Items.Clear();
+            cmbCondition.Items.AddRange(new object[] { "New", "Good", "Fair", "Damaged" });
             cmbCondition.SelectedIndex = 0;
 
-            cmbStatus.Items.Add("Available");
-            cmbStatus.Items.Add("Rented");
-            cmbStatus.Items.Add("Maintenance");
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.AddRange(new object[] { "Available", "Rented", "Maintenance" });
             cmbStatus.SelectedIndex = 0;
         }
 
-        private void SetupGrid()
+        private void DisplayData()
         {
-            dgvSurfboards.AutoGenerateColumns = true;
-            dgvSurfboards.DataSource = null;
-        }
-
-        private void BindGrid()
-        {
-            dgvSurfboards.DataSource = null;
-            dgvSurfboards.DataSource = surfboards;
+            try
+            {
+                using (MySqlConnection conn = DBConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM surfboards";
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvSurfboards.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            if (textBoardID.Text == "")
+            if (string.IsNullOrEmpty(txtPrice.Text))
             {
-                MessageBox.Show("Enter Board ID");
+                MessageBox.Show("Please enter the price.");
                 return;
             }
 
-            Surfboard sb = new Surfboard()
+            try
             {
-                BoardID = textBoardID.Text,
-                BoardType = cmbBoardType.Text,
-               
-                Condition = cmbCondition.Text,
-                Price = Convert.ToDecimal(txtPrice.Text),
-                Status = cmbStatus.Text
-            };
+                using (MySqlConnection conn = DBConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = "INSERT INTO surfboards (BoardType, ConditionType, Price, Status) VALUES (@type, @cond, @price, @status)";
 
-            surfboards.Add(sb);
-            BindGrid();
-            ClearFields();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@type", cmbBoardType.Text);
+                        cmd.Parameters.AddWithValue("@cond", cmbCondition.Text);
+                        cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
 
-            MessageBox.Show("Surfboard Added Successfully!");
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Surfboard Added Successfully to Database!");
+                    }
+                }
+                DisplayData();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inserting data: " + ex.Message);
+            }
         }
 
-        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvSurfboards.CurrentRow != null)
+            if (string.IsNullOrEmpty(textBoardID.Text))
             {
-                int index = dgvSurfboards.CurrentRow.Index;
+                MessageBox.Show("Select a record from the grid to update.");
+                return;
+            }
 
-                surfboards[index].BoardID = textBoardID.Text;
-                surfboards[index].BoardType = cmbBoardType.Text;
-                surfboards[index].Condition = cmbCondition.Text;
-                surfboards[index].Price = Convert.ToDecimal(txtPrice.Text);
-                surfboards[index].Status = cmbStatus.Text;
+            try
+            {
+                using (MySqlConnection conn = DBConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = "UPDATE surfboards SET BoardType=@type, ConditionType=@cond, Price=@price, Status=@status WHERE BoardID=@id";
 
-                BindGrid();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@type", cmbBoardType.Text);
+                        cmd.Parameters.AddWithValue("@cond", cmbCondition.Text);
+                        cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(txtPrice.Text));
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
+                        cmd.Parameters.AddWithValue("@id", textBoardID.Text);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Updated Successfully!");
+                    }
+                }
+                DisplayData();
                 ClearFields();
-
-                MessageBox.Show("Updated Successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating data: " + ex.Message);
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvSurfboards.CurrentRow != null)
+            if (string.IsNullOrEmpty(textBoardID.Text))
             {
-                int index = dgvSurfboards.CurrentRow.Index;
-                surfboards.RemoveAt(index);
+                MessageBox.Show("Select a record from the grid to delete.");
+                return;
+            }
 
-                BindGrid();
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm == DialogResult.No) return;
+
+            try
+            {
+                using (MySqlConnection conn = DBConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = "DELETE FROM surfboards WHERE BoardID=@id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", textBoardID.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Deleted Successfully!");
+                    }
+                }
+                DisplayData();
                 ClearFields();
-
-                MessageBox.Show("Deleted Successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting data: " + ex.Message);
             }
         }
 
@@ -122,14 +170,10 @@ namespace surf_Board
         private void ClearFields()
         {
             textBoardID.Clear();
-           
             txtPrice.Clear();
-
             cmbBoardType.SelectedIndex = 0;
             cmbCondition.SelectedIndex = 0;
             cmbStatus.SelectedIndex = 0;
-
-            textBoardID.Focus();
         }
 
         private void dgvSurfboards_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -140,7 +184,7 @@ namespace surf_Board
 
                 textBoardID.Text = row.Cells["BoardID"].Value.ToString();
                 cmbBoardType.Text = row.Cells["BoardType"].Value.ToString();
-                cmbCondition.Text = row.Cells["Condition"].Value.ToString();
+                cmbCondition.Text = row.Cells["ConditionType"].Value.ToString();
                 txtPrice.Text = row.Cells["Price"].Value.ToString();
                 cmbStatus.Text = row.Cells["Status"].Value.ToString();
             }
@@ -149,26 +193,19 @@ namespace surf_Board
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to exit?",
-                "Exit Confirmation",
+                "Are you sure you want to go back to Admin Dashboard?",
+                "Confirmation",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
 
             if (result == DialogResult.Yes)
             {
-                Application.Exit();
+               
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+                this.Hide();
             }
         }
-    }
-
-    public class Surfboard
-    {
-        public string BoardID { get; set; }
-        public string BoardType { get; set; }
-        public string Size { get; set; }
-        public string Condition { get; set; }
-        public decimal Price { get; set; }
-        public string Status { get; set; }
     }
 }
