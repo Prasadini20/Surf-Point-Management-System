@@ -286,5 +286,10 @@ namespace surf_Board
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
+
+        private void Customer_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
