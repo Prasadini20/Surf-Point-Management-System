@@ -1,0 +1,12 @@
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\bin\Debug\Surfing_Management_System.exe.config
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\bin\Debug\Surfing_Management_System.exe
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\bin\Debug\Surfing_Management_System.pdb
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.csproj.AssemblyReference.cache
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.Properties.Resources.resources
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.csproj.GenerateResource.cache
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.csproj.CoreCompileInputs.cache
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.exe
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.pdb
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.loginPanel.resources
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.RegisterForm.resources
+C:\Users\niroshan\Downloads\Surfing_Management_System\Surfing_Management_System\obj\Debug\Surfing_Management_System.Admin_Dashboard.resources
