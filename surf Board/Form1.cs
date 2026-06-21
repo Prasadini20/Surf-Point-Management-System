@@ -20,13 +20,11 @@ namespace surf_Board
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Dropdown එකට සාමාන්‍ය පරිදි දත්ත ඇතුළත් කිරීම
             cmbUserType.Items.Clear();
             cmbUserType.Items.Add("Admin");
             cmbUserType.Items.Add("Customer");
             cmbUserType.SelectedIndex = 0;
 
-            // Password එක හැමතිස්සෙම Dot (●) විදිහට විතරක් පෙන්වීමට සැකසීම
             txtPassword.PasswordChar = '●';
         }
 
