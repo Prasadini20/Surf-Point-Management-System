@@ -1,4 +1,4 @@
-﻿namespace Surfing_Management_System
+﻿namespace surf_Board
 {
     partial class Admin_Dashboard
     {
@@ -28,335 +28,296 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnNotice = new System.Windows.Forms.Button();
-            this.btnSurfMgmt = new System.Windows.Forms.Button();
-            this.btnInstMgmt = new System.Windows.Forms.Button();
-            this.btnCustMgmt = new System.Windows.Forms.Button();
-            this.btnDashHome = new System.Windows.Forms.Button();
-            this.panelMainContent = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pnlCardRepo = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pnlCardSurf = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pnlCardInst = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panelMainContent.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlCardRepo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.pnlCardSurf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.pnlCardInst.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            btnLogout = new Button();
+            btnSurfboardManagement = new Button();
+            btnInstructorManagement = new Button();
+            btnCustomerManagement = new Button();
+            btnDashHome = new Button();
+            panelMainContent = new Panel();
+            panel3 = new Panel();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            pnlCardSurf = new Panel();
+            pictureBox3 = new PictureBox();
+            label3 = new Label();
+            pnlCardInst = new Panel();
+            pictureBox2 = new PictureBox();
+            label4 = new Label();
+            label1 = new Label();
+            lblWelcome = new Label();
+            panel1.SuspendLayout();
+            panelMainContent.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlCardSurf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnlCardInst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
-            this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnNotice);
-            this.panel1.Controls.Add(this.btnSurfMgmt);
-            this.panel1.Controls.Add(this.btnInstMgmt);
-            this.panel1.Controls.Add(this.btnCustMgmt);
-            this.panel1.Controls.Add(this.btnDashHome);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 587);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(14, 43, 89);
+            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnSurfboardManagement);
+            panel1.Controls.Add(btnInstructorManagement);
+            panel1.Controls.Add(btnCustomerManagement);
+            panel1.Controls.Add(btnDashHome);
+            panel1.Dock = DockStyle.Left;
+            panel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(240, 734);
+            panel1.TabIndex = 0;
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.Crimson;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(12, 512);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(210, 49);
-            this.btnLogout.TabIndex = 5;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.BackColor = Color.Crimson;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogout.Location = new Point(12, 640);
+            btnLogout.Margin = new Padding(3, 4, 3, 4);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(210, 61);
+            btnLogout.TabIndex = 5;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // btnNotice
+            // btnSurfboardManagement
             // 
-            this.btnNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNotice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotice.Location = new System.Drawing.Point(0, 243);
-            this.btnNotice.Name = "btnNotice";
-            this.btnNotice.Size = new System.Drawing.Size(240, 59);
-            this.btnNotice.TabIndex = 4;
-            this.btnNotice.Text = "View Notics";
-            this.btnNotice.UseVisualStyleBackColor = true;
+            btnSurfboardManagement.FlatStyle = FlatStyle.Flat;
+            btnSurfboardManagement.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSurfboardManagement.ForeColor = SystemColors.ButtonHighlight;
+            btnSurfboardManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSurfboardManagement.Location = new Point(0, 240);
+            btnSurfboardManagement.Margin = new Padding(3, 4, 3, 4);
+            btnSurfboardManagement.Name = "btnSurfboardManagement";
+            btnSurfboardManagement.Size = new Size(240, 66);
+            btnSurfboardManagement.TabIndex = 3;
+            btnSurfboardManagement.Text = "Surfboard Management";
+            btnSurfboardManagement.UseVisualStyleBackColor = true;
+            btnSurfboardManagement.Click += btnSurfboardManagement_Click;
             // 
-            // btnSurfMgmt
+            // btnInstructorManagement
             // 
-            this.btnSurfMgmt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSurfMgmt.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSurfMgmt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSurfMgmt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSurfMgmt.Location = new System.Drawing.Point(0, 192);
-            this.btnSurfMgmt.Name = "btnSurfMgmt";
-            this.btnSurfMgmt.Size = new System.Drawing.Size(240, 53);
-            this.btnSurfMgmt.TabIndex = 3;
-            this.btnSurfMgmt.Text = "Surfboard Management";
-            this.btnSurfMgmt.UseVisualStyleBackColor = true;
+            btnInstructorManagement.FlatStyle = FlatStyle.Flat;
+            btnInstructorManagement.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInstructorManagement.ForeColor = SystemColors.ButtonHighlight;
+            btnInstructorManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnInstructorManagement.Location = new Point(-4, 172);
+            btnInstructorManagement.Margin = new Padding(3, 4, 3, 4);
+            btnInstructorManagement.Name = "btnInstructorManagement";
+            btnInstructorManagement.Size = new Size(244, 71);
+            btnInstructorManagement.TabIndex = 2;
+            btnInstructorManagement.Text = "Instructor Management";
+            btnInstructorManagement.UseVisualStyleBackColor = true;
+            btnInstructorManagement.Click += btnInstructorManagement_Click;
             // 
-            // btnInstMgmt
+            // btnCustomerManagement
             // 
-            this.btnInstMgmt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInstMgmt.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInstMgmt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnInstMgmt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInstMgmt.Location = new System.Drawing.Point(-4, 138);
-            this.btnInstMgmt.Name = "btnInstMgmt";
-            this.btnInstMgmt.Size = new System.Drawing.Size(244, 57);
-            this.btnInstMgmt.TabIndex = 2;
-            this.btnInstMgmt.Text = "Instructor Management";
-            this.btnInstMgmt.UseVisualStyleBackColor = true;
-            // 
-            // btnCustMgmt
-            // 
-            this.btnCustMgmt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustMgmt.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustMgmt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCustMgmt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustMgmt.Location = new System.Drawing.Point(0, 91);
-            this.btnCustMgmt.Name = "btnCustMgmt";
-            this.btnCustMgmt.Size = new System.Drawing.Size(240, 50);
-            this.btnCustMgmt.TabIndex = 1;
-            this.btnCustMgmt.Text = "Customer Management";
-            this.btnCustMgmt.UseVisualStyleBackColor = true;
+            btnCustomerManagement.FlatStyle = FlatStyle.Flat;
+            btnCustomerManagement.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerManagement.ForeColor = SystemColors.ButtonHighlight;
+            btnCustomerManagement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCustomerManagement.Location = new Point(0, 114);
+            btnCustomerManagement.Margin = new Padding(3, 4, 3, 4);
+            btnCustomerManagement.Name = "btnCustomerManagement";
+            btnCustomerManagement.Size = new Size(240, 62);
+            btnCustomerManagement.TabIndex = 1;
+            btnCustomerManagement.Text = "Customer Management";
+            btnCustomerManagement.UseVisualStyleBackColor = true;
+            btnCustomerManagement.Click += btnCustomerManagement_Click;
             // 
             // btnDashHome
             // 
-            this.btnDashHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashHome.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDashHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashHome.Location = new System.Drawing.Point(-4, 43);
-            this.btnDashHome.Name = "btnDashHome";
-            this.btnDashHome.Size = new System.Drawing.Size(244, 52);
-            this.btnDashHome.TabIndex = 0;
-            this.btnDashHome.Text = "Dashboard";
-            this.btnDashHome.UseVisualStyleBackColor = true;
+            btnDashHome.FlatStyle = FlatStyle.Flat;
+            btnDashHome.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashHome.ForeColor = SystemColors.ButtonHighlight;
+            btnDashHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDashHome.Location = new Point(-4, 54);
+            btnDashHome.Margin = new Padding(3, 4, 3, 4);
+            btnDashHome.Name = "btnDashHome";
+            btnDashHome.Size = new Size(244, 65);
+            btnDashHome.TabIndex = 0;
+            btnDashHome.Text = "Dashboard";
+            btnDashHome.UseVisualStyleBackColor = true;
             // 
             // panelMainContent
             // 
-            this.panelMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.panelMainContent.Controls.Add(this.panel3);
-            this.panelMainContent.Controls.Add(this.pnlCardRepo);
-            this.panelMainContent.Controls.Add(this.pnlCardSurf);
-            this.panelMainContent.Controls.Add(this.pnlCardInst);
-            this.panelMainContent.Controls.Add(this.label1);
-            this.panelMainContent.Controls.Add(this.lblWelcome);
-            this.panelMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainContent.Location = new System.Drawing.Point(240, 0);
-            this.panelMainContent.Name = "panelMainContent";
-            this.panelMainContent.Size = new System.Drawing.Size(753, 587);
-            this.panelMainContent.TabIndex = 1;
+            panelMainContent.BackColor = Color.FromArgb(245, 247, 250);
+            panelMainContent.Controls.Add(panel3);
+            panelMainContent.Controls.Add(pnlCardSurf);
+            panelMainContent.Controls.Add(pnlCardInst);
+            panelMainContent.Controls.Add(label1);
+            panelMainContent.Controls.Add(lblWelcome);
+            panelMainContent.Dock = DockStyle.Fill;
+            panelMainContent.Location = new Point(240, 0);
+            panelMainContent.Margin = new Padding(3, 4, 3, 4);
+            panelMainContent.Name = "panelMainContent";
+            panelMainContent.Size = new Size(753, 734);
+            panelMainContent.TabIndex = 1;
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(44, 147);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 180);
-            this.panel3.TabIndex = 6;
+            panel3.BorderStyle = BorderStyle.Fixed3D;
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(44, 184);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(320, 224);
+            panel3.TabIndex = 6;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::surf_Board.Properties.Resources.Custimages;
-            this.pictureBox1.Location = new System.Drawing.Point(102, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(114, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.Custimages;
+            pictureBox1.Location = new Point(102, 45);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(114, 89);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 56);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "   CUSTOMER\r\nMANAGEMENT";
-            // 
-            // pnlCardRepo
-            // 
-            this.pnlCardRepo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlCardRepo.Controls.Add(this.pictureBox4);
-            this.pnlCardRepo.Controls.Add(this.label5);
-            this.pnlCardRepo.Location = new System.Drawing.Point(391, 353);
-            this.pnlCardRepo.Name = "pnlCardRepo";
-            this.pnlCardRepo.Size = new System.Drawing.Size(320, 180);
-            this.pnlCardRepo.TabIndex = 5;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::surf_Board.Properties.Resources.Notice;
-            this.pictureBox4.Location = new System.Drawing.Point(106, 27);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(114, 71);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(90, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 28);
-            this.label5.TabIndex = 0;
-            this.label5.Text = " VIEW NOTICE";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(83, 138);
+            label2.Name = "label2";
+            label2.Size = new Size(158, 56);
+            label2.TabIndex = 0;
+            label2.Text = "   CUSTOMER\r\nMANAGEMENT";
             // 
             // pnlCardSurf
             // 
-            this.pnlCardSurf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlCardSurf.Controls.Add(this.pictureBox3);
-            this.pnlCardSurf.Controls.Add(this.label3);
-            this.pnlCardSurf.Location = new System.Drawing.Point(41, 353);
-            this.pnlCardSurf.Name = "pnlCardSurf";
-            this.pnlCardSurf.Size = new System.Drawing.Size(320, 180);
-            this.pnlCardSurf.TabIndex = 4;
+            pnlCardSurf.BorderStyle = BorderStyle.Fixed3D;
+            pnlCardSurf.Controls.Add(pictureBox3);
+            pnlCardSurf.Controls.Add(label3);
+            pnlCardSurf.Location = new Point(41, 441);
+            pnlCardSurf.Margin = new Padding(3, 4, 3, 4);
+            pnlCardSurf.Name = "pnlCardSurf";
+            pnlCardSurf.Size = new Size(320, 224);
+            pnlCardSurf.TabIndex = 4;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::surf_Board.Properties.Resources.surf;
-            this.pictureBox3.Location = new System.Drawing.Point(105, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(114, 71);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            pictureBox3.Image = Properties.Resources.surf;
+            pictureBox3.Location = new Point(105, 34);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(114, 89);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 1;
+            pictureBox3.TabStop = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(86, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 56);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "  SURFBOARD\r\nMANAGEMENT\r\n";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(86, 126);
+            label3.Name = "label3";
+            label3.Size = new Size(158, 56);
+            label3.TabIndex = 0;
+            label3.Text = "  SURFBOARD\r\nMANAGEMENT\r\n";
             // 
             // pnlCardInst
             // 
-            this.pnlCardInst.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlCardInst.Controls.Add(this.pictureBox2);
-            this.pnlCardInst.Controls.Add(this.label4);
-            this.pnlCardInst.Location = new System.Drawing.Point(391, 147);
-            this.pnlCardInst.Name = "pnlCardInst";
-            this.pnlCardInst.Size = new System.Drawing.Size(320, 180);
-            this.pnlCardInst.TabIndex = 3;
+            pnlCardInst.BorderStyle = BorderStyle.Fixed3D;
+            pnlCardInst.Controls.Add(pictureBox2);
+            pnlCardInst.Controls.Add(label4);
+            pnlCardInst.Location = new Point(391, 184);
+            pnlCardInst.Margin = new Padding(3, 4, 3, 4);
+            pnlCardInst.Name = "pnlCardInst";
+            pnlCardInst.Size = new Size(320, 224);
+            pnlCardInst.TabIndex = 3;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::surf_Board.Properties.Resources.instr;
-            this.pictureBox2.Location = new System.Drawing.Point(106, 36);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(114, 71);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = Properties.Resources.instr;
+            pictureBox2.Location = new Point(106, 45);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(114, 89);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(88, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 56);
-            this.label4.TabIndex = 0;
-            this.label4.Text = " INSTRUCTOR \r\nMANAGMENT";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(88, 138);
+            label4.Name = "label4";
+            label4.Size = new Size(147, 56);
+            label4.TabIndex = 0;
+            label4.Text = " INSTRUCTOR \r\nMANAGMENT";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(36, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Manage all system operations";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Gray;
+            label1.Location = new Point(36, 88);
+            label1.Name = "label1";
+            label1.Size = new Size(249, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Manage all system operations";
             // 
             // lblWelcome
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(43)))), ((int)(((byte)(89)))));
-            this.lblWelcome.Location = new System.Drawing.Point(22, 19);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(342, 50);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "WELCOME ADMIN";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.ForeColor = Color.FromArgb(14, 43, 89);
+            lblWelcome.Location = new Point(22, 24);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(342, 50);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "WELCOME ADMIN";
             // 
             // Admin_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 587);
-            this.Controls.Add(this.panelMainContent);
-            this.Controls.Add(this.panel1);
-            this.Name = "Admin_Dashboard";
-            this.Text = "Admin_Dashboard";
-            this.panel1.ResumeLayout(false);
-            this.panelMainContent.ResumeLayout(false);
-            this.panelMainContent.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlCardRepo.ResumeLayout(false);
-            this.pnlCardRepo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.pnlCardSurf.ResumeLayout(false);
-            this.pnlCardSurf.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.pnlCardInst.ResumeLayout(false);
-            this.pnlCardInst.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(993, 734);
+            Controls.Add(panelMainContent);
+            Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Admin_Dashboard";
+            Text = "Admin_Dashboard";
+            panel1.ResumeLayout(false);
+            panelMainContent.ResumeLayout(false);
+            panelMainContent.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlCardSurf.ResumeLayout(false);
+            pnlCardSurf.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnlCardInst.ResumeLayout(false);
+            pnlCardInst.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ResumeLayout(false);
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnInstMgmt;
-        private System.Windows.Forms.Button btnCustMgmt;
+        private System.Windows.Forms.Button btnInstructorManagement;
+        private System.Windows.Forms.Button btnCustomerManagement;
         private System.Windows.Forms.Button btnDashHome;
-        private System.Windows.Forms.Button btnSurfMgmt;
-        private System.Windows.Forms.Button btnNotice;
+        private System.Windows.Forms.Button btnSurfboardManagement;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panelMainContent;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlCardRepo;
         private System.Windows.Forms.Panel pnlCardSurf;
         private System.Windows.Forms.Panel pnlCardInst;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
@@ -364,6 +325,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
