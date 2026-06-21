@@ -7,18 +7,31 @@ namespace surf_Board
 {
     public partial class Payment_Form : Form
     {
-        string connString = "server=localhost;database=surf_point_db;uid=root;pwd=sql1234@;";
-
         
+
         public Payment_Form(string bookingID, string amount)
         {
             InitializeComponent();
 
-            
             label5.Text = bookingID;
             txtAmount.Text = amount;
 
-            txtAmount.ReadOnly = true; 
+            txtAmount.ReadOnly = true;
+        }
+
+        
+        private MySqlConnection GetLocalSafeConnection()
+        {
+            
+            MySqlConnection conn = DBConnection.GetConnection();
+
+            
+            if (Environment.MachineName == "LAPTOP-S723VTT7")
+            {
+                conn.ConnectionString = "server=localhost;user=root;password=sql1234@;database=aquaridedb";
+            }
+
+            return conn;
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -31,12 +44,12 @@ namespace surf_Board
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connString))
+               
+                using (MySqlConnection conn = GetLocalSafeConnection())
                 {
                     string query = "INSERT INTO Payments (BookingID, Amount, PaymentMethod, PaymentDate) VALUES (@BID, @Amount, @Method, @Date)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        
                         cmd.Parameters.AddWithValue("@BID", label5.Text);
                         cmd.Parameters.AddWithValue("@Amount", txtAmount.Text);
                         cmd.Parameters.AddWithValue("@Method", cmbMethod.SelectedItem.ToString());
@@ -57,7 +70,7 @@ namespace surf_Board
 
         private void Payment_Form_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -66,10 +79,9 @@ namespace surf_Board
             dtpDate.Value = DateTime.Now;
         }
 
-
         private void label5_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
