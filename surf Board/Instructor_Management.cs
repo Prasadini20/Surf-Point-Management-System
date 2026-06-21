@@ -1,4 +1,6 @@
 ﻿
+using MySql.Data.MySqlClient;
+using Surfing_Management_System;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,15 +8,19 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace surf_Board
 {
     public partial class InstructorForm : Form
     {
+        
+
+
         public InstructorForm()
         {
             InitializeComponent();
+
+            LoadNextInstructorID();
 
             // Matches the menu strip background to the exact top color of your gradient
             menuStrip1.BackColor = Color.FromArgb(43, 181, 212);
@@ -41,16 +47,7 @@ namespace surf_Board
 
         private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvInstructor.Rows[e.RowIndex];
 
-                txtInstructorID.Text = row.Cells[0].Value.ToString();
-                txtName.Text = row.Cells[1].Value.ToString();
-                txtContact.Text = row.Cells[2].Value.ToString();
-                txtExperience.Text = row.Cells[3].Value.ToString();
-                cmbStatus.Text = row.Cells[4].Value.ToString();
-            }
         }
 
         private void txtInstructorName_TextChanged(object sender, EventArgs e)
@@ -84,7 +81,7 @@ namespace surf_Board
                 con.Open();
 
                 string query =
-                "INSERT INTO instructors(InstructorName,ContactNumber,ExperienceYears,AvailabilityStatus) VALUES(@Name,@Contact,@Experience,@Status)";
+                "INSERT INTO instructors(Name,ContactNumber,ExperienceYears,AvailabilityStatus) VALUES(@Name,@Contact,@Experience,@Status)";
 
                 MySqlCommand cmd =
                 new MySqlCommand(query, con);
@@ -93,7 +90,7 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
                 cmd.Parameters.AddWithValue("@Experience", txtExperience.Text);
                 cmd.Parameters.AddWithValue("@Status", cmbStatus.Text);
-
+                
                 cmd.ExecuteNonQuery();
 
                 con.Close();
@@ -103,6 +100,8 @@ namespace surf_Board
                 LoadInstructors();
 
                 ClearFields();
+
+                LoadNextInstructorID();
             }
             catch (Exception ex)
             {
@@ -125,7 +124,7 @@ namespace surf_Board
                 con.Open();
 
                 string query =
-                "UPDATE instructors SET InstructorName=@Name,ContactNumber=@Contact,ExperienceYears=@Experience,AvailabilityStatus=@Status WHERE InstructorID=@ID";
+                "UPDATE instructors SET Name=@Name,ContactNumber=@Contact,ExperienceYears=@Experience,AvailabilityStatus=@Status WHERE InstructorID=@ID";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
@@ -134,6 +133,7 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@Contact", txtContact.Text);
                 cmd.Parameters.AddWithValue("@Experience", txtExperience.Text);
                 cmd.Parameters.AddWithValue("@Status", cmbStatus.Text);
+                
 
                 cmd.ExecuteNonQuery();
 
@@ -144,6 +144,8 @@ namespace surf_Board
                 LoadInstructors();
 
                 ClearFields();
+
+                LoadNextInstructorID();
             }
             catch (Exception ex)
             {
@@ -181,6 +183,8 @@ namespace surf_Board
                 LoadInstructors();
 
                 ClearFields();
+
+                LoadNextInstructorID();
             }
             catch (Exception ex)
             {
@@ -190,7 +194,7 @@ namespace surf_Board
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtInstructorID.Text == "")
+            if (txtSearchID.Text == "")
             {
                 MessageBox.Show("Enter Instructor ID");
                 return;
@@ -206,16 +210,18 @@ namespace surf_Board
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
-                cmd.Parameters.AddWithValue("@ID", txtInstructorID.Text);
+                cmd.Parameters.AddWithValue("@ID", txtSearchID.Text);
 
                 MySqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    txtName.Text = dr["InstructorName"].ToString();
+                    txtInstructorID.Text = dr["InstructorID"].ToString();
+                    txtName.Text = dr["Name"].ToString();
                     txtContact.Text = dr["ContactNumber"].ToString();
                     txtExperience.Text = dr["ExperienceYears"].ToString();
                     cmbStatus.Text = dr["AvailabilityStatus"].ToString();
+                   
                 }
                 else
                 {
@@ -232,11 +238,13 @@ namespace surf_Board
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtInstructorID.Clear();
+
             txtName.Clear();
             txtContact.Clear();
             txtExperience.Clear();
             cmbStatus.SelectedIndex = -1;
+
+            LoadNextInstructorID();
         }
 
         private void InstructorForm_Load(object sender, EventArgs e)
@@ -246,11 +254,13 @@ namespace surf_Board
 
         private void ClearFields()
         {
-            txtInstructorID.Clear();
+
             txtName.Clear();
             txtContact.Clear();
             txtExperience.Clear();
             cmbStatus.SelectedIndex = -1;
+
+            LoadNextInstructorID();
         }
 
         private void LoadInstructors()
@@ -271,6 +281,8 @@ namespace surf_Board
 
                 dgvInstructor.DataSource = dt;
 
+               
+
                 con.Close();
             }
             catch (Exception ex)
@@ -281,6 +293,27 @@ namespace surf_Board
 
         }
 
+        private void LoadNextInstructorID()
+        {
+            try
+            {
+                MySqlConnection con = DBConnection.GetConnection();
+
+                con.Open();
+
+                string query = "SELECT IFNULL(MAX(InstructorID),0)+1 FROM instructors";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+                txtInstructorID.Text = cmd.ExecuteScalar().ToString();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void txtExperience_TextChanged(object sender, EventArgs e)
         {
 
@@ -288,17 +321,36 @@ namespace surf_Board
 
         private void InstructorForm_Paint(object sender, PaintEventArgs e)
         {
-            
-         using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-         this.ClientRectangle,
-         Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
-         Color.White,                  // Fades into clean white at the bottom
-         90F))                          // 90 degrees handles top-to-bottom fading
+
+            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+            this.ClientRectangle,
+            Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
+            Color.White,                  // Fades into clean white at the bottom
+            90F))                          // 90 degrees handles top-to-bottom fading
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
-        
+
         }
+
+        private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvInstructor.Rows[e.RowIndex];
+
+                txtInstructorID.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                txtContact.Text = row.Cells[2].Value.ToString();
+                txtExperience.Text = row.Cells[3].Value.ToString();
+                cmbStatus.Text = row.Cells[4].Value.ToString();
+                
+            }
+        }
+
+       
+
+       
     }
 
 
