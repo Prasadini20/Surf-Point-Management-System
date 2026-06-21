@@ -39,6 +39,7 @@
             flpInstructors.Name = "flpInstructors";
             flpInstructors.Size = new Size(800, 450);
             flpInstructors.TabIndex = 0;
+            flpInstructors.Paint += flpInstructors_Paint_1;
             // 
             // CustomerInstructorView
             // 

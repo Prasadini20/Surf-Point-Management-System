@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Surfing_Management_System;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,19 +16,16 @@ namespace surf_Board
         {
             InitializeComponent();
 
-            // Matches the menu strip background to the exact top color of your gradient
             menuStrip1.BackColor = Color.FromArgb(43, 181, 212);
 
             dgvCustomer.EnableHeadersVisualStyles = false;
-            dgvCustomer.BackgroundColor = Color.White; // Keeps the bottom area clean and white
+            dgvCustomer.BackgroundColor = Color.White;
 
-            // A deep, rich ocean dark blue for high contrast and readability
             dgvCustomer.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 75, 115);
-            dgvCustomer.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // Crisp white text
+            dgvCustomer.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvCustomer.ColumnHeadersDefaultCellStyle.Font = new Font(dgvCustomer.Font, FontStyle.Bold);
+
             LoadCustomers();
-
-
 
             try
             {
@@ -40,23 +38,23 @@ namespace surf_Board
             {
                 MessageBox.Show("Connection Failed: " + ex.Message);
             }
-
-
         }
 
         private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-
         {
-
         }
 
+        // 1. FIXED INSERT QUERY (Matches database columns)
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" ||
-        txtPhone.Text == "" ||
-        txtEmail.Text == "" ||
-        txtCountry.Text == "" ||
-        cmbSkill.Text == "")
+                txtPhone.Text == "" ||
+                txtEmail.Text == "" ||
+                txtCountry.Text == "" ||
+                cmbSkill.Text == "" ||
+                txtUsername.Text == "" ||
+                txtPassword.Text == ""
+                )
             {
                 MessageBox.Show("Please Fill All Fields");
                 return;
@@ -65,10 +63,10 @@ namespace surf_Board
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
-
                 con.Open();
 
-                string query = "INSERT INTO customers(Name, PhoneNumber, Email, Country, SkillLevel) VALUES(@Name,@Phone,@Email,@Country,@Skill)";
+                // Changed 'Name' to 'FullName', 'PhoneNumber' to 'ContactNumber'
+                string query = "INSERT INTO customers(FullName, ContactNumber, Email, Country, SkillLevel,Username,Password) VALUES(@Name, @Phone, @Email, @Country, @Skill,@Username,@Password)";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
@@ -77,23 +75,20 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@Country", txtCountry.Text);
                 cmd.Parameters.AddWithValue("@Skill", cmbSkill.Text);
+                cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
 
                 cmd.ExecuteNonQuery();
-
                 con.Close();
 
                 MessageBox.Show("Customer Added Successfully");
-
                 LoadCustomers();
-
                 ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void ClearFields()
@@ -104,6 +99,8 @@ namespace surf_Board
             txtEmail.Clear();
             txtCountry.Clear();
             cmbSkill.SelectedIndex = -1;
+            txtUsername.Clear();
+            txtPassword.Clear();
         }
 
         private void LoadCustomers()
@@ -111,17 +108,12 @@ namespace surf_Board
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
-
                 con.Open();
 
                 string query = "SELECT * FROM customers";
-
                 MySqlDataAdapter da = new MySqlDataAdapter(query, con);
-
                 DataTable dt = new DataTable();
-
                 da.Fill(dt);
-
                 dgvCustomer.DataSource = dt;
 
                 con.Close();
@@ -132,20 +124,22 @@ namespace surf_Board
             }
         }
 
+        // 2. FIXED CELL CLICK MAPPINGS (Matches SELECT * order of columns in DB)
         private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvCustomer.Rows[e.RowIndex];
 
-                txtCustomerID.Text = row.Cells[0].Value.ToString();
-                txtName.Text = row.Cells[1].Value.ToString();
-                txtPhone.Text = row.Cells[2].Value.ToString();
-                txtEmail.Text = row.Cells[3].Value.ToString();
-                txtCountry.Text = row.Cells[4].Value.ToString();
-                cmbSkill.Text = row.Cells[5].Value.ToString();
+                txtCustomerID.Text = row.Cells["CustomerID"].Value.ToString();
+                txtName.Text = row.Cells["FullName"].Value.ToString();
+                txtPhone.Text = row.Cells["ContactNumber"].Value.ToString();
+                txtCountry.Text = row.Cells["Country"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                cmbSkill.Text = row.Cells["SkillLevel"].Value.ToString();
+                txtUsername.Text = row.Cells["UserName"].Value.ToString();
+                txtPassword.Text = row.Cells["Password"].Value.ToString();
             }
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -153,41 +147,35 @@ namespace surf_Board
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
-
                 con.Open();
 
                 string query = "DELETE FROM customers WHERE CustomerID=@ID";
-
                 MySqlCommand cmd = new MySqlCommand(query, con);
-
                 cmd.Parameters.AddWithValue("@ID", txtCustomerID.Text);
 
                 cmd.ExecuteNonQuery();
-
                 con.Close();
 
                 MessageBox.Show("Customer Deleted Successfully");
-
                 LoadCustomers();
-
                 ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
+        // 3. FIXED UPDATE QUERY (Matches database columns)
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
-
                 con.Open();
 
-                string query = "UPDATE customers SET Name=@Name, PhoneNumber=@Phone, Email=@Email, Country=@Country, SkillLevel=@Skill WHERE CustomerID=@ID";
+                // Changed 'Name' to 'FullName', 'PhoneNumber' to 'ContactNumber'
+                string query = "UPDATE customers SET FullName=@Name, ContactNumber=@Phone, Email=@Email, Country=@Country, SkillLevel=@Skill WHERE CustomerID=@ID";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
@@ -197,48 +185,46 @@ namespace surf_Board
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@Country", txtCountry.Text);
                 cmd.Parameters.AddWithValue("@Skill", cmbSkill.Text);
+                cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
 
                 cmd.ExecuteNonQuery();
-
                 con.Close();
 
                 MessageBox.Show("Customer Updated Successfully");
-
                 LoadCustomers();
-
                 ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
+        // 4. FIXED SEARCH DATA READER MAPPING
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
             try
             {
                 MySqlConnection con = DBConnection.GetConnection();
-
                 con.Open();
 
                 string query = "SELECT * FROM customers WHERE CustomerID=@ID";
-
                 MySqlCommand cmd = new MySqlCommand(query, con);
-
                 cmd.Parameters.AddWithValue("@ID", txtCustomerID.Text);
 
                 MySqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    txtName.Text = dr["Name"].ToString();
-                    txtPhone.Text = dr["PhoneNumber"].ToString();
+                    // Changed column targets here to match SQL keys
+                    txtName.Text = dr["FullName"].ToString();
+                    txtPhone.Text = dr["ContactNumber"].ToString();
                     txtEmail.Text = dr["Email"].ToString();
                     txtCountry.Text = dr["Country"].ToString();
                     cmbSkill.Text = dr["SkillLevel"].ToString();
+                    txtUsername.Text = dr["UserName"].ToString();
+                    txtPassword.Text = dr["Password"].ToString();
                 }
                 else
                 {
@@ -251,45 +237,35 @@ namespace surf_Board
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
+
+
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtCustomerID.Clear();
-            txtName.Clear();
-            txtPhone.Clear();
-            txtEmail.Clear();
-            txtCountry.Clear();
-            cmbSkill.SelectedIndex = -1;
+            ClearFields();
         }
 
         private void txtSkill_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void cmbSkill_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void Customer_Form_Paint(object sender, PaintEventArgs e)
         {
             using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-         this.ClientRectangle,
-         Color.FromArgb(43, 181, 212),  // The gorgeous light ocean teal from your image palette!
-         Color.White,                  // Fades into clean white at the bottom
-         90F))                          // 90 degrees handles top-to-bottom fading
+                this.ClientRectangle,
+                Color.FromArgb(43, 181, 212),
+                Color.White,
+                90F))
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
 
-        private void Customer_Form_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

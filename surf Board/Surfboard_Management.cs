@@ -1,5 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Surfing_Management_System;
+using surf_Board;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -1,4 +1,4 @@
-﻿namespace Surfing_Management_System
+﻿namespace surf_Board
 {
     partial class RegisterForm
     {
