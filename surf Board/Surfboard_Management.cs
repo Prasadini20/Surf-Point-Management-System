@@ -19,7 +19,7 @@ namespace surf_Board
         {
             LoadComboBoxData();
             DisplayData();
-            textBoardID.ReadOnly = true; 
+            textBoardID.ReadOnly = true;
         }
 
         private void LoadComboBoxData()
@@ -201,11 +201,30 @@ namespace surf_Board
 
             if (result == DialogResult.Yes)
             {
-               
+
                 Admin_Dashboard adminDashboard = new Admin_Dashboard();
                 adminDashboard.Show();
                 this.Hide();
             }
         }
+        private void Customer_Form_Paint(object sender, PaintEventArgs e)
+        {
+            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+         this.ClientRectangle,
+         Color.FromArgb(43, 181, 212),
+         Color.White,
+         90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
+
+        private void Surfboard_Management_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
+        }
     }
 }
+    

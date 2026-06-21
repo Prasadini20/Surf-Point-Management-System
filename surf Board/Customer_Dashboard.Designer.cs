@@ -30,39 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer_Dashboard));
             panel1 = new Panel();
-            btnViewSurfboards = new Button();
+            btnMakeBookings = new Button();
             btnVIewSerives = new Button();
+            btnViewSurfboards = new Button();
             btnLogout = new Button();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
-            panel2 = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            groupBox4 = new GroupBox();
-            label5 = new Label();
-            label6 = new Label();
-            btnMakeBookings = new Button();
-            label1 = new Label();
-            pbHeaderLogo = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
             label7 = new Label();
-            label8 = new Label();
+            pictureBox3 = new PictureBox();
+            label4 = new Label();
+            groupBox2 = new GroupBox();
+            pictureBox2 = new PictureBox();
+            label3 = new Label();
+            panel2 = new Panel();
+            pbHeaderLogo = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            groupBox4 = new GroupBox();
             label9 = new Label();
+            pictureBox5 = new PictureBox();
+            label6 = new Label();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            panel2.SuspendLayout();
-            groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbHeaderLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbHeaderLogo).BeginInit();
+            groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
@@ -77,15 +71,16 @@
             panel1.Size = new Size(250, 549);
             panel1.TabIndex = 0;
             // 
-            // btnViewSurfboards
+            // btnMakeBookings
             // 
-            btnViewSurfboards.BackColor = Color.LightGray;
-            btnViewSurfboards.Location = new Point(48, 156);
-            btnViewSurfboards.Name = "btnViewSurfboards";
-            btnViewSurfboards.Size = new Size(159, 29);
-            btnViewSurfboards.TabIndex = 2;
-            btnViewSurfboards.Text = "View Surfboards";
-            btnViewSurfboards.UseVisualStyleBackColor = false;
+            btnMakeBookings.BackColor = Color.LightGray;
+            btnMakeBookings.Location = new Point(48, 48);
+            btnMakeBookings.Name = "btnMakeBookings";
+            btnMakeBookings.Size = new Size(159, 29);
+            btnMakeBookings.TabIndex = 4;
+            btnMakeBookings.Text = "Make Bookings";
+            btnMakeBookings.UseVisualStyleBackColor = false;
+            btnMakeBookings.Click += btnMakeBookings_Click;
             // 
             // btnVIewSerives
             // 
@@ -97,6 +92,18 @@
             btnVIewSerives.Text = "View Services";
             btnVIewSerives.UseVisualStyleBackColor = false;
             btnVIewSerives.UseWaitCursor = true;
+            btnVIewSerives.Click += btnViewServices_Click;
+            // 
+            // btnViewSurfboards
+            // 
+            btnViewSurfboards.BackColor = Color.LightGray;
+            btnViewSurfboards.Location = new Point(48, 156);
+            btnViewSurfboards.Name = "btnViewSurfboards";
+            btnViewSurfboards.Size = new Size(159, 29);
+            btnViewSurfboards.TabIndex = 2;
+            btnViewSurfboards.Text = "View Surfboards";
+            btnViewSurfboards.UseVisualStyleBackColor = false;
+            btnViewSurfboards.Click += btnViewSurfboards_Click;
             // 
             // btnLogout
             // 
@@ -108,6 +115,7 @@
             btnLogout.TabIndex = 1;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // groupBox1
             // 
@@ -117,9 +125,38 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Location = new Point(265, 130);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(259, 124);
+            groupBox1.Size = new Size(415, 124);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(145, 84);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 20);
+            label7.TabIndex = 10;
+            label7.Text = "1";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(55, 26);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(52, 59);
+            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox3.TabIndex = 9;
+            pictureBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(123, 49);
+            label4.Name = "label4";
+            label4.Size = new Size(113, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Total Bookings";
             // 
             // groupBox2
             // 
@@ -132,17 +169,25 @@
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             // 
-            // groupBox3
+            // pictureBox2
             // 
-            groupBox3.BackColor = SystemColors.GradientActiveCaption;
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(pictureBox4);
-            groupBox3.Location = new Point(553, 133);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(254, 124);
-            groupBox3.TabIndex = 4;
-            groupBox3.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(52, 42);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(152, 158);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.BackColor = SystemColors.GradientActiveCaption;
+            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Location = new Point(282, 92);
+            label3.Name = "label3";
+            label3.Size = new Size(275, 70);
+            label3.TabIndex = 7;
+            label3.Text = "Book your favorite surfboards easily,check available boards and view the available services";
             // 
             // panel2
             // 
@@ -155,88 +200,6 @@
             panel2.Size = new Size(1159, 84);
             panel2.TabIndex = 5;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(265, 89);
-            label2.Name = "label2";
-            label2.Size = new Size(273, 38);
-            label2.TabIndex = 6;
-            label2.Text = "Dashboard Overview";
-            // 
-            // label3
-            // 
-            label3.BackColor = SystemColors.GradientActiveCaption;
-            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(282, 92);
-            label3.Name = "label3";
-            label3.Size = new Size(275, 70);
-            label3.TabIndex = 7;
-            label3.Text = "Book your favorite surfboards easily,check available boards and view the available services";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(123, 49);
-            label4.Name = "label4";
-            label4.Size = new Size(113, 20);
-            label4.TabIndex = 8;
-            label4.Text = "Total Bookings";
-            // 
-            // groupBox4
-            // 
-            groupBox4.BackColor = SystemColors.GradientActiveCaption;
-            groupBox4.Controls.Add(label9);
-            groupBox4.Controls.Add(pictureBox5);
-            groupBox4.Controls.Add(label6);
-            groupBox4.Location = new Point(842, 133);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(260, 125);
-            groupBox4.TabIndex = 9;
-            groupBox4.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(93, 46);
-            label5.Name = "label5";
-            label5.Size = new Size(134, 20);
-            label5.TabIndex = 0;
-            label5.Text = "Surfboard Viewed";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(111, 46);
-            label6.Name = "label6";
-            label6.Size = new Size(100, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Last Booking";
-            // 
-            // btnMakeBookings
-            // 
-            btnMakeBookings.BackColor = Color.LightGray;
-            btnMakeBookings.Location = new Point(48, 48);
-            btnMakeBookings.Name = "btnMakeBookings";
-            btnMakeBookings.Size = new Size(159, 29);
-            btnMakeBookings.TabIndex = 4;
-            btnMakeBookings.Text = "Make Bookings";
-            btnMakeBookings.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(150, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(371, 38);
-            label1.TabIndex = 2;
-            label1.Text = "Welcome to the Aqua Ride";
-            // 
             // pbHeaderLogo
             // 
             pbHeaderLogo.BackColor = Color.SteelBlue;
@@ -248,35 +211,46 @@
             pbHeaderLogo.TabIndex = 3;
             pbHeaderLogo.TabStop = false;
             // 
-            // pictureBox2
+            // label1
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(52, 42);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(152, 158);
-            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(150, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(371, 38);
+            label1.TabIndex = 2;
+            label1.Text = "Welcome to the Aqua Ride";
             // 
-            // pictureBox3
+            // label2
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(55, 26);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(52, 59);
-            pictureBox3.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox3.TabIndex = 9;
-            pictureBox3.TabStop = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(265, 89);
+            label2.Name = "label2";
+            label2.Size = new Size(273, 38);
+            label2.TabIndex = 6;
+            label2.Text = "Dashboard Overview";
             // 
-            // pictureBox4
+            // groupBox4
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(26, 26);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(47, 57);
-            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox4.TabIndex = 10;
-            pictureBox4.TabStop = false;
+            groupBox4.BackColor = SystemColors.GradientActiveCaption;
+            groupBox4.Controls.Add(label9);
+            groupBox4.Controls.Add(pictureBox5);
+            groupBox4.Controls.Add(label6);
+            groupBox4.Location = new Point(713, 133);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(389, 125);
+            groupBox4.TabIndex = 9;
+            groupBox4.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(130, 81);
+            label9.Name = "label9";
+            label9.Size = new Size(17, 20);
+            label9.TabIndex = 11;
+            label9.Text = "3";
             // 
             // pictureBox5
             // 
@@ -288,32 +262,15 @@
             pictureBox5.TabIndex = 11;
             pictureBox5.TabStop = false;
             // 
-            // label7
+            // label6
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(145, 84);
-            label7.Name = "label7";
-            label7.Size = new Size(17, 20);
-            label7.TabIndex = 10;
-            label7.Text = "1";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(136, 81);
-            label8.Name = "label8";
-            label8.Size = new Size(17, 20);
-            label8.TabIndex = 10;
-            label8.Text = "2";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(130, 81);
-            label9.Name = "label9";
-            label9.Size = new Size(17, 20);
-            label9.TabIndex = 11;
-            label9.Text = "3";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(111, 46);
+            label6.Name = "label6";
+            label6.Size = new Size(100, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Last Booking";
             // 
             // Customer_Dashboard
             // 
@@ -324,7 +281,6 @@
             Controls.Add(groupBox4);
             Controls.Add(label2);
             Controls.Add(panel2);
-            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
@@ -334,18 +290,15 @@
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbHeaderLogo).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbHeaderLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -359,23 +312,19 @@
         private Button btnLogout;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private GroupBox groupBox3;
         private Panel panel2;
         private Label label2;
         private Label label3;
         private Label label4;
         private GroupBox groupBox4;
         private Button btnMakeBookings;
-        private Label label5;
         private Label label6;
         private Label label1;
         private PictureBox pbHeaderLogo;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private Label label7;
-        private Label label8;
         private Label label9;
     }
 }
