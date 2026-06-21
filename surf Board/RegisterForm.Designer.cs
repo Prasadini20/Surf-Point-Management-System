@@ -53,13 +53,12 @@
             // txtRegFullName
             // 
             txtRegFullName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRegFullName.Location = new Point(220, 104);
+            txtRegFullName.Location = new Point(220, 110);
             txtRegFullName.Margin = new Padding(3, 4, 3, 4);
             txtRegFullName.Multiline = true;
             txtRegFullName.Name = "txtRegFullName";
-            txtRegFullName.Size = new Size(282, 35);
+            txtRegFullName.Size = new Size(282, 26);
             txtRegFullName.TabIndex = 0;
-            txtRegFullName.TextAlign = HorizontalAlignment.Center;
             // 
             // txtRegUsername
             // 
@@ -67,16 +66,16 @@
             txtRegUsername.Margin = new Padding(3, 4, 3, 4);
             txtRegUsername.Multiline = true;
             txtRegUsername.Name = "txtRegUsername";
-            txtRegUsername.Size = new Size(260, 39);
+            txtRegUsername.Size = new Size(260, 28);
             txtRegUsername.TabIndex = 1;
             // 
             // txtRegContact
             // 
-            txtRegContact.Location = new Point(220, 169);
+            txtRegContact.Location = new Point(220, 173);
             txtRegContact.Margin = new Padding(3, 4, 3, 4);
             txtRegContact.Multiline = true;
             txtRegContact.Name = "txtRegContact";
-            txtRegContact.Size = new Size(282, 32);
+            txtRegContact.Size = new Size(282, 28);
             txtRegContact.TabIndex = 2;
             // 
             // txtRegPassword
@@ -85,7 +84,7 @@
             txtRegPassword.Margin = new Padding(3, 4, 3, 4);
             txtRegPassword.Multiline = true;
             txtRegPassword.Name = "txtRegPassword";
-            txtRegPassword.Size = new Size(260, 39);
+            txtRegPassword.Size = new Size(260, 26);
             txtRegPassword.TabIndex = 3;
             // 
             // btnRegisterSubmit
@@ -263,6 +262,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "RegisterForm";
             Text = "RegisterForm";
+            Load += RegisterForm_Load;
             registrationPanel.ResumeLayout(false);
             registrationPanel.PerformLayout();
             ResumeLayout(false);

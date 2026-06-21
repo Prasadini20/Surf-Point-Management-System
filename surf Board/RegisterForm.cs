@@ -11,7 +11,7 @@ namespace surf_Board
         {
             InitializeComponent();
 
-           
+
             comboBox1.Items.Clear();
             comboBox1.Items.Add("Beginner");
             comboBox1.Items.Add("Intermediate");
@@ -22,7 +22,7 @@ namespace surf_Board
 
         private void btnRegisterSubmit_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(txtRegFullName.Text) ||
                 string.IsNullOrWhiteSpace(txtRegUsername.Text) ||
                 string.IsNullOrWhiteSpace(txtRegPassword.Text))
@@ -31,7 +31,7 @@ namespace surf_Board
                 return;
             }
 
-            
+
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to register with this password?",
                                                        "Confirm Registration",
                                                        MessageBoxButtons.OKCancel,
@@ -59,7 +59,7 @@ namespace surf_Board
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Successfully registered!");
 
-                            
+
                             Form1 login = new Form1();
                             login.Show();
                             this.Hide();
@@ -89,6 +89,11 @@ namespace surf_Board
                 newLoginForm.Show();
                 this.Hide();
             }
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            txtRegFullName.TextAlign = HorizontalAlignment.Left;
         }
     }
 }
