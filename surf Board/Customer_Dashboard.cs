@@ -86,7 +86,7 @@ namespace surf_Board
                     }
                 }
             }
-            catch { /* Errors ආවොත් ignore කරන්න */ }
+            catch { /* Ignore Errors */ }
         }
 
         
