@@ -207,17 +207,7 @@ namespace surf_Board
                 this.Hide();
             }
         }
-        private void Customer_Form_Paint(object sender, PaintEventArgs e)
-        {
-            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-         this.ClientRectangle,
-         Color.FromArgb(43, 181, 212),
-         Color.White,
-         90F))
-            {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
-            }
-        }
+       
 
         private void Surfboard_Management_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -50,7 +50,7 @@
             dashboardToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             managementToolStripMenuItem = new ToolStripMenuItem();
-            sessionsToolStripMenuItem = new ToolStripMenuItem();
+            customersToolStripMenuItem = new ToolStripMenuItem();
             surfboardsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
             menuStrip1.SuspendLayout();
@@ -122,7 +122,7 @@
             btnClear.TabIndex = 13;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
+            
             // 
             // dgvBookings
             // 
@@ -240,20 +240,20 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(181, 26);
             exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // managementToolStripMenuItem
             // 
-            managementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sessionsToolStripMenuItem, surfboardsToolStripMenuItem });
+            managementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customersToolStripMenuItem, surfboardsToolStripMenuItem });
             managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            managementToolStripMenuItem.Size = new Size(55, 24);
-            managementToolStripMenuItem.Text = "View";
+            managementToolStripMenuItem.Size = new Size(77, 24);
+            managementToolStripMenuItem.Text = "Manage";
             // 
-            // sessionsToolStripMenuItem
+            // customersToolStripMenuItem
             // 
-            sessionsToolStripMenuItem.Name = "sessionsToolStripMenuItem";
-            sessionsToolStripMenuItem.Size = new Size(164, 26);
-            sessionsToolStripMenuItem.Text = "Sessions";
+            customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            customersToolStripMenuItem.Size = new Size(164, 26);
+            customersToolStripMenuItem.Text = "Customers";
+            customersToolStripMenuItem.Click += customersToolStripMenuItem_Click;
             // 
             // surfboardsToolStripMenuItem
             // 
@@ -319,7 +319,7 @@
         private ToolStripMenuItem dashboardToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem managementToolStripMenuItem;
-        private ToolStripMenuItem sessionsToolStripMenuItem;
+        private ToolStripMenuItem customersToolStripMenuItem;
         private ToolStripMenuItem surfboardsToolStripMenuItem;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using Surfing_Management_System;
+using surf_Board;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,17 +27,7 @@ namespace surf_Board
 
             LoadCustomers();
 
-            try
-            {
-                var con = DBConnection.GetConnection();
-                con.Open();
-                MessageBox.Show("Database Connected Successfully");
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Connection Failed: " + ex.Message);
-            }
+            
         }
 
         private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -265,6 +255,33 @@ namespace surf_Board
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
+        }
+
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to go back to Admin Dashboard?",
+                "Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+                this.Hide();
+            }
+        }
+
+
+        private void Customer_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
         }
 
     }

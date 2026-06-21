@@ -41,6 +41,14 @@
             btnSearch = new Button();
             btnClear = new Button();
             dgvCustomer = new DataGridView();
+            colCustomerID = new DataGridViewTextBoxColumn();
+            colName = new DataGridViewTextBoxColumn();
+            colUName = new DataGridViewTextBoxColumn();
+            colpassword = new DataGridViewTextBoxColumn();
+            colPhone = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            colCountry = new DataGridViewTextBoxColumn();
+            colSkill = new DataGridViewTextBoxColumn();
             label1 = new Label();
             txtName = new TextBox();
             txtPhone = new TextBox();
@@ -54,14 +62,6 @@
             label3 = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
-            colCustomerID = new DataGridViewTextBoxColumn();
-            colName = new DataGridViewTextBoxColumn();
-            colUName = new DataGridViewTextBoxColumn();
-            colpassword = new DataGridViewTextBoxColumn();
-            colPhone = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
-            colCountry = new DataGridViewTextBoxColumn();
-            colSkill = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -218,119 +218,6 @@
             dgvCustomer.TabIndex = 11;
             dgvCustomer.CellClick += dgvCustomer_CellClick;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(310, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(379, 31);
-            label1.TabIndex = 12;
-            label1.Text = "CUSTOMER MANAGEMENT FORM";
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(246, 153);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(299, 27);
-            txtName.TabIndex = 13;
-            // 
-            // txtPhone
-            // 
-            txtPhone.Location = new Point(246, 213);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(299, 27);
-            txtPhone.TabIndex = 14;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(246, 268);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(299, 27);
-            txtEmail.TabIndex = 15;
-            // 
-            // txtCountry
-            // 
-            txtCountry.Location = new Point(773, 95);
-            txtCountry.Name = "txtCountry";
-            txtCountry.Size = new Size(299, 27);
-            txtCountry.TabIndex = 16;
-            // 
-            // txtCustomerID
-            // 
-            txtCustomerID.Location = new Point(246, 91);
-            txtCustomerID.Name = "txtCustomerID";
-            txtCustomerID.Size = new Size(299, 27);
-            txtCustomerID.TabIndex = 18;
-            // 
-            // cmbSkill
-            // 
-            cmbSkill.FormattingEnabled = true;
-            cmbSkill.Items.AddRange(new object[] { "Beginner", "Intermediate", "Advanced", "Professional" });
-            cmbSkill.Location = new Point(773, 160);
-            cmbSkill.Name = "cmbSkill";
-            cmbSkill.Size = new Size(299, 28);
-            cmbSkill.TabIndex = 19;
-            cmbSkill.SelectedIndexChanged += cmbSkill_SelectedIndexChanged;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(1330, 28);
-            menuStrip1.TabIndex = 20;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // exitToolStripMenuItem
-            // 
-            exitToolStripMenuItem.BackColor = Color.Transparent;
-            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            exitToolStripMenuItem.ForeColor = Color.Black;
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(49, 24);
-            exitToolStripMenuItem.Text = "Exit";
-            // 
-            // label2
-            // 
-            label2.AllowDrop = true;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(650, 216);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 20);
-            label2.TabIndex = 21;
-            label2.Text = "User Name";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Location = new Point(650, 268);
-            label3.Name = "label3";
-            label3.Size = new Size(76, 20);
-            label3.TabIndex = 22;
-            label3.Text = "Password";
-            // 
-            // txtUsername
-            // 
-            txtUsername.Location = new Point(773, 216);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(299, 27);
-            txtUsername.TabIndex = 23;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(773, 268);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(299, 27);
-            txtPassword.TabIndex = 24;
-            txtPassword.UseSystemPasswordChar = true;
-            // 
             // colCustomerID
             // 
             colCustomerID.DataPropertyName = "CustomerID";
@@ -395,12 +282,126 @@
             colSkill.Name = "colSkill";
             colSkill.Width = 125;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(310, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(379, 31);
+            label1.TabIndex = 12;
+            label1.Text = "CUSTOMER MANAGEMENT FORM";
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(246, 153);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(299, 27);
+            txtName.TabIndex = 13;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(246, 213);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(299, 27);
+            txtPhone.TabIndex = 14;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(246, 268);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(299, 27);
+            txtEmail.TabIndex = 15;
+            // 
+            // txtCountry
+            // 
+            txtCountry.Location = new Point(773, 95);
+            txtCountry.Name = "txtCountry";
+            txtCountry.Size = new Size(299, 27);
+            txtCountry.TabIndex = 16;
+            // 
+            // txtCustomerID
+            // 
+            txtCustomerID.Location = new Point(246, 91);
+            txtCustomerID.Name = "txtCustomerID";
+            txtCustomerID.Size = new Size(299, 27);
+            txtCustomerID.TabIndex = 18;
+            // 
+            // cmbSkill
+            // 
+            cmbSkill.FormattingEnabled = true;
+            cmbSkill.Items.AddRange(new object[] { "Beginner", "Intermediate", "Advanced", "Professional" });
+            cmbSkill.Location = new Point(773, 160);
+            cmbSkill.Name = "cmbSkill";
+            cmbSkill.Size = new Size(299, 28);
+            cmbSkill.TabIndex = 19;
+            cmbSkill.SelectedIndexChanged += cmbSkill_SelectedIndexChanged;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
+            menuStrip1.Size = new Size(1184, 28);
+            menuStrip1.TabIndex = 20;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.BackColor = Color.Transparent;
+            exitToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            exitToolStripMenuItem.ForeColor = Color.Black;
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(49, 24);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // label2
+            // 
+            label2.AllowDrop = true;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(650, 216);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 20);
+            label2.TabIndex = 21;
+            label2.Text = "User Name";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(650, 268);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 20);
+            label3.TabIndex = 22;
+            label3.Text = "Password";
+            // 
+            // txtUsername
+            // 
+            txtUsername.Location = new Point(773, 216);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(299, 27);
+            txtUsername.TabIndex = 23;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(773, 268);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(299, 27);
+            txtPassword.TabIndex = 24;
+            txtPassword.UseSystemPasswordChar = true;
+            // 
             // Customer_Form
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1330, 753);
+            ClientSize = new Size(1184, 753);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(label3);
@@ -430,7 +431,6 @@
             Name = "Customer_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer Management";
-            Load += Customer_Form_Load;
             Paint += Customer_Form_Paint;
             ((System.ComponentModel.ISupportInitialize)dgvCustomer).EndInit();
             menuStrip1.ResumeLayout(false);
