@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             txtRegFullName = new TextBox();
             txtRegUsername = new TextBox();
             txtRegContact = new TextBox();
@@ -89,8 +90,10 @@
             // 
             // btnRegisterSubmit
             // 
-            btnRegisterSubmit.BackColor = SystemColors.HotTrack;
-            btnRegisterSubmit.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegisterSubmit.BackColor = Color.FromArgb(0, 119, 182);
+            btnRegisterSubmit.FlatStyle = FlatStyle.Flat;
+            btnRegisterSubmit.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegisterSubmit.ForeColor = Color.White;
             btnRegisterSubmit.Location = new Point(220, 557);
             btnRegisterSubmit.Margin = new Padding(3, 4, 3, 4);
             btnRegisterSubmit.Name = "btnRegisterSubmit";
@@ -103,6 +106,7 @@
             // lnkBackToLogin
             // 
             lnkBackToLogin.AutoSize = true;
+            lnkBackToLogin.BackColor = Color.Transparent;
             lnkBackToLogin.Location = new Point(294, 616);
             lnkBackToLogin.Name = "lnkBackToLogin";
             lnkBackToLogin.Size = new Size(219, 20);
@@ -113,6 +117,7 @@
             // 
             // registrationPanel
             // 
+            registrationPanel.BackColor = Color.FromArgb(150, 255, 255, 255);
             registrationPanel.Controls.Add(comboBox1);
             registrationPanel.Controls.Add(label9);
             registrationPanel.Controls.Add(label8);
@@ -148,6 +153,7 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(46, 370);
             label9.Name = "label9";
@@ -158,6 +164,7 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(46, 305);
             label8.Name = "label8";
@@ -182,6 +189,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
             label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.Location = new Point(46, 241);
             label7.Name = "label7";
@@ -192,6 +200,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(46, 501);
             label6.Name = "label6";
@@ -202,6 +211,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft PhagsPa", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(46, 429);
             label5.Name = "label5";
@@ -212,6 +222,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(46, 173);
             label4.Name = "label4";
@@ -222,6 +233,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(46, 110);
             label3.Name = "label3";
@@ -234,19 +246,19 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(256, 24);
+            label1.Location = new Point(127, 24);
             label1.Name = "label1";
-            label1.Size = new Size(209, 45);
+            label1.Size = new Size(487, 45);
             label1.TabIndex = 0;
-            label1.Text = "Registration";
+            label1.Text = "Create Your Aquaride Account";
             // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = surf_Board.Properties.Resources._64db8df80ac058d0ee6ff119a0965e8f;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1018, 802);
+            ClientSize = new Size(1061, 802);
             Controls.Add(registrationPanel);
             Margin = new Padding(3, 4, 3, 4);
             Name = "RegisterForm";
