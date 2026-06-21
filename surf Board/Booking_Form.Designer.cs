@@ -44,7 +44,16 @@
             txtTotalAmount = new TextBox();
             label2 = new Label();
             cmbService = new ComboBox();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            newBookingToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            managementToolStripMenuItem = new ToolStripMenuItem();
+            customersToolStripMenuItem = new ToolStripMenuItem();
+            surfboardsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lblCustomerIDLabel
@@ -78,7 +87,7 @@
             // 
             cmbSurfboardType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSurfboardType.FormattingEnabled = true;
-            cmbSurfboardType.Items.AddRange(new object[] { "Standard Board", "Premium Board", "Beginner Foamie", "Performance Shortboard" });
+            cmbSurfboardType.Items.AddRange(new object[] { "Shortboard", "Longboard", "Fish", "Funboard", "HybridSoft Top" });
             cmbSurfboardType.Location = new Point(217, 141);
             cmbSurfboardType.Name = "cmbSurfboardType";
             cmbSurfboardType.Size = new Size(250, 28);
@@ -113,6 +122,7 @@
             btnClear.TabIndex = 13;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            
             // 
             // dgvBookings
             // 
@@ -122,12 +132,13 @@
             dgvBookings.RowHeadersWidth = 51;
             dgvBookings.Size = new Size(740, 188);
             dgvBookings.TabIndex = 14;
+            dgvBookings.CellContentClick += dgvBookings_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(150, 9);
+            label1.Location = new Point(252, 9);
             label1.Name = "label1";
             label1.Size = new Size(572, 41);
             label1.TabIndex = 15;
@@ -194,12 +205,69 @@
             cmbService.TabIndex = 23;
             cmbService.SelectedIndexChanged += CalculateTotal;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, managementToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1150, 28);
+            menuStrip1.TabIndex = 24;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newBookingToolStripMenuItem, dashboardToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // newBookingToolStripMenuItem
+            // 
+            newBookingToolStripMenuItem.Name = "newBookingToolStripMenuItem";
+            newBookingToolStripMenuItem.Size = new Size(181, 26);
+            newBookingToolStripMenuItem.Text = "New Booking";
+            newBookingToolStripMenuItem.Click += newBookingToolStripMenuItem_Click;
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Size = new Size(181, 26);
+            dashboardToolStripMenuItem.Text = "Dashboard";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(181, 26);
+            exitToolStripMenuItem.Text = "Exit";
+            // 
+            // managementToolStripMenuItem
+            // 
+            managementToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customersToolStripMenuItem, surfboardsToolStripMenuItem });
+            managementToolStripMenuItem.Name = "managementToolStripMenuItem";
+            managementToolStripMenuItem.Size = new Size(77, 24);
+            managementToolStripMenuItem.Text = "Manage";
+            // 
+            // customersToolStripMenuItem
+            // 
+            customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            customersToolStripMenuItem.Size = new Size(164, 26);
+            customersToolStripMenuItem.Text = "Customers";
+            customersToolStripMenuItem.Click += customersToolStripMenuItem_Click;
+            // 
+            // surfboardsToolStripMenuItem
+            // 
+            surfboardsToolStripMenuItem.Name = "surfboardsToolStripMenuItem";
+            surfboardsToolStripMenuItem.Size = new Size(164, 26);
+            surfboardsToolStripMenuItem.Text = "Surfboards";
+            surfboardsToolStripMenuItem.Click += surfboardsToolStripMenuItem_Click;
+            // 
             // Booking_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1091, 609);
+            ClientSize = new Size(1150, 609);
             Controls.Add(cmbService);
             Controls.Add(label2);
             Controls.Add(txtTotalAmount);
@@ -216,10 +284,14 @@
             Controls.Add(lblBookingDate);
             Controls.Add(lblSurfboard);
             Controls.Add(lblCustomerIDLabel);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Booking_Form";
             Text = "Booking_Form";
             Load += Booking_Form_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBookings).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,5 +313,13 @@
         private TextBox txtTotalAmount;
         private Label label2;
         private ComboBox cmbService;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem newBookingToolStripMenuItem;
+        private ToolStripMenuItem dashboardToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem managementToolStripMenuItem;
+        private ToolStripMenuItem customersToolStripMenuItem;
+        private ToolStripMenuItem surfboardsToolStripMenuItem;
     }
 }
