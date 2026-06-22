@@ -52,7 +52,14 @@ namespace surf_Board
                 loginForm.Show();
             }
 
-            this.Hide();
+            this.Close();
+        }
+
+        private void Admin_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
         }
     }
 }

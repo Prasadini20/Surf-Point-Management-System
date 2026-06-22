@@ -207,6 +207,7 @@
             dgvSurfboards.RowHeadersWidth = 51;
             dgvSurfboards.Size = new Size(674, 259);
             dgvSurfboards.TabIndex = 6;
+            dgvSurfboards.CellClick += dgvSurfboards_CellClick;
             // 
             // label7
             // 
