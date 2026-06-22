@@ -90,5 +90,12 @@ namespace surf_Board
                 this.Hide();
             }
         }
+
+        private void RegisterForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
+        }
     }
 }

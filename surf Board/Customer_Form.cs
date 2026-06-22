@@ -118,14 +118,14 @@ namespace surf_Board
             {
                 DataGridViewRow row = dgvCustomer.Rows[e.RowIndex];
 
-                txtCustomerID.Text = row.Cells["CustomerID"].Value.ToString();
-                txtName.Text = row.Cells["FullName"].Value.ToString();
-                txtPhone.Text = row.Cells["ContactNumber"].Value.ToString();
-                txtCountry.Text = row.Cells["Country"].Value.ToString();
-                txtEmail.Text = row.Cells["Email"].Value.ToString();
-                cmbSkill.Text = row.Cells["SkillLevel"].Value.ToString();
-                txtUsername.Text = row.Cells["UserName"].Value.ToString();
-                txtPassword.Text = row.Cells["Password"].Value.ToString();
+                txtCustomerID.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                txtPhone.Text = row.Cells[2].Value.ToString();
+                txtCountry.Text = row.Cells[3].Value.ToString();
+                txtEmail.Text = row.Cells[4].Value.ToString();
+                cmbSkill.Text = row.Cells[5].Value.ToString();
+                txtUsername.Text = row.Cells[6].Value.ToString();
+                txtPassword.Text = row.Cells[7].Value.ToString();
             }
         }
 

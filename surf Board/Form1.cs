@@ -99,6 +99,12 @@ namespace surf_Board
             register.Show();
             this.Hide();
         }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+
+            Application.Exit();
+        }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
